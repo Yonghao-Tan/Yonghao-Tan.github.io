@@ -79,14 +79,4 @@ My research interest includes hardware acceleration for vision algorithms, AI ac
 
 <!-- # 💻 Internships
 - *2019.05 - 2020.02*, [Lorem](https://github.com/), China. -->
-<embed src="https://Yonghao-Tan.github.io/docs/Yonghao-Tan.pdf" width="100%" height="850px"/>
 # 📖 [CV](https://pingchengdong.github.io/data/cv.pdf)
-
-title: "Paper Title Number 1"
-collection: publications
-permalink: /publication/2009-10-01-paper-title-number-1
-excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
-date: 2009-10-01
-venue: 'Journal 1'
-paperurl: 'http://Yonghao-Tan.github.io/docs/CV_YonghaoTan.pdf'
-citation: 'Your Name, You. (2009). &quot;Paper Title Number 1.&quot; <i>Journal 1</i>. 1(1).'
