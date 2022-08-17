@@ -17,14 +17,22 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero, elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl, porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam. Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
+I work at Sea AI Lab  as a research scientist now, leading the audio team and doing some fundamental audio-related research. We are hiring researchers and engineers to work on TTS, music generation, speech translation and audio-driven talking face generation. If interested, feel free to email me at renyi@sea.com.
 
-My research interest includes AI accelerator, hardware acceleration for vision algorithms, simultaneous localization and mapping (SLAM), and high-performance and low-power VLSI circuit design. I have published one paper at the top international solid stage journal with total <a href='https://scholar.google.com/citations?user=o-J8B_4AAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=o-J8B_4AAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+I graduated from Chu Kochen Honors College, Zhejiang University (浙江大学竺可桢学院) with a bachelor’s degree and from the Department of Computer Science and Technology, Zhejiang University (浙江大学计算机科学与技术学院) with a master’s degree, advised by Zhao Zhou (赵洲). I also collaborate with Xu Tan (谭旭), Tao Qin (秦涛) and Tie-yan Liu (刘铁岩) from Microsoft Research Asia  closely.
+
+I won the Baidu Scholarship (10 candidates worldwide each year) and ByteDance Scholars Program (10 candidates worldwide each year) in 2020 and was selected as one of the top 100 AI Chinese new stars and AI Chinese New Star Outstanding Scholar (10 candidates worldwide each year).
+
+My research interest includes AI accelerator, hardware acceleration for vision algorithms, simultaneous localization and mapping (SLAM), and high-performance and low-power VLSI circuit design. I have published one paper at the top international solid stage journal.
+<!-- with total <a href='https://scholar.google.com/citations?user=o-J8B_4AAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a>  -->
+<!-- (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=o-J8B_4AAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>). -->
 
 
 # 🔥 News
 <!-- - *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
 - *2022.08*: &nbsp;🎉🎉 Our first in SLAM accelerator project (my first paper) is accepted by TCAS-II! 
+- *2021.12*: &nbsp;🎉🎉 Our team won the first prize of 2021 National College Students FPGA Innovation Design Competition! 
+- *2021.10*: &nbsp;🎉🎉 Our team won the first prize of 2021 International Competition of Autonomous Running Robots! 
 
 # 📝 Publications 
 
