@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Yonghao Tan [CV](https://github.com/Yonghao-Tan/Yonghao-Tan.github.io/raw/main/docs/CV_YonghaoTan.pdf)"
+title                    : "Yonghao Tan"
 description              : "Undergraduate student at Southern University of Science and Technology, IntelliSense VLSI Lab. Focusing on hardware acceleration for vision algorithms, AI accelerator, SLAM, and VLSI design."
 repository               : "Yonghao-Tan/Yonghao-Tan.github.io"
 google_scholar_stats_use_cdn : true
