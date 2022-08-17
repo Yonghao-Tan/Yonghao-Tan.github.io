@@ -37,8 +37,8 @@ My research interest includes hardware acceleration for vision algorithms, AI ac
 <div class='paper-box-text' markdown="1">
 
 <!-- [A Reconfigurable Coprocessor for Simultaneous Localization](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) -->
-[A Reconfigurable Coprocessor for Simultaneous Localization](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
-
+<!-- [A Reconfigurable Coprocessor for Simultaneous Localization](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) -->
+A Reconfigurable Coprocessor for Simultaneous Localization (in press)
 **Yonghao Tan**, Huanshihong Deng, Mengying Sun, Minghao Zhou, Yifei Chen, Lei Chen, Chao Wang, Fengwei An
 
 <!-- [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
@@ -50,8 +50,8 @@ My research interest includes hardware acceleration for vision algorithms, AI ac
 <div class='paper-box-text' markdown="1">
 
 <!-- [A Reconfigurable Coprocessor for Simultaneous Localization](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) -->
-[A Reconfigurable Visual-Inertial Odometry Accelerator with High Area and Energy Efficiency for Autonomous Mobile Robots](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) (under review)
-
+<!-- [A Reconfigurable Visual-Inertial Odometry Accelerator with High Area and Energy Efficiency for Autonomous Mobile Robots](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) (under review) -->
+A Reconfigurable Visual-Inertial Odometry Accelerator with High Area and Energy Efficiency for Autonomous Mobile Robots (under review)
 **Yonghao Tan**, Mengying Sun, Huanshihong Deng, Haihan Wu, Minghao Zhou, Yifei Chen, Zhuo Yu, Lei Chen, Chao Wang, Fengwei An
 </div>
 </div>
