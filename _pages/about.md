@@ -16,6 +16,8 @@ redirect_from:
 {% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
 
 <span class='anchor' id='about-me'></span>
+I am a undergraduate student at [School of Microelectronics](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) , Southern University of Science and Technology (南方科技大学深港微电子学院) now, pursuing the bachelor's degree, advised by Fengwei An (安丰伟). If interested, feel free to email me at tanyh@mail.sustech.edu.cn.
+
 
 I work at Sea AI Lab  as a research scientist now, leading the audio team and doing some fundamental audio-related research. We are hiring researchers and engineers to work on TTS, music generation, speech translation and audio-driven talking face generation. If interested, feel free to email me at renyi@sea.com.
 
