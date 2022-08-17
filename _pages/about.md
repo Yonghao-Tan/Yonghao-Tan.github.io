@@ -62,7 +62,7 @@ My research interest includes hardware acceleration for vision algorithms, AI ac
 
 # 🎖 Honors and Awards
 - *2022.04* Undergraduate Innovation and Entrepreneurship Training Programs
-- *2021.12* Shenzhen Longsys Electronics Company Award. (Top 2% in School of Microelectronics)
+- *2021.12* [Shenzhen Longsys Electronics Company Award](https://mp.weixin.qq.com/s/VHIBf6Eoyta85k2y93iQDQ) (Top 2% in School of Microelectronics)
 - *2021.12* [The First Prize of 2021 National College Students FPGA innovation design competition](https://sme.sustech.edu.cn/index/news/neiye/id/501.html) (Top 22 in 1341 teams)
 - *2021.10* [The First Prize of 2021 International Competition of Autonomous Running Robots](https://newshub.sustech.edu.cn/html/202110/41348.html) (Top 1 of 34 teams in final match)
 - *2021.09* Second-class Outstanding Students Scholarship
