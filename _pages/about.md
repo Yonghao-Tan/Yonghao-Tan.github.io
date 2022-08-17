@@ -71,7 +71,7 @@ My research interest includes hardware acceleration for vision algorithms, AI ac
 
 # 📖 Educations
 - *2019.09 - 2022.08 (now)*, Undergraduate, Microelectronics, Experimental Class, School of Microelectronics, Southern University of Science and Technology, Shenzhen, China. **GPA: 3.77.**
-- *2016.09 - 2019.06*, Shimen Middle School, Shenzhen, China.
+- *2016.09 - 2019.06*, Shimen Middle School, Foshan, China.
 
 <!-- # 💬 Invited Talks
 - *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
