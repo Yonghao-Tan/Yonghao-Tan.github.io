@@ -27,7 +27,7 @@ My research interest includes hardware acceleration for vision algorithms, AI ac
 
 # 🔥 News
 <!-- - *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
-- *2022.08*: &nbsp;🎉🎉 Our first in SLAM accelerator project (my first paper) is accepted by TCAS-II! 
+- *2022.08*: &nbsp;🎉🎉 Our first paper of SLAM accelerator project (my first paper) is accepted by TCAS-II! 
 - *2021.12*: &nbsp;🎉🎉 Our team won the first prize of 2021 National College Students FPGA Innovation Design Competition! 
 - *2021.10*: &nbsp;🎉🎉 Our team won the first prize of 2021 International Competition of Autonomous Running Robots! 
 
