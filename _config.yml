@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Yonghao Tan"
-description              : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. "
+description              : "Undergraduate student at Southern University of Science and Technology, IntelliSense VLSI Lab. Focusing on AI accelerator, VLSI design, and SLAM."
 repository               : "Yonghao-Tan/Yonghao-Tan.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -37,7 +37,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "YonghaoTan"
+  github           : "Yonghao-Tan"
   google_plus      :
   keybase          :
   instagram        :
