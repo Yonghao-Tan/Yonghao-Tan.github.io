@@ -79,5 +79,5 @@ My research interest includes hardware acceleration for vision algorithms, AI ac
 
 <!-- # 💻 Internships
 - *2019.05 - 2020.02*, [Lorem](https://github.com/), China. -->
-<a href="[username.github.io/folder/document.pdf](https://github.com/Yonghao-Tan/Yonghao-Tan.github.io/docs/CV_YonghaoTan.pdf)" target="_blank">PDF.</a>
+<a href="https://github.com/Yonghao-Tan/Yonghao-Tan.github.io/docs/CV_YonghaoTan.pdf" target="_blank">PDF</a>
 # 📖 [CV](https://github.com/Yonghao-Tan/Yonghao-Tan.github.io/docs/CV_YonghaoTan.pdf)
