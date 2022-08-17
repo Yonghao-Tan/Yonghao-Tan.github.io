@@ -57,8 +57,6 @@ author:
   xing             :
   youtube          :
   wikipedia        :
-
-
 # Reading Files
 include:
   - .htaccess
