@@ -85,5 +85,7 @@ A Reconfigurable Visual-Inertial Odometry Accelerator with High Area and Energy 
 
 # 📚 Research Projects
 - Undergraduate Innovation and Entrepreneurship Training Programs
-&emsp + Transformer based co-design AI accelerator
+- &emsp
+- 
++ Transformer based co-design AI accelerator
 
