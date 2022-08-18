@@ -87,15 +87,15 @@ A Reconfigurable Visual-Inertial Odometry Accelerator with High Area and Energy 
 - Transformer based co-design AI accelerator
   - Hardware/Software collaborative optimization of Transformer-based architecture for vision applications
   - Implement an energy-efficient Transformer-based accelerator for specific vision applications on the FPGA platform
-<div>
+
 - ASIC design of SLAM accelerator in 28nm CMOS technology
   - Propose a reconfigurable coprocessor with an instruction set which support full functionality of operations in SLAM algorithms
   - Propose a reconfigurable visual-inertial odometry accelerator and implemented it on FPGA platform which can process data from image sensor and inertial measurement unit for trajectory output in real-time at 160MHz and 110fps
   - Optimize the hardware architecture and perform back-end design for ASIC development
-<div>
+
 - ASIC design of stereo depth coprocessor in 28nm CMOS technology
   - In charge of back-end design of the Census Transform module of the coprocessor
-<div>
+
 - Auxiliary detection equipment for scoliosis
   - Collect and label skeletal and gait data for children and youth with scoliosis
   - Establish graph neural network model to predict scoliosis probability
