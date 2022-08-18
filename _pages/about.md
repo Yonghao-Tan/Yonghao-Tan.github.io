@@ -33,7 +33,7 @@ My research interest includes hardware acceleration for vision algorithms, AI ac
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="http://www.baidu.com" style="color: pink;">TCAS-II</a></div><img src='images/TCAS2.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=8920" style="color: white; text-decoration:none">TCAS-II</a></div><img src='images/TCAS2.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 <!-- [A Reconfigurable Coprocessor for Simultaneous Localization](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) -->
 <!-- [A Reconfigurable Coprocessor for Simultaneous Localization](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) -->
