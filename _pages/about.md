@@ -82,4 +82,4 @@ A Reconfigurable Visual-Inertial Odometry Accelerator with High Area and Energy 
 <!-- # 💻 Internships
 - *2019.05 - 2020.02*, [Lorem](https://github.com/), China. -->
 <!-- - files: set up /files/ and put files into it -->
-# 📚 [CV](https://Yonghao-Tan.github.io/files/CV_YonghaoTan.pdf)
+<!-- # 📚 [CV](https://Yonghao-Tan.github.io/files/CV_YonghaoTan.pdf) -->
