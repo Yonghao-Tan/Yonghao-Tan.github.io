@@ -15,8 +15,9 @@ main:
   - title: "Educations"
     url: "/#-educations"
 
+  - title: "Research Projects"
+    url: "/#-Research-Projects"
+    
   - title: "Curriculum Vitae"
     url: "https://Yonghao-Tan.github.io/files/CV_YonghaoTan.pdf"
 
-  - title: "Research Projects"
-    url: "/#-Research-Projects"
