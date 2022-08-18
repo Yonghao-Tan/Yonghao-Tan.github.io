@@ -16,7 +16,7 @@ redirect_from:
 {% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
 
 <span class='anchor' id='about-me'></span>
-I am an undergraduate student at [School of Microelectronics](https://sme.sustech.edu.cn/) , [Southern University of Science and Technology](https://www.sustech.edu.cn/) (南方科技大学深港微电子学�?) now, pursuing the bachelor's degree, advised by [Fengwei An (安丰�?)](https://sme.sustech.edu.cn/index/teacher/neiye/id/35.html). Currently, I'm leading a research project of SLAM (simultaneous localization and mapping) accelerator in IntelliSense VLSI Lab. Besides, I'm partitioning in a collaborative project which focus on transformer based co-design AI accelerator with [AI Chip Center for Emerging Smart Systems (ACCESS)](https://inno-access.hk/), [The Hong Kong University of Science and Technology](https://hkust.edu.hk/). If you are interested, here is my [CV](https://Yonghao-Tan.github.io/files/CV_YonghaoTan.pdf).
+I am an undergraduate student at [School of Microelectronics](https://sme.sustech.edu.cn/) , [Southern University of Science and Technology](https://www.sustech.edu.cn/) (南方科技大学深港微电子学院?) now, pursuing the bachelor's degree, advised by [Fengwei An (安丰伟?)](https://sme.sustech.edu.cn/index/teacher/neiye/id/35.html). Currently, I'm leading a research project of SLAM (simultaneous localization and mapping) accelerator in IntelliSense VLSI Lab. Besides, I'm partitioning in a collaborative project which focus on transformer based co-design AI accelerator with [AI Chip Center for Emerging Smart Systems (ACCESS)](https://inno-access.hk/), [The Hong Kong University of Science and Technology](https://hkust.edu.hk/). If you are interested, here is my [CV](https://Yonghao-Tan.github.io/files/CV_YonghaoTan.pdf).
 
 I won the Shenzhen Longsys Electronics Company Award (Top 2% in School of Microelectronics), the First Prize of 2021 National College Students FPGA Innovation Design Competition (Top 22 in 1341 teams), and the First Prize of 2021 International Competition of Autonomous Running Robots (Top 1 of 34 teams in final match).
 
@@ -66,7 +66,7 @@ A Reconfigurable Visual-Inertial Odometry Accelerator with High Area and Energy 
 - *2021.12* [The First Prize of 2021 National College Students FPGA innovation design competition](https://sme.sustech.edu.cn/index/news/neiye/id/501.html) (Top 22 in 1341 teams)
 - *2021.10* [The First Prize of 2021 International Competition of Autonomous Running Robots](https://newshub.sustech.edu.cn/html/202110/41348.html) (Top 1 of 34 teams in final match)
 - *2021.09* Second-class Outstanding Students Scholarship
-- *2021.07* Guangdong College Students�? Scientific and Technological Innovation
+- *2021.07* Guangdong College Students' Scientific and Technological Innovation
 - *2020.09* Second-class Outstanding Students Scholarship
 
 # 📖 Educations
