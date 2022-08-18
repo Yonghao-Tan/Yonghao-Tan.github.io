@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Yonghao (谭雍昊)"
+title                    : "Yonghao \ (谭雍昊)"
 description              : "Undergraduate student at Southern University of Science and Technology, IntelliSense VLSI Lab. Focusing on hardware acceleration for vision algorithms, AI accelerator, SLAM, and VLSI design."
 repository               : "Yonghao-Tan/Yonghao-Tan.github.io"
 google_scholar_stats_use_cdn : true
@@ -21,7 +21,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 
 # Site Author
 author:
-  name             : "Yonghao Tan (谭雍昊)"
+  name             : "Yonghao Tan \ (谭雍昊)"
   avatar           : "images/bio.jpeg"
   bio              : "Southern University of Science and Technology"
   location         : "Shenzhen, China"
