@@ -84,6 +84,6 @@ A Reconfigurable Visual-Inertial Odometry Accelerator with High Area and Energy 
 <!-- # 📚 [CV](https://Yonghao-Tan.github.io/files/CV_YonghaoTan.pdf) -->
 
 # 📚 Research Projects
-- Undergraduate Innovation and Entrepreneurship Training Programs
- + Transformer based co-design AI accelerator
-
+- Transformer based co-design AI accelerator
+  - SyntaSpeech: Syntax-Aware Generative Adversarial Text-to-Speech, Zhenhui Ye, Zhou Zhao, **Yi Ren**, Fei Wu
+  - EditSinger: Zero-Shot Text-Based Singing V
