@@ -84,4 +84,6 @@ A Reconfigurable Visual-Inertial Odometry Accelerator with High Area and Energy 
 <!-- # 📚 [CV](https://Yonghao-Tan.github.io/files/CV_YonghaoTan.pdf) -->
 
 # 📚 Research Projects
+- Undergraduate Innovation and Entrepreneurship Training Programs
+&emsp + Transformer based co-design AI accelerator
 
