@@ -46,7 +46,7 @@ A Reconfigurable Coprocessor for Simultaneous Localization (in press)
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Sensors</div><img src='images/Sensors.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://www.mdpi.com/journal/sensors" style="color: white; text-decoration:none">Sensors</a></div><img src='images/Sensors.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 <!-- [A Reconfigurable Coprocessor for Simultaneous Localization](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) -->
