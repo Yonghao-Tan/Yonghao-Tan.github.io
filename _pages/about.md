@@ -20,7 +20,7 @@ I am an undergraduate student at [School of Microelectronics](https://sme.sustec
 
 I won the Shenzhen Longsys Electronics Company Award (Top 2% in School of Microelectronics), the First Prize of 2021 National College Students FPGA Innovation Design Competition (Top 22 in 1341 teams), and the First Prize of 2021 International Competition of Autonomous Running Robots (Top 1 of 34 teams in final match).
 
-My research interest includes hardware acceleration for vision algorithms, AI accelerator, SLAM, and high-performance and low-power VLSI circuit design. I have published one paper at the top international solid stage journal.
+My research interest includes hardware acceleration for vision algorithms, AI accelerator, high-performance and low-power VLSI circuit design, and SLAM. I have published one paper at the top international solid stage journal.
 <!-- with total <a href='https://scholar.google.com/citations?user=o-J8B_4AAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a>  -->
 <!-- (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=o-J8B_4AAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>). -->
 
