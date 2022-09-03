@@ -16,7 +16,7 @@ redirect_from:
 {% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
 
 <span class='anchor' id='about-me'></span>
-I am an undergraduate student at [School of Microelectronics](https://sme.sustech.edu.cn/) , [Southern University of Science and Technology](https://www.sustech.edu.cn/) (南方科技大学深港微电子学院?) now, pursuing the bachelor's degree, advised by [Fengwei An (安丰伟)](https://sme.sustech.edu.cn/index/teacher/neiye/id/35.html). Currently, I'm leading a research project of SLAM (simultaneous localization and mapping) accelerator in Intelligent Sensing Laboratory. Besides, I'm partitioning in a collaborative project which focus on transformer based co-design AI accelerator with [AI Chip Center for Emerging Smart Systems (ACCESS)](https://inno-access.hk/), [The Hong Kong University of Science and Technology](https://hkust.edu.hk/). If you are interested, here is my [CV](https://Yonghao-Tan.github.io/files/CV_YonghaoTan.pdf).
+I am an undergraduate student at [School of Microelectronics](https://sme.sustech.edu.cn/) , [Southern University of Science and Technology](https://www.sustech.edu.cn/) (南方科技大学深港微电子学�??) now, pursuing the bachelor's degree, advised by [Fengwei An (安丰�?)](https://sme.sustech.edu.cn/index/teacher/neiye/id/35.html). Currently, I'm leading a research project of SLAM (simultaneous localization and mapping) accelerator in Intelligent Sensing Laboratory. Besides, I'm partitioning in a collaborative project which focus on transformer based co-design AI accelerator with [AI Chip Center for Emerging Smart Systems (ACCESS)](https://inno-access.hk/), [The Hong Kong University of Science and Technology](https://hkust.edu.hk/). If you are interested, here is my [CV](https://Yonghao-Tan.github.io/files/CV_YonghaoTan.pdf).
 
 I won the Shenzhen Longsys Electronics Company Award (Top 2% in School of Microelectronics), the First Prize of 2021 National College Students FPGA Innovation Design Competition (Top 22 in 1341 teams), and the First Prize of 2021 International Competition of Autonomous Running Robots (Top 1 of 34 teams in final match).
 
@@ -49,9 +49,9 @@ My research interest includes hardware acceleration for vision algorithms, AI ac
 
 <!-- [A Reconfigurable Coprocessor for Simultaneous Localization](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) -->
 <!-- [A Reconfigurable Visual-Inertial Odometry Accelerator with High Area and Energy Efficiency for Autonomous Mobile Robots](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) (under review) -->
-A Reconfigurable Visual-Inertial Odometry Accelerator with High Area and Energy Efficiency for Autonomous Mobile Robots (under review)
+[A Reconfigurable Visual-Inertial Odometry Accelerator with High Area and Energy Efficiency for Autonomous Mobile Robots](https://susy.mdpi.com/user/manuscripts/review_info/008feadcd2ec0f83a3d2028165e288a9) (under review)
 
-**Yonghao Tan**, Mengying Sun, Huanshihong Deng, Haihan Wu, Minghao Zhou, Yifei Chen, Zhuo Yu, Lei Chen, Chao Wang, Fengwei An
+**Yonghao Tan**, Mengying Sun, Huanshihong Deng, Haihan Wu, Minghao Zhou, Yifei Chen, Zhuo Yu, Qinghan Zeng, Ping Li, Lei Chen, Fengwei An
 </div>
 </div>
 <!-- [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
