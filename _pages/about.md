@@ -49,7 +49,7 @@ My research interest includes hardware acceleration for vision algorithms, AI ac
 
 <!-- [A Reconfigurable Coprocessor for Simultaneous Localization](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) -->
 <!-- [A Reconfigurable Visual-Inertial Odometry Accelerator with High Area and Energy Efficiency for Autonomous Mobile Robots](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) (under review) -->
-[A Reconfigurable Visual-Inertial Odometry Accelerator with High Area and Energy Efficiency for Autonomous Mobile Robots](https://susy.mdpi.com/user/manuscripts/review_info/008feadcd2ec0f83a3d2028165e288a9) (under review)
+[A Reconfigurable Visual-Inertial Odometry Accelerator with High Area and Energy Efficiency for Autonomous Mobile Robots](https://www.mdpi.com/1424-8220/22/19/7669)
 
 **Yonghao Tan**, Mengying Sun, Huanshihong Deng, Haihan Wu, Minghao Zhou, Yifei Chen, Zhuo Yu, Qinghan Zeng, Ping Li, Lei Chen, Fengwei An
 </div>
