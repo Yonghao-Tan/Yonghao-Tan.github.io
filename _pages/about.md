@@ -27,6 +27,7 @@ My research interest includes hardware acceleration for vision algorithms, AI ac
 
 # 🔥 News
 <!-- - *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
+- *2022.08*: &nbsp;🎉🎉 Our second paper of the SLAM accelerator project is accepted by Sensors! 
 - *2022.08*: &nbsp;🎉🎉 Our first paper of the SLAM accelerator project (my first paper) is accepted by TCAS-II! 
 - *2021.12*: &nbsp;🎉🎉 Our team won the first prize of 2021 National College Students FPGA Innovation Design Competition! 
 - *2021.10*: &nbsp;🎉🎉 Our team won the first prize of 2021 International Competition of Autonomous Running Robots! 
@@ -35,7 +36,7 @@ My research interest includes hardware acceleration for vision algorithms, AI ac
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=8920" style="color: white; text-decoration:none">TCAS-II</a></div><img src='images/TCAS2.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
-[A Reconfigurable Coprocessor for Simultaneous Localization](https://ieeexplore.ieee.org/document/9857612)
+[A Reconfigurable Coprocessor for Simultaneous Localization and Mapping Algorithms in FPGA](https://ieeexplore.ieee.org/document/9857612)
 
 **Yonghao Tan**, Huanshihong Deng, Mengying Sun, Minghao Zhou, Yifei Chen, Lei Chen, Chao Wang, Fengwei An
 
