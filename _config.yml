@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Yonghao\n (谭雍昊)"
-description              : "Undergraduate student at Southern University of Science and Technology, Intelligent Sensing Laboratory. Focusing on hardware acceleration for vision algorithms, AI accelerator, SLAM, and VLSI design."
+description              : "Undergraduate student at Southern University of Science and Technology, Intelligent Sensing Laboratory. Focusing on VLSI-oriented algorithms, Software/hardware co-design AI accelerator, computer architecture & parallel computing, and SLAM."
 repository               : "Yonghao-Tan/Yonghao-Tan.github.io"
 google_scholar_stats_use_cdn : true
 

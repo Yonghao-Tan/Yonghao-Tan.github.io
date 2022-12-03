@@ -20,7 +20,7 @@ I am an undergraduate student at [School of Microelectronics](https://sme.sustec
 
 I won the Shenzhen Longsys Electronics Company Award (Top 2% in School of Microelectronics), the First Prize of 2021 National College Students FPGA Innovation Design Competition (Top 22 in 1341 teams), and the First Prize of 2021 International Competition of Autonomous Running Robots (Top 1 of 34 teams in final match).
 
-My research interest includes hardware acceleration for vision algorithms, AI accelerator, high-performance and low-power VLSI circuit design, and SLAM. I have published one paper at the top international solid stage journal.
+My research interest includes •	Hardware acceleration for VLSI-oriented algorithms, Software/hardware co-design AI accelerator, computer architecture & parallel computing, and SLAM. I have published one paper at the top international solid stage journal.
 <!-- with total <a href='https://scholar.google.com/citations?user=o-J8B_4AAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a>  -->
 <!-- (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=o-J8B_4AAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>). -->
 
@@ -95,7 +95,7 @@ My research interest includes hardware acceleration for vision algorithms, AI ac
 
 - ASIC design of stereo depth coprocessor in 28nm CMOS technology
   - In charge of back-end design of the Census Transform module of the coprocessor
-
-- Auxiliary detection equipment for scoliosis
-  - Collect and label skeletal and gait data for children and youth with scoliosis
-  - Establish graph neural network model to predict scoliosis probability
+  
+- Reconfigurable SLAM coprocessor
+  - Investigate and co-optimize SLAM algorithms and its operations
+  - Propose a reconfigurable coprocessor with an instruction set that supports full functionality of operations in SLAM algorithms
