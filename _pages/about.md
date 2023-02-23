@@ -71,7 +71,8 @@ My research interest includes Hardware acceleration for VLSI-oriented algorithms
 - *2020.09* Second-class Outstanding Students Scholarship
 
 # 📖 Educations
-- *2019.09 - 2022.08 (now)*, Undergraduate, Microelectronics, Experimental Class, School of Microelectronics, Southern University of Science and Technology, Shenzhen, China. **GPA: 3.77.**
+- *2023.09 - present*, Doctor of Philosophy, Electronic and Computer Engineering, The Hong Kong University of Science and Technology, Hong Kong SAR, China.
+- *2019.09 - present*, Undergraduate, Microelectronics, Experimental Class, School of Microelectronics, Southern University of Science and Technology, Shenzhen, China. **GPA: 3.77.**
 - *2016.09 - 2019.06*, Shimen Middle School, Foshan, China.
 
 <!-- # 💬 Invited Talks
