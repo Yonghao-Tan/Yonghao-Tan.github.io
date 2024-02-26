@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Yonghao\n (谭雍昊)"
-description              : "Undergraduate student at Southern University of Science and Technology, Intelligent Sensing Laboratory. Focusing on VLSI-oriented algorithms, Software/hardware co-design AI accelerator, computer architecture & parallel computing, and SLAM."
+description              : "PhD candidate at HKUST. Focusing on software/hardware co-design, AI accelerators and computer vision."
 repository               : "Yonghao-Tan/Yonghao-Tan.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,12 +23,12 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Yonghao Tan (谭雍昊)"
   avatar           : "images/bio.jpeg"
-  bio              : "Southern University of Science and Technology"
-  location         : "Shenzhen, China"
+  bio              : "The Hong Kong University of Science and Technology"
+  location         : "Hong Kong SAR, China"
   employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=user=o-J8B_4AAAAJ"
-  email            : "tanyh2019@mail.sustech.edu.cn"
+  email            : "ytanaz@connect.ust.hk"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
