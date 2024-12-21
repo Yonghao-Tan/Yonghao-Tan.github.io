@@ -17,7 +17,9 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 I am currently a PhD candidate student in the Electronic and Computer Engineering department of [Hong Kong University of Science and Technology](https://hkust.edu.hk/), [AI Chip Center for Emerging Smart Systems](https://inno-access.hk/), and a member of [Vision and System Design Lab (VSDL)](https://vsdl.hkust.edu.hk/index.html) under the supervision of [Prof. Kwang-Ting CHENG](https://seng.hkust.edu.hk/about/people/faculty/tim-kwang-ting-cheng). If you are interested, here is my [CV](https://Yonghao-Tan.github.io/files/CV_Yonghao Tan.pdf).
-In terms of my undergraduate study, I was at [School of Microelectronics](https://sme.sustech.edu.cn/) , [Southern University of Science and Technology](https://www.sustech.edu.cn/) (南方科技大学深港微电子学院), advised by [Fengwei An (安丰伟)](https://sme.sustech.edu.cn/index/teacher/neiye/id/35.html). I led a research project of SLAM (simultaneous localization and mapping) accelerator in Intelligent Sensing Laboratory.
+
+In terms of my undergraduate study, I was at [School of Microelectronics](https://sme.sustech.edu.cn/) , [Southern University of Science and Technology](https://www.sustech.edu.cn/) (南方科技大学深港微电子学院), advised by [Fengwei An (安丰伟)](https://sme.sustech.edu.cn/index/teacher/neiye/id/35.html).
+
 My research interest includes software/hardware co-design, model compression, and 3d processing.
 <!-- with total <a href='https://scholar.google.com/citations?user=o-J8B_4AAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a>  -->
 <!-- (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=o-J8B_4AAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>). -->
