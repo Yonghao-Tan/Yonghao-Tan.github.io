@@ -132,5 +132,5 @@ Pingcheng Dong\*, **Yonghao Tan\***, Dong Zhang, Tianwei Ni, Xuejiao Liu, Yu Liu
   - Optimize the hardware architecture and perform back-end design for ASIC development
 
 # 😀 Teaching Assistant
-- ELEC3400 Introduction to Integrated Circuits and Systems (2024 Spring)
-- ELEC6910H Advanced AI Chip and System (2024 Fall)
+- ELEC3400: Introduction to Integrated Circuits and Systems (2024 Spring)
+- ELEC6910H: Advanced AI Chip and System (2024 Fall)
