@@ -48,6 +48,17 @@ Pingcheng Dong, **Yonghao Tan**, Xuejiao Liu, Peng Luo, Yu Liu, Luhong Liang, Yi
 </div>
 </div>
 
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=8920" style="color: white; text-decoration:none">DAC</a></div><img src='images/2024_dac.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+[Genetic Quantization-Aware Approximation for Non-Linear Operations in Transformers](https://dl.acm.org/doi/abs/10.1145/3649329.3657314)
+
+Pingcheng Dong, **Yonghao Tan***, Dong Zhang, Tianwei Ni, Xuejiao Liu, Yu Liu, Peng Luo, Luhong Liang, Shih-Yang Liu, Xijie Huang, Huaiyu Zhu, Yun Pan, Fengwei An and Kwang-Ting Cheng
+
+<!-- [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
+</div>
+</div>
+
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=8920" style="color: white; text-decoration:none">TCAS-II</a></div><img src='images/TCAS2.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 [A Reconfigurable Coprocessor for Simultaneous Localization and Mapping Algorithms in FPGA](https://ieeexplore.ieee.org/document/9857612)
