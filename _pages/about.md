@@ -54,7 +54,7 @@ Pingcheng Dong\*, **Yonghao Tan\***, Xuejiao Liu, Peng Luo, Yu Liu, Luhong Liang
 <div class='paper-box-text' markdown="1">
 [Genetic Quantization-Aware Approximation for Non-Linear Operations in Transformers](https://dl.acm.org/doi/abs/10.1145/3649329.3657314)
 
-Pingcheng Dong\*, **Yonghao Tan\***, Dong Zhang, Tianwei Ni, Xuejiao Liu, Yu Liu, Peng Luo, Luhong Liang, Shih-Yang Liu, Xijie Huang, Huaiyu Zhu, Yun Pan, Fengwei An and Kwang-Ting Cheng
+Pingcheng Dong\*, **Yonghao Tan\***, Dong Zhang, Tianwei Ni, Xuejiao Liu, Yu Liu, Peng Luo, Luhong Liang, Shih-Yang Liu, Xijie Huang, Huaiyu Zhu, Yun Pan, Fengwei An, Kwang-Ting Cheng
 
 *Equally Credited Authors (ECAs)
 
@@ -115,18 +115,19 @@ Pingcheng Dong\*, **Yonghao Tan\***, Dong Zhang, Tianwei Ni, Xuejiao Liu, Yu Liu
 <!-- # 📚 [CV](https://Yonghao-Tan.github.io/files/CV_YonghaoTan.pdf) -->
 
 # 📚 Research Projects
-- Transformer based co-design AI accelerator
+- Hybrid Bonding based co-design AI accelerator (AC-RHB)
+  - Co-design optimization for LLMs
+  - Implement the AI-core & RERAM with 55nm die-on-wafer stacking via bumping process
+
+- Transformer based co-design AI accelerator (AC-Transformer)
   - Hardware/Software collaborative optimization of Transformer-based architecture for vision applications
-  - Implement an energy-efficient Transformer-based accelerator for specific vision applications on the FPGA platform
+  - Implement an energy-efficient Transformer-based accelerator for semantic segmentation with 28nm ASIC process
 
 - ASIC design of SLAM accelerator in 28nm CMOS technology
   - Propose a reconfigurable coprocessor with an instruction set which support full functionality of operations in SLAM algorithms
   - Propose a reconfigurable visual-inertial odometry accelerator and implemented it on FPGA platform which can process data from image sensor and inertial measurement unit for trajectory output in real-time at 160MHz and 110fps
   - Optimize the hardware architecture and perform back-end design for ASIC development
 
-- ASIC design of stereo depth coprocessor in 28nm CMOS technology
-  - In charge of back-end design of the Census Transform module of the coprocessor
-  
-- Reconfigurable SLAM coprocessor
-  - Investigate and co-optimize SLAM algorithms and its operations
-  - Propose a reconfigurable coprocessor with an instruction set that supports full functionality of operations in SLAM algorithms
+# 😀 Teaching Assistant
+- ELEC3400 Introduction to Integrated Circuits and Systems (2024 Spring)
+- ELEC6910H Advanced AI Chip and System (2024 Fall)
