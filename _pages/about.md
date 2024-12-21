@@ -37,7 +37,7 @@ My research interest includes Hardware acceleration for VLSI-oriented algorithms
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=8920" style="color: white; text-decoration:none">ISSCC</a></div><img src='images/2025_isscc.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://www.isscc.org/" style="color: white; text-decoration:none">ISSCC</a></div><img src='images/2025_isscc.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 [A 28nm 0.22μJ/Token Memory-Compute-Intensity-Aware CNN-Transformer Accelerator with Hybrid-Attention-Based Layer-Fusion and Cascaded Pruning for Semantic-Segmentation]()
 
@@ -50,7 +50,7 @@ Pingcheng Dong*, **Yonghao Tan***, Xuejiao Liu, Peng Luo, Yu Liu, Luhong Liang, 
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=8920" style="color: white; text-decoration:none">DAC</a></div><img src='images/2024_dac.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://dl.acm.org/doi/proceedings/10.1145/3649329" style="color: white; text-decoration:none">DAC</a></div><img src='images/2024_dac.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 [Genetic Quantization-Aware Approximation for Non-Linear Operations in Transformers](https://dl.acm.org/doi/abs/10.1145/3649329.3657314)
 
