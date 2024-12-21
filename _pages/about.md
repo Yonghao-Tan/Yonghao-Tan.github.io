@@ -127,7 +127,6 @@ Pingcheng Dong\*, **Yonghao Tan\***, Dong Zhang, Tianwei Ni, Xuejiao Liu, Yu Liu
   - Implement an energy-efficient Transformer-based accelerator for semantic segmentation with 28nm ASIC process
 
 - ASIC design of SLAM accelerator in 28nm CMOS technology
-  - Propose a reconfigurable coprocessor with an instruction set which support full functionality of operations in SLAM algorithms
   - Propose a reconfigurable visual-inertial odometry accelerator and implemented it on FPGA platform which can process data from image sensor and inertial measurement unit for trajectory output in real-time at 160MHz and 110fps
   - Optimize the hardware architecture and perform back-end design for ASIC development
 
