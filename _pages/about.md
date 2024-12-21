@@ -28,12 +28,25 @@ My research interest includes Hardware acceleration for VLSI-oriented algorithms
 
 # 🔥 News
 <!-- - *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
+- *2024.10*: &nbsp;🎉🎉 One paper is accepted by ISSCC 2025! 
+- *2024.02*: &nbsp;🎉🎉 One paper and one poster are accepted by DAC 2024! 
 - *2022.08*: &nbsp;🎉🎉 Our second paper of the SLAM accelerator project is accepted by Sensors! 
 - *2022.08*: &nbsp;🎉🎉 Our first paper of the SLAM accelerator project (my first paper) is accepted by TCAS-II! 
 - *2021.12*: &nbsp;🎉🎉 Our team won the first prize of 2021 National College Students FPGA Innovation Design Competition! 
 - *2021.10*: &nbsp;🎉🎉 Our team won the first prize of 2021 International Competition of Autonomous Running Robots! 
 
 # 📝 Publications 
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=8920" style="color: white; text-decoration:none">TCAS-II</a></div><img src='images/TCAS2.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+[A Reconfigurable Coprocessor for Simultaneous Localization and Mapping Algorithms in FPGA](https://ieeexplore.ieee.org/document/9857612)
+
+**Yonghao Tan**, Huanshihong Deng, Mengying Sun, Minghao Zhou, Yifei Chen, Lei Chen, Chao Wang, Fengwei An
+
+<!-- [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
+</div>
+</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=8920" style="color: white; text-decoration:none">TCAS-II</a></div><img src='images/TCAS2.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
