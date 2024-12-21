@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Yonghao\n (谭雍昊)"
-description              : "PhD candidate at HKUST. Focusing on software/hardware co-design, AI accelerators and computer vision."
+description              : "PhD candidate at HKUST. Focusing on software/hardware co-design, model compression, and 3d processing."
 repository               : "Yonghao-Tan/Yonghao-Tan.github.io"
 google_scholar_stats_use_cdn : true
 
