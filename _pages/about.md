@@ -65,7 +65,7 @@ Pingcheng Dong\*, **Yonghao Tan\***, Dong Zhang, Tianwei Ni, Xuejiao Liu, Yu Liu
 <div class='paper-box-text' markdown="1">
 [A Reconfigurable Coprocessor for Simultaneous Localization and Mapping Algorithms in FPGA](https://ieeexplore.ieee.org/document/9857612)
 
-**Yonghao Tan**, Huanshihong Deng\*, Mengying Sun, Minghao Zhou, Yifei Chen, Lei Chen, Chao Wang, Fengwei An
+**Yonghao Tan\***, Huanshihong Deng\*, Mengying Sun, Minghao Zhou, Yifei Chen, Lei Chen, Chao Wang, Fengwei An
 
 *Equally Credited Authors (ECAs)
 
