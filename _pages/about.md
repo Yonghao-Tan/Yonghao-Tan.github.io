@@ -119,10 +119,10 @@ Pingcheng Dong\*, **Yonghao Tan\***, Dong Zhang, Tianwei Ni, Xuejiao Liu, Yu Liu
 # 📚 Research Projects
 - Hybrid Bonding based co-design AI accelerator (AC-RHB)
   - Co-design optimization for LLMs
-  - Implement the AI-core & RERAM with 55nm die-on-wafer stacking via bumping process
+  - Implement the AI-core and RERAM with 55nm die-on-wafer stacking via bumping process
 
 - Transformer based co-design AI accelerator (AC-Transformer)
-  - Hardware/Software collaborative optimization of Transformer-based architecture for vision applications
+  - Hardware/Software collaborative optimization of Transformer-based architecture
   - Implement an energy-efficient Transformer-based accelerator for semantic segmentation with 28nm ASIC process
 
 - ASIC design of SLAM accelerator in 28nm CMOS technology
