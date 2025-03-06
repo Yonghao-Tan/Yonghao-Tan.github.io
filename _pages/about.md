@@ -26,6 +26,7 @@ My research interest includes software/hardware co-design, model compression, an
 
 # 🔥 News
 <!-- - *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
+- *2025.02*: &nbsp;🎉🎉 One paper is accepted by DAC 2025! 
 - *2024.10*: &nbsp;🎉🎉 One paper is accepted by ISSCC 2025! 
 - *2024.02*: &nbsp;🎉🎉 One paper and one poster are accepted by DAC 2024! 
 - *2022.08*: &nbsp;🎉🎉 Our second paper of the SLAM accelerator project is accepted by Sensors! 
@@ -131,5 +132,6 @@ Pingcheng Dong\*, **Yonghao Tan\***, Dong Zhang, Tianwei Ni, Xuejiao Liu, Yu Liu
   - Optimize the hardware architecture and perform back-end design for ASIC development
 
 # 😀 Teaching Assistant
+- ELEC2350: Introduction to Computer Organization and Design (2025 Fall)
 - ELEC3400: Introduction to Integrated Circuits and Systems (2024 Spring)
 - ELEC6910H: Advanced AI Chip and System (2024 Fall)
