@@ -94,6 +94,7 @@ Pingcheng Dong\*, **Yonghao Tan\***, Dong Zhang, Tianwei Ni, Xuejiao Liu, Yu Liu
 <!-- - [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020** -->
 
 # 🎖 Honors and Awards
+- *2025.08* Best Teaching Assistant Award of ECE Department in HKUST
 - *2023.05* Outstanding graduates at the school level of SUSTech
 - *2022.09* Highest Score in First-class Outstanding Students Scholarship
 - *2022.04* Undergraduate Innovation and Entrepreneurship Training Programs
