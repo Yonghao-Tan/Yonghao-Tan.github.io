@@ -37,7 +37,7 @@ My research interest includes software/hardware co-design AI chip, LLM/VLM, and 
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://www.isscc.org/" style="color: white; text-decoration:none">ISSCC</a></div><img src='images/2026_isscc.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://www.isscc.org/" style="color: white; text-decoration:none">ISSCC 2026</a></div><img src='images/2026_isscc.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 [A 14.08-to-135.69Token/s ReRAM-on-Logic Stacked Outlier-Free Large-Language-Model Accelerator with Block-Clustered Weight-Compression and Adaptive  Parallel-Speculative-Decoding]()
 
@@ -48,7 +48,7 @@ Pingcheng Dong, **Yonghao Tan**, Xuejiao Liu, Peng Luo, Yu Liu, Di Pang, Songche
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://www.isscc.org/" style="color: white; text-decoration:none">DAC</a></div><img src='images/2025_dac.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://www.isscc.org/" style="color: white; text-decoration:none">DAC 2025</a></div><img src='images/2025_dac.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 [APSQ: Additive Partial Sum Quantization with Algorithm-Hardware Co-Design]()
 
@@ -61,7 +61,7 @@ Pingcheng Dong, **Yonghao Tan**, Xuejiao Liu, Peng Luo, Yu Liu, Di Pang, Songche
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://www.isscc.org/" style="color: white; text-decoration:none">ISSCC</a></div><img src='images/2025_isscc.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://www.isscc.org/" style="color: white; text-decoration:none">ISSCC 2025</a></div><img src='images/2025_isscc.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 [A 28nm 0.22μJ/Token Memory-Compute-Intensity-Aware CNN-Transformer Accelerator with Hybrid-Attention-Based Layer-Fusion and Cascaded Pruning for Semantic-Segmentation]()
 
@@ -74,7 +74,7 @@ Pingcheng Dong\*, **Yonghao Tan\***, Xuejiao Liu, Peng Luo, Yu Liu, Luhong Liang
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://dl.acm.org/doi/proceedings/10.5555/3778334" style="color: white; text-decoration:none">DAC</a></div><img src='images/2024_dac.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://dl.acm.org/doi/proceedings/10.5555/3778334" style="color: white; text-decoration:none">DAC 2024</a></div><img src='images/2024_dac.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 [Genetic Quantization-Aware Approximation for Non-Linear Operations in Transformers](https://dl.acm.org/doi/abs/10.1145/3649329.3657314)
 
