@@ -50,7 +50,7 @@ Pingcheng Dong, **Yonghao Tan**, Xuejiao Liu, Peng Luo, Yu Liu, Di Pang, Songche
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://www.isscc.org/" style="color: white; text-decoration:none">DAC 2025</a></div><img src='images/2025_dac.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
-[APSQ: Additive Partial Sum Quantization with Algorithm-Hardware Co-Design]()
+[APSQ: Additive Partial Sum Quantization with Algorithm-Hardware Co-Design](https://dl.acm.org/doi/10.1109/DAC63849.2025.11133081)
 
 **Yonghao Tan\***, Pingcheng Dong\*, Yongkun Wu, Yu Liu, Xuejiao Liu, Peng Luo, Shih-Yang Liu, Xiejie Huang, Dong Zhang, Luhong Liang, Kwang-Ting Cheng
 
@@ -63,7 +63,7 @@ Pingcheng Dong, **Yonghao Tan**, Xuejiao Liu, Peng Luo, Yu Liu, Di Pang, Songche
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://www.isscc.org/" style="color: white; text-decoration:none">ISSCC 2025</a></div><img src='images/2025_isscc.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
-[A 28nm 0.22μJ/Token Memory-Compute-Intensity-Aware CNN-Transformer Accelerator with Hybrid-Attention-Based Layer-Fusion and Cascaded Pruning for Semantic-Segmentation]()
+[A 28nm 0.22μJ/Token Memory-Compute-Intensity-Aware CNN-Transformer Accelerator with Hybrid-Attention-Based Layer-Fusion and Cascaded Pruning for Semantic-Segmentation](https://ieeexplore.ieee.org/abstract/document/10904499/)
 
 Pingcheng Dong\*, **Yonghao Tan\***, Xuejiao Liu, Peng Luo, Yu Liu, Luhong Liang, Yitong Zhou, Di Pang, Manto Yung, Dong Zhang, Xijie Huang, Shih-Yang Liu, Yongkun Wu, Fengshi Tian, Chi-Ying Tsui, Fengbin Tu, Kwang-Ting Cheng
 
