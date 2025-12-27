@@ -16,16 +16,17 @@ redirect_from:
 {% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
 
 <span class='anchor' id='about-me'></span>
-I am currently a PhD candidate student in the Electronic and Computer Engineering department of [Hong Kong University of Science and Technology](https://hkust.edu.hk/), [AI Chip Center for Emerging Smart Systems](https://inno-access.hk/), and a member of [Vision and System Design Lab (VSDL)](https://vsdl.hkust.edu.hk/index.html) under the supervision of [Prof. Kwang-Ting CHENG](https://seng.hkust.edu.hk/about/people/faculty/tim-kwang-ting-cheng). If you are interested, here is my [CV](https://Yonghao-Tan.github.io/files/CV_Yonghao Tan.pdf).
+I am currently a third-year PhD candidate student in the Electronic and Computer Engineering department of [Hong Kong University of Science and Technology](https://hkust.edu.hk/), [AI Chip Center for Emerging Smart Systems](https://inno-access.hk/), and a member of [Vision and System Design Lab (VSDL)](https://vsdl.hkust.edu.hk/index.html) under the supervision of [Prof. Kwang-Ting CHENG](https://seng.hkust.edu.hk/about/people/faculty/tim-kwang-ting-cheng). If you are interested, here is my [CV](https://Yonghao-Tan.github.io/files/CV_Yonghao Tan.pdf).
 
 In terms of my undergraduate study, I was at [School of Microelectronics](https://sme.sustech.edu.cn/) , [Southern University of Science and Technology](https://www.sustech.edu.cn/) (南方科技大学深港微电子学院), advised by [Fengwei An (安丰伟)](https://sme.sustech.edu.cn/index/teacher/neiye/id/35.html).
 
-My research interest includes software/hardware co-design, model compression, and 3d processing.
+My research interest includes software/hardware co-design AI chip, LLM/VLM, and 3d processing.
 <!-- with total <a href='https://scholar.google.com/citations?user=o-J8B_4AAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a>  -->
 <!-- (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=o-J8B_4AAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>). -->
 
 # 🔥 News
 <!-- - *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
+- *2025.02*: &nbsp;🎉🎉 One paper is accepted by ISSCC 2026! 
 - *2025.02*: &nbsp;🎉🎉 One paper is accepted by DAC 2025! 
 - *2024.10*: &nbsp;🎉🎉 One paper is accepted by ISSCC 2025! 
 - *2024.02*: &nbsp;🎉🎉 One paper and one poster are accepted by DAC 2024! 
@@ -38,6 +39,30 @@ My research interest includes software/hardware co-design, model compression, an
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://www.isscc.org/" style="color: white; text-decoration:none">ISSCC</a></div><img src='images/2025_isscc.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
+[A 14.08-to-135.69Token/s ReRAM-on-Logic Stacked Outlier-Free Large-Language-Model Accelerator with Block-Clustered Weight-Compression and Adaptive  Parallel-Speculative-Decoding]()
+
+Pingcheng Dong, **Yonghao Tan**, Xuejiao Liu, Peng Luo, Yu Liu, Di Pang, Songchen Ma, Xijie Huang, Shih-Yang Liu, Dong Zhang, Luhong Liang, Chi-Ying Tsui, Fengbin Tu, Liang Zhao, Kwang-Ting Cheng
+
+<!-- [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://www.isscc.org/" style="color: white; text-decoration:none">DAC</a></div><img src='images/2025_dac.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+[APSQ: Additive Partial Sum Quantization with Algorithm-Hardware Co-Design]()
+
+**Yonghao Tan\***, Pingcheng Dong\*, Yongkun Wu, Yu Liu, Xuejiao Liu, Peng Luo, Shih-Yang Liu, Xiejie Huang, Dong Zhang, Luhong Liang, Kwang-Ting Cheng
+
+*Equally Credited Authors (ECAs)
+
+<!-- [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://www.isscc.org/" style="color: white; text-decoration:none">ISSCC</a></div><img src='images/2025_isscc.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
 [A 28nm 0.22μJ/Token Memory-Compute-Intensity-Aware CNN-Transformer Accelerator with Hybrid-Attention-Based Layer-Fusion and Cascaded Pruning for Semantic-Segmentation]()
 
 Pingcheng Dong\*, **Yonghao Tan\***, Xuejiao Liu, Peng Luo, Yu Liu, Luhong Liang, Yitong Zhou, Di Pang, Manto Yung, Dong Zhang, Xijie Huang, Shih-Yang Liu, Yongkun Wu, Fengshi Tian, Chi-Ying Tsui, Fengbin Tu, Kwang-Ting Cheng
@@ -49,7 +74,7 @@ Pingcheng Dong\*, **Yonghao Tan\***, Xuejiao Liu, Peng Luo, Yu Liu, Luhong Liang
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://dl.acm.org/doi/proceedings/10.1145/3649329" style="color: white; text-decoration:none">DAC</a></div><img src='images/2024_dac.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://dl.acm.org/doi/proceedings/10.5555/3778334" style="color: white; text-decoration:none">DAC</a></div><img src='images/2024_dac.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 [Genetic Quantization-Aware Approximation for Non-Linear Operations in Transformers](https://dl.acm.org/doi/abs/10.1145/3649329.3657314)
 
