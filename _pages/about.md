@@ -42,7 +42,7 @@ My research interest includes software/hardware co-design AI chip, LLM/VLM, and 
 <div class='paper-box-text' markdown="1">
 [A 5nm 91.43 TOPS/W 4-Chiplet Generalizable-Rendering-Processor with UCIe-Enabled Cross-Die-Cache and Balance-Aware Progressive Multi-Level Sparsity]()
 
-**Yonghao Tan\***, Songchen Ma\*Pingcheng Dong, Peng Luo, Zhiyuan Lei, Wencai Lu, Guangxi Ying, Man-To Yung, Haibo Zhao, Lan Liu, Yuzhong Jiao, Xuejiao Liu, Yu Liu, Li Li, Luhong Liang, Mao Liu, Kwang-Ting Cheng
+**Yonghao Tan\***, Songchen Ma\*, Pingcheng Dong, Peng Luo, Zhiyuan Lei, Wencai Lu, Guangxi Ying, Man-To Yung, Haibo Zhao, Lan Liu, Yuzhong Jiao, Xuejiao Liu, Yu Liu, Li Li, Luhong Liang, Mao Liu, Kwang-Ting Cheng
 
 *Equally Credited Authors (ECAs)
 
