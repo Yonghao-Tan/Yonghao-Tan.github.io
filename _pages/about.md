@@ -26,7 +26,8 @@ My research interest includes software/hardware co-design AI chip, LLM/VLM, and 
 
 # 🔥 News
 <!-- - *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
-- *2025.02*: &nbsp;🎉🎉 One paper is accepted by ISSCC 2026! 
+- *2026.01*: &nbsp;🎉🎉 One paper is accepted by CICC 2026! 
+- *2025.10*: &nbsp;🎉🎉 One paper is accepted by ISSCC 2026! 
 - *2025.02*: &nbsp;🎉🎉 One paper is accepted by DAC 2025! 
 - *2024.10*: &nbsp;🎉🎉 One paper is accepted by ISSCC 2025! 
 - *2024.02*: &nbsp;🎉🎉 One paper and one poster are accepted by DAC 2024! 
@@ -36,6 +37,19 @@ My research interest includes software/hardware co-design AI chip, LLM/VLM, and 
 - *2021.10*: &nbsp;🎉🎉 Our team won the first prize of 2021 International Competition of Autonomous Running Robots! 
 
 # 📝 Publications 
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://www.ieee-cicc.org/" style="color: white; text-decoration:none">CICC 2026</a></div><img src='images/2026_cicc.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+[A 5nm 91.43 TOPS/W 4-Chiplet Generalizable-Rendering-Processor with UCIe-Enabled Cross-Die-Cache and Balance-Aware Progressive Multi-Level Sparsity]()
+
+**Yonghao Tan\***, Songchen Ma\*Pingcheng Dong, Peng Luo, Zhiyuan Lei, Wencai Lu, Guangxi Ying, Man-To Yung, Haibo Zhao, Lan Liu, Yuzhong Jiao, Xuejiao Liu, Yu Liu, Li Li, Luhong Liang, Mao Liu, Kwang-Ting Cheng
+
+*Equally Credited Authors (ECAs)
+
+<!-- [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
+</div>
+</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://www.isscc.org/" style="color: white; text-decoration:none">ISSCC 2026</a></div><img src='images/2026_isscc.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
