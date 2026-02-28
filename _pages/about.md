@@ -38,7 +38,7 @@ My research interest includes software/hardware co-design AI chip, LLM/VLM, and 
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://www.ieee-cicc.org/" style="color: white; text-decoration:none">CICC 2026</a></div><img src='images/2026_cicc.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://www.ieee-cicc.org/" style="color: white; text-decoration:none">CICC 2026</a></div><img src='images/2026_cicc.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 [A 5nm 91.43 TOPS/W 4-Chiplet Generalizable-Rendering-Processor with UCIe-Enabled Cross-Die-Cache and Balance-Aware Progressive Multi-Level Sparsity]()
 
