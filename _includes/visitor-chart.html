@@ -148,15 +148,6 @@
     return String(Math.round(value));
   }
 
-  function fitText(ctx, text, maxWidth) {
-    if (ctx.measureText(text).width <= maxWidth) return text;
-    var base = text;
-    while (base.length > 4 && ctx.measureText(base + "...").width > maxWidth) {
-      base = base.slice(0, -1);
-    }
-    return base + "...";
-  }
-
   function buildCumulativeSeries(records) {
     if (!records.length) return { labels: [], values: [] };
 
@@ -190,72 +181,7 @@
     if (uv && (!uv.textContent || uv.textContent === "--")) uv.textContent = latest.site_uv;
   }
 
-  function createDecorPlugin(repoLabel) {
-    function drawRoundRect(ctx, x, y, width, height, radius) {
-      var r = Math.min(radius, width / 2, height / 2);
-      ctx.beginPath();
-      ctx.moveTo(x + r, y);
-      ctx.lineTo(x + width - r, y);
-      ctx.quadraticCurveTo(x + width, y, x + width, y + r);
-      ctx.lineTo(x + width, y + height - r);
-      ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
-      ctx.lineTo(x + r, y + height);
-      ctx.quadraticCurveTo(x, y + height, x, y + height - r);
-      ctx.lineTo(x, y + r);
-      ctx.quadraticCurveTo(x, y, x + r, y);
-      ctx.closePath();
-    }
-
-    return {
-      id: "visitorDecor",
-      afterDatasetsDraw: function (chart) {
-        var ctx = chart.ctx;
-        var area = chart.chartArea;
-        if (!area) return;
-
-        var meta = chart.getDatasetMeta(0);
-        var lastPoint = meta && meta.data && meta.data.length ? meta.data[meta.data.length - 1] : null;
-
-        ctx.save();
-
-        var maxLabelWidth = Math.min(300, area.width * 0.45);
-        ctx.font = '600 13px "Sora", sans-serif';
-        ctx.textBaseline = "middle";
-        var shortLabel = fitText(ctx, repoLabel, maxLabelWidth - 28);
-        var textWidth = ctx.measureText(shortLabel).width;
-        var boxW = textWidth + 34;
-        var boxH = 28;
-        var boxX = area.left + 8;
-        var boxY = area.top + 8;
-
-        ctx.lineWidth = 1.2;
-        ctx.strokeStyle = "#43403e";
-        ctx.fillStyle = "rgba(255, 255, 255, 0.90)";
-        drawRoundRect(ctx, boxX, boxY, boxW, boxH, 8);
-        ctx.fill();
-        ctx.stroke();
-
-        ctx.fillStyle = "#e3532f";
-        ctx.beginPath();
-        ctx.arc(boxX + 11, boxY + (boxH / 2), 4, 0, Math.PI * 2);
-        ctx.fill();
-
-        ctx.fillStyle = "#2f2c2a";
-        ctx.fillText(shortLabel, boxX + 20, boxY + (boxH / 2));
-
-        if (lastPoint) {
-          ctx.fillStyle = "#e3532f";
-          ctx.beginPath();
-          ctx.arc(lastPoint.x, lastPoint.y, 3.5, 0, Math.PI * 2);
-          ctx.fill();
-        }
-
-        ctx.restore();
-      }
-    };
-  }
-
-  function renderChart(labels, values, repoLabel) {
+  function renderChart(labels, values) {
     var canvas = document.getElementById("visitorChart");
     if (!canvas || typeof Chart === "undefined") return;
 
@@ -346,8 +272,7 @@
             border: { display: true, color: "#2f2f2f", width: 1.8 }
           }
         }
-      },
-      plugins: [createDecorPlugin(repoLabel)]
+      }
     });
   }
 
@@ -364,15 +289,11 @@
       }
 
       var latest = records[records.length - 1];
-      var repoLabel = (payload.site_url || "yonghao-tan.github.io")
-        .replace(/^https?:\/\//, "")
-        .replace(/\/$/, "");
-
       setLastSnapshot(latest.date);
       setSnapshotTotals(latest);
 
       var series = buildCumulativeSeries(records);
-      renderChart(series.labels, series.values, repoLabel);
+      renderChart(series.labels, series.values);
     } catch (err) {
       setLastSnapshot("Load failed");
       console.warn("[visitor-chart]", err);
