@@ -27,16 +27,18 @@
 <style>
   .visitor-history {
     margin-top: 42px;
-    padding: 24px 0 8px;
+    padding: 24px 14px 8px;
     border-top: 1px solid #e0e0e0;
     font-family: "Patrick Hand", "Comic Sans MS", cursive;
+    background: #f4f4f4;
+    border-radius: 12px;
   }
 
   .visitor-history__title {
     text-align: center;
     color: #111;
     margin-bottom: 14px;
-    font-size: 36px;
+    font-size: 32px;
     letter-spacing: 0.5px;
   }
 
@@ -44,17 +46,18 @@
     max-width: 860px;
     margin: 0 auto;
     padding: 0 10px;
+    height: 460px;
   }
 
   .visitor-history__canvas {
-    max-height: 360px;
+    max-height: 460px;
   }
 
   .visitor-history__meta {
     text-align: center;
     margin-top: 20px;
     color: #555;
-    font-size: 18px;
+    font-size: 17px;
     letter-spacing: 0.2px;
   }
 
@@ -75,6 +78,14 @@
     .visitor-history__meta {
       font-size: 16px;
       line-height: 1.5;
+    }
+
+    .visitor-history__canvas-wrap {
+      height: 360px;
+    }
+
+    .visitor-history__canvas {
+      max-height: 360px;
     }
   }
 </style>
@@ -147,7 +158,16 @@
   function formatTick(value) {
     if (value >= 1000000) return (value / 1000000).toFixed(1) + "M";
     if (value >= 1000) return (value / 1000).toFixed(0) + "K";
-    return value;
+    return String(Math.round(value));
+  }
+
+  function chooseStepSize(maxValue) {
+    if (maxValue <= 20) return 5;
+    if (maxValue <= 100) return 10;
+    if (maxValue <= 500) return 50;
+    if (maxValue <= 1000) return 100;
+    if (maxValue <= 5000) return 500;
+    return 1000;
   }
 
   var handDrawnDecorations = {
@@ -180,7 +200,7 @@
 
       var meta = chart.getDatasetMeta(0);
       var lastPoint = meta && meta.data && meta.data.length ? meta.data[meta.data.length - 1] : null;
-      if (lastPoint) {
+      if (lastPoint && meta.data.length >= 3 && lastPoint.x > area.left + (area.width * 0.65)) {
         ctx.fillStyle = "#e64a2e";
         ctx.font = '20px "Patrick Hand", "Comic Sans MS", cursive';
         ctx.fillText("TOP", lastPoint.x + 8, lastPoint.y - 8);
@@ -193,6 +213,9 @@
   function renderChart(labels, values, repoLabel) {
     var canvas = document.getElementById("visitorChart");
     if (!canvas || typeof Chart === "undefined") return;
+    var maxValue = values.length ? Math.max.apply(null, values) : 0;
+    var stepSize = chooseStepSize(maxValue);
+    var suggestedMax = Math.max(stepSize * 2, Math.ceil((maxValue * 1.35) / stepSize) * stepSize);
 
     new Chart(canvas, {
       type: "line",
@@ -215,7 +238,7 @@
       },
       options: {
         responsive: true,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
         plugins: {
           legend: {
             display: true,
@@ -224,7 +247,7 @@
               color: "#111",
               font: {
                 family: "Patrick Hand, Comic Sans MS, cursive",
-                size: 18
+                size: 16
               },
               boxWidth: 36
             }
@@ -241,15 +264,17 @@
               color: "#111",
               font: {
                 family: "Patrick Hand, Comic Sans MS, cursive",
-                size: 34
+                size: 24
               }
             },
+            offset: true,
             ticks: {
               color: "#111",
               font: {
                 family: "Patrick Hand, Comic Sans MS, cursive",
-                size: 16
-              }
+                size: 14
+              },
+              maxTicksLimit: 6
             },
             grid: {
               display: false
@@ -262,21 +287,23 @@
           },
           y: {
             beginAtZero: true,
+            suggestedMax: suggestedMax,
             title: {
               display: true,
               text: "Site Views",
               color: "#111",
               font: {
                 family: "Patrick Hand, Comic Sans MS, cursive",
-                size: 34
+                size: 24
               }
             },
             ticks: {
               color: "#111",
               font: {
                 family: "Patrick Hand, Comic Sans MS, cursive",
-                size: 16
+                size: 14
               },
+              stepSize: stepSize,
               callback: formatTick
             },
             grid: {
