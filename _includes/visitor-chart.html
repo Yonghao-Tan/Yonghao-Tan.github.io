@@ -1,28 +1,86 @@
 <div class="visitor-chart-card">
+  <div class="visitor-chart-head">
+    <div class="visitor-chart-kicker">Live Traffic</div>
+    <h3 class="visitor-chart-title">Visitor History</h3>
+    <p class="visitor-chart-subtitle">Cumulative site views over recent days</p>
+  </div>
+
   <div class="visitor-chart-canvas-wrap">
     <canvas id="visitorChart" class="visitor-chart-canvas"></canvas>
   </div>
 
   <div class="visitor-chart-meta">
-    <span id="busuanzi_container_site_pv" style="margin-right: 16px;">
+    <span class="visitor-chip" id="busuanzi_container_site_pv">
       <i class="fa fa-eye"></i> Total Views: <span id="busuanzi_value_site_pv">--</span>
     </span>
-    <span id="busuanzi_container_site_uv" style="margin-right: 16px;">
+    <span class="visitor-chip" id="busuanzi_container_site_uv">
       <i class="fa fa-user"></i> Total Visitors: <span id="busuanzi_value_site_uv">--</span>
     </span>
-    <span>
+    <span class="visitor-chip">
       <i class="fa fa-calendar"></i> Last Snapshot: <span id="visitor_last_snapshot">--</span>
     </span>
   </div>
 </div>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+
 <style>
   .visitor-chart-card {
-    margin-top: 38px;
-    padding: 14px 14px 10px;
-    border: 1px solid #e6e6e6;
-    border-radius: 12px;
-    background: #fff;
+    position: relative;
+    overflow: hidden;
+    margin-top: 40px;
+    padding: 18px 16px 14px;
+    border: 1px solid #f0d9cd;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #fffefb 0%, #fff7f2 55%, #f7fbff 100%);
+    box-shadow: 0 10px 26px rgba(227, 83, 47, 0.10), 0 4px 10px rgba(31, 31, 31, 0.05);
+    animation: visitorCardIn 420ms ease-out;
+  }
+
+  .visitor-chart-card::before {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    top: -80px;
+    right: -60px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(255, 126, 74, 0.24) 0%, rgba(255, 126, 74, 0) 72%);
+    pointer-events: none;
+  }
+
+  .visitor-chart-head {
+    margin-bottom: 8px;
+  }
+
+  .visitor-chart-kicker {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(227, 83, 47, 0.14);
+    color: #c74421;
+    font-family: "Sora", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+  }
+
+  .visitor-chart-title {
+    margin: 8px 0 2px;
+    color: #191919;
+    font-family: "Caveat", cursive;
+    font-size: 46px;
+    line-height: 1;
+  }
+
+  .visitor-chart-subtitle {
+    margin: 0;
+    color: #6b5f58;
+    font-family: "Sora", sans-serif;
+    font-size: 13px;
   }
 
   .visitor-chart-canvas-wrap {
@@ -36,25 +94,60 @@
   }
 
   .visitor-chart-meta {
-    text-align: center;
-    margin-top: 16px;
-    color: #5a5a5a;
-    font-size: 15px;
-    line-height: 1.7;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .visitor-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 12px;
+    border: 1px solid #eadbd2;
+    border-radius: 999px;
+    color: #564a43;
+    background: rgba(255, 255, 255, 0.75);
+    font-family: "Sora", sans-serif;
+    font-size: 13px;
+  }
+
+  @keyframes visitorCardIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @media (max-width: 768px) {
     .visitor-chart-card {
       margin-top: 28px;
-      padding: 10px 10px 8px;
+      padding: 14px 10px 10px;
+      border-radius: 14px;
+    }
+
+    .visitor-chart-title {
+      font-size: 40px;
+    }
+
+    .visitor-chart-subtitle {
+      font-size: 12px;
     }
 
     .visitor-chart-canvas-wrap {
       height: 280px;
     }
 
-    .visitor-chart-meta {
-      font-size: 14px;
+    .visitor-chip {
+      font-size: 12px;
+      padding: 6px 10px;
+      gap: 6px;
     }
   }
 </style>
@@ -63,7 +156,7 @@
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
 (function () {
-  var MAX_DAYS = 60;
+  var MAX_DAYS = 90;
   var DATA_URL = "{{ '/files/visitor-stats.json' | relative_url }}";
   var chartInstance = null;
 
@@ -131,6 +224,11 @@
       values.push(records[i].site_pv);
     }
 
+    if (labels.length === 1) {
+      labels.unshift(labels[0]);
+      values.unshift(0);
+    }
+
     return { labels: labels, values: values };
   }
 
@@ -148,6 +246,21 @@
   }
 
   function createDecorPlugin(repoLabel) {
+    function drawRoundRect(ctx, x, y, width, height, radius) {
+      var r = Math.min(radius, width / 2, height / 2);
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + width - r, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + r);
+      ctx.lineTo(x + width, y + height - r);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
+      ctx.lineTo(x + r, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    }
+
     return {
       id: "visitorDecor",
       afterDatasetsDraw: function (chart) {
@@ -155,29 +268,47 @@
         var area = chart.chartArea;
         if (!area) return;
 
+        var meta = chart.getDatasetMeta(0);
+        var lastPoint = meta && meta.data && meta.data.length ? meta.data[meta.data.length - 1] : null;
+
         ctx.save();
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = "#1f1f1f";
-        ctx.fillStyle = "#1f1f1f";
-        ctx.font = '600 16px "Segoe UI", Arial, sans-serif';
+
+        var maxLabelWidth = Math.min(300, area.width * 0.46);
+        ctx.font = '600 14px "Sora", sans-serif';
         ctx.textBaseline = "middle";
-
-        var maxLabelWidth = Math.min(300, area.width * 0.45);
-        var shortLabel = fitText(ctx, repoLabel, maxLabelWidth - 26);
+        var shortLabel = fitText(ctx, repoLabel, maxLabelWidth - 28);
         var textWidth = ctx.measureText(shortLabel).width;
-        var boxW = textWidth + 34;
-        var boxH = 32;
+        var boxW = textWidth + 36;
+        var boxH = 30;
         var boxX = area.left + 10;
-        var boxY = area.top + 8;
+        var boxY = area.top + 10;
 
-        ctx.strokeRect(boxX, boxY, boxW, boxH);
+        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = "#332f2d";
+        ctx.fillStyle = "rgba(255, 255, 255, 0.84)";
+        drawRoundRect(ctx, boxX, boxY, boxW, boxH, 8);
+        ctx.fill();
+        ctx.stroke();
+
         ctx.fillStyle = "#e3532f";
         ctx.beginPath();
-        ctx.arc(boxX + 12, boxY + (boxH / 2), 5, 0, Math.PI * 2);
+        ctx.arc(boxX + 12, boxY + (boxH / 2), 4.5, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.fillStyle = "#1f1f1f";
+        ctx.fillStyle = "#2a2624";
         ctx.fillText(shortLabel, boxX + 22, boxY + (boxH / 2));
+
+        if (lastPoint) {
+          ctx.fillStyle = "rgba(227, 83, 47, 0.20)";
+          ctx.beginPath();
+          ctx.arc(lastPoint.x, lastPoint.y, 12, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = "#e3532f";
+          ctx.beginPath();
+          ctx.arc(lastPoint.x, lastPoint.y, 5, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
         ctx.restore();
       }
     };
@@ -191,8 +322,7 @@
 
     var maxValue = values.length ? Math.max.apply(null, values) : 0;
     var stepSize = chooseStepSize(maxValue);
-    var suggestedMax = Math.max(stepSize * 2, Math.ceil((maxValue * 1.3) / stepSize) * stepSize);
-    var pointCount = values.length;
+    var suggestedMax = Math.max(stepSize * 2, Math.ceil((maxValue * 1.26) / stepSize) * stepSize);
 
     chartInstance = new Chart(canvas, {
       type: "line",
@@ -200,33 +330,41 @@
         labels: labels,
         datasets: [{
           data: values,
-          borderColor: "#e3532f",
-          borderWidth: 3,
-          fill: false,
-          tension: 0.18,
-          pointRadius: pointCount <= 8 ? 3 : function (ctx) {
-            return ctx.dataIndex === pointCount - 1 ? 4 : 0;
-          },
+          borderWidth: 3.5,
+          fill: true,
+          tension: 0.22,
+          pointRadius: 0,
           pointHoverRadius: 5,
-          pointBackgroundColor: "#e3532f"
+          borderColor: function (ctx) {
+            var chart = ctx.chart;
+            var area = chart.chartArea;
+            if (!area) return "#e3532f";
+            var gradient = chart.ctx.createLinearGradient(area.left, area.top, area.right, area.bottom);
+            gradient.addColorStop(0, "#ff6a3c");
+            gradient.addColorStop(0.58, "#ff8a3d");
+            gradient.addColorStop(1, "#f0456f");
+            return gradient;
+          },
+          backgroundColor: function (ctx) {
+            var chart = ctx.chart;
+            var area = chart.chartArea;
+            if (!area) return "rgba(227, 83, 47, 0.18)";
+            var gradient = chart.ctx.createLinearGradient(0, area.top, 0, area.bottom);
+            gradient.addColorStop(0, "rgba(255, 122, 76, 0.28)");
+            gradient.addColorStop(1, "rgba(255, 122, 76, 0.01)");
+            return gradient;
+          }
         }]
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        animation: {
+          duration: 1000,
+          easing: "easeOutQuart"
+        },
         plugins: {
           legend: { display: false },
-          title: {
-            display: true,
-            text: "Visitor History",
-            color: "#111",
-            font: {
-              family: "Segoe UI, Arial, sans-serif",
-              size: 24,
-              weight: "700"
-            },
-            padding: { top: 8, bottom: 14 }
-          },
           tooltip: {
             displayColors: false,
             callbacks: {
@@ -240,34 +378,40 @@
             title: {
               display: true,
               text: "Date",
-              color: "#222",
-              font: { family: "Segoe UI, Arial, sans-serif", size: 16, weight: "600" }
+              color: "#2f2f2f",
+              font: { family: "Sora, sans-serif", size: 14, weight: "600" }
             },
             ticks: {
-              color: "#222",
-              font: { family: "Segoe UI, Arial, sans-serif", size: 13 },
-              maxTicksLimit: 8
+              color: "#3d3937",
+              font: { family: "Sora, sans-serif", size: 12 },
+              maxTicksLimit: 10
             },
-            grid: { display: false },
-            border: { display: true, color: "#1f1f1f", width: 2 }
+            grid: {
+              color: "rgba(90, 80, 74, 0.09)",
+              drawBorder: false
+            },
+            border: { display: true, color: "#2f2f2f", width: 2 }
           },
           y: {
             beginAtZero: true,
             suggestedMax: suggestedMax,
             ticks: {
               stepSize: stepSize,
-              color: "#222",
-              font: { family: "Segoe UI, Arial, sans-serif", size: 13 },
+              color: "#3d3937",
+              font: { family: "Sora, sans-serif", size: 12 },
               callback: formatTick
             },
             title: {
               display: true,
               text: "Site Views",
-              color: "#222",
-              font: { family: "Segoe UI, Arial, sans-serif", size: 16, weight: "600" }
+              color: "#2f2f2f",
+              font: { family: "Sora, sans-serif", size: 14, weight: "600" }
             },
-            grid: { display: false },
-            border: { display: true, color: "#1f1f1f", width: 2 }
+            grid: {
+              color: "rgba(90, 80, 74, 0.09)",
+              drawBorder: false
+            },
+            border: { display: true, color: "#2f2f2f", width: 2 }
           }
         }
       },
