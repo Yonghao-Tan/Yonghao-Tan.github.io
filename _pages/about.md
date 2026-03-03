@@ -8,12 +8,14 @@ redirect_from:
   - /about.html
 ---
 
+<!-- Google Scholar Stats disabled
 {% if site.google_scholar_stats_use_cdn %}
 {% assign gsDataBaseUrl = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: "@" %}
 {% else %}
 {% assign gsDataBaseUrl = "https://raw.githubusercontent.com/" | append: site.repository | append: "/" %}
 {% endif %}
 {% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
+-->
 
 <span class='anchor' id='about-me'></span>
 I am currently a third-year PhD candidate student in the Electronic and Computer Engineering department of [Hong Kong University of Science and Technology](https://hkust.edu.hk/), [AI Chip Center for Emerging Smart Systems](https://inno-access.hk/), and a member of [Vision and System Design Lab (VSDL)](https://vsdl.hkust.edu.hk/index.html) under the supervision of [Prof. Kwang-Ting CHENG](https://seng.hkust.edu.hk/about/people/faculty/tim-kwang-ting-cheng). If you are interested, here is my [CV](https://Yonghao-Tan.github.io/files/CV_Yonghao Tan.pdf).
