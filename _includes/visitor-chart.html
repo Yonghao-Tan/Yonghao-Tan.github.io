@@ -1,84 +1,60 @@
-<div class="visitor-history">
-  <h3 class="visitor-history__title">Visitor History</h3>
-
-  <div class="visitor-history__canvas-wrap">
-    <canvas id="visitorChart" class="visitor-history__canvas"></canvas>
+<div class="visitor-chart-card">
+  <div class="visitor-chart-canvas-wrap">
+    <canvas id="visitorChart" class="visitor-chart-canvas"></canvas>
   </div>
 
-  <div class="visitor-history__meta">
-    <span id="busuanzi_container_site_pv" style="margin-right: 20px;">
+  <div class="visitor-chart-meta">
+    <span id="busuanzi_container_site_pv" style="margin-right: 16px;">
       <i class="fa fa-eye"></i> Total Views: <span id="busuanzi_value_site_pv">--</span>
     </span>
-    <span id="busuanzi_container_site_uv" style="margin-right: 20px;">
+    <span id="busuanzi_container_site_uv" style="margin-right: 16px;">
       <i class="fa fa-user"></i> Total Visitors: <span id="busuanzi_value_site_uv">--</span>
     </span>
     <span>
       <i class="fa fa-calendar"></i> Last Snapshot: <span id="visitor_last_snapshot">--</span>
     </span>
   </div>
-
-  <div class="visitor-history__sig">visitor-history.com style</div>
 </div>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
-
 <style>
-  .visitor-history {
-    margin-top: 42px;
-    padding: 24px 0 8px;
-    border-top: 1px solid #e0e0e0;
-    font-family: "Patrick Hand", "Comic Sans MS", cursive;
+  .visitor-chart-card {
+    margin-top: 38px;
+    padding: 14px 14px 10px;
+    border: 1px solid #e6e6e6;
+    border-radius: 12px;
+    background: #fff;
   }
 
-  .visitor-history__title {
+  .visitor-chart-canvas-wrap {
+    width: 100%;
+    height: 380px;
+  }
+
+  .visitor-chart-canvas {
+    width: 100%;
+    height: 100%;
+  }
+
+  .visitor-chart-meta {
     text-align: center;
-    color: #111;
-    margin-bottom: 14px;
-    font-size: 32px;
-    letter-spacing: 0.5px;
-  }
-
-  .visitor-history__canvas-wrap {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 10px;
-  }
-
-  .visitor-history__canvas {
-    max-height: 360px;
-  }
-
-  .visitor-history__meta {
-    text-align: center;
-    margin-top: 20px;
-    color: #555;
-    font-size: 17px;
-    letter-spacing: 0.2px;
-  }
-
-  .visitor-history__sig {
-    text-align: right;
-    max-width: 860px;
-    margin: 4px auto 0;
-    color: #6b6b6b;
-    font-size: 17px;
-    padding-right: 10px;
+    margin-top: 16px;
+    color: #5a5a5a;
+    font-size: 15px;
+    line-height: 1.7;
   }
 
   @media (max-width: 768px) {
-    .visitor-history__title {
-      font-size: 30px;
+    .visitor-chart-card {
+      margin-top: 28px;
+      padding: 10px 10px 8px;
     }
 
-    .visitor-history__meta {
-      font-size: 16px;
-      line-height: 1.5;
+    .visitor-chart-canvas-wrap {
+      height: 280px;
     }
 
-    .visitor-history__canvas {
-      max-height: 320px;
+    .visitor-chart-meta {
+      font-size: 14px;
     }
   }
 </style>
@@ -87,8 +63,9 @@
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
 (function () {
-  var MAX_DAYS = 30;
+  var MAX_DAYS = 60;
   var DATA_URL = "{{ '/files/visitor-stats.json' | relative_url }}";
+  var chartInstance = null;
 
   function toNumber(value) {
     var n = Number(value);
@@ -118,10 +95,32 @@
     return parts[1] + "-" + parts[2];
   }
 
-  function buildCumulativeSeries(records) {
-    if (!records.length) {
-      return { labels: [], values: [] };
+  function chooseStepSize(maxValue) {
+    if (maxValue <= 20) return 5;
+    if (maxValue <= 100) return 10;
+    if (maxValue <= 500) return 50;
+    if (maxValue <= 1000) return 100;
+    if (maxValue <= 5000) return 500;
+    return 1000;
+  }
+
+  function formatTick(value) {
+    if (value >= 1000000) return (value / 1000000).toFixed(1) + "M";
+    if (value >= 1000) return (value / 1000).toFixed(0) + "K";
+    return String(Math.round(value));
+  }
+
+  function fitText(ctx, text, maxWidth) {
+    if (ctx.measureText(text).width <= maxWidth) return text;
+    var base = text;
+    while (base.length > 4 && ctx.measureText(base + "...").width > maxWidth) {
+      base = base.slice(0, -1);
     }
+    return base + "...";
+  }
+
+  function buildCumulativeSeries(records) {
+    if (!records.length) return { labels: [], values: [] };
 
     var start = Math.max(0, records.length - MAX_DAYS);
     var labels = [];
@@ -148,105 +147,92 @@
     if (uv && (!uv.textContent || uv.textContent === "--")) uv.textContent = latest.site_uv;
   }
 
-  function formatTick(value) {
-    if (value >= 1000000) return (value / 1000000).toFixed(1) + "M";
-    if (value >= 1000) return (value / 1000).toFixed(0) + "K";
-    return String(Math.round(value));
-  }
+  function createDecorPlugin(repoLabel) {
+    return {
+      id: "visitorDecor",
+      afterDatasetsDraw: function (chart) {
+        var ctx = chart.ctx;
+        var area = chart.chartArea;
+        if (!area) return;
 
-  function chooseStepSize(maxValue) {
-    if (maxValue <= 20) return 5;
-    if (maxValue <= 100) return 10;
-    if (maxValue <= 500) return 50;
-    if (maxValue <= 1000) return 100;
-    if (maxValue <= 5000) return 500;
-    return 1000;
-  }
+        ctx.save();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = "#1f1f1f";
+        ctx.fillStyle = "#1f1f1f";
+        ctx.font = '600 16px "Segoe UI", Arial, sans-serif';
+        ctx.textBaseline = "middle";
 
-  var handDrawnDecorations = {
-    id: "handDrawnDecorations",
-    afterDatasetsDraw: function (chart, args, pluginOptions) {
-      var ctx = chart.ctx;
-      var area = chart.chartArea;
-      var label = pluginOptions.repoLabel || "repo";
-      if (!area) return;
+        var maxLabelWidth = Math.min(300, area.width * 0.45);
+        var shortLabel = fitText(ctx, repoLabel, maxLabelWidth - 26);
+        var textWidth = ctx.measureText(shortLabel).width;
+        var boxW = textWidth + 34;
+        var boxH = 32;
+        var boxX = area.left + 10;
+        var boxY = area.top + 8;
 
-      ctx.save();
-      ctx.strokeStyle = "#111";
-      ctx.fillStyle = "#111";
-      ctx.lineWidth = 2;
-      ctx.font = '24px "Patrick Hand", "Comic Sans MS", cursive';
+        ctx.strokeRect(boxX, boxY, boxW, boxH);
+        ctx.fillStyle = "#e3532f";
+        ctx.beginPath();
+        ctx.arc(boxX + 12, boxY + (boxH / 2), 5, 0, Math.PI * 2);
+        ctx.fill();
 
-      var textWidth = ctx.measureText(label).width;
-      var boxX = area.left + 12;
-      var boxY = area.top + 10;
-      var boxW = textWidth + 38;
-      var boxH = 34;
-
-      ctx.strokeRect(boxX, boxY, boxW, boxH);
-      ctx.fillStyle = "#e64a2e";
-      ctx.beginPath();
-      ctx.arc(boxX + 12, boxY + (boxH / 2), 4, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = "#111";
-      ctx.fillText(label, boxX + 22, boxY + 24);
-
-      var meta = chart.getDatasetMeta(0);
-      var lastPoint = meta && meta.data && meta.data.length ? meta.data[meta.data.length - 1] : null;
-      if (lastPoint && meta.data.length >= 3 && lastPoint.x > area.left + (area.width * 0.65)) {
-        ctx.fillStyle = "#e64a2e";
-        ctx.font = '20px "Patrick Hand", "Comic Sans MS", cursive';
-        ctx.fillText("TOP", lastPoint.x + 8, lastPoint.y - 8);
+        ctx.fillStyle = "#1f1f1f";
+        ctx.fillText(shortLabel, boxX + 22, boxY + (boxH / 2));
+        ctx.restore();
       }
-
-      ctx.restore();
-    }
-  };
+    };
+  }
 
   function renderChart(labels, values, repoLabel) {
     var canvas = document.getElementById("visitorChart");
     if (!canvas || typeof Chart === "undefined") return;
+
+    if (chartInstance) chartInstance.destroy();
+
     var maxValue = values.length ? Math.max.apply(null, values) : 0;
     var stepSize = chooseStepSize(maxValue);
-    var suggestedMax = Math.max(stepSize * 2, Math.ceil((maxValue * 1.35) / stepSize) * stepSize);
+    var suggestedMax = Math.max(stepSize * 2, Math.ceil((maxValue * 1.3) / stepSize) * stepSize);
+    var pointCount = values.length;
 
-    new Chart(canvas, {
+    chartInstance = new Chart(canvas, {
       type: "line",
       data: {
         labels: labels,
         datasets: [{
-          label: "Total Site Views",
           data: values,
-          borderColor: "#e64a2e",
-          backgroundColor: "transparent",
-          fill: false,
+          borderColor: "#e3532f",
           borderWidth: 3,
-          pointRadius: function (ctx) {
-            return ctx.dataIndex === ctx.dataset.data.length - 1 ? 4 : 0;
+          fill: false,
+          tension: 0.18,
+          pointRadius: pointCount <= 8 ? 3 : function (ctx) {
+            return ctx.dataIndex === pointCount - 1 ? 4 : 0;
           },
           pointHoverRadius: 5,
-          pointBackgroundColor: "#e64a2e",
-          tension: 0.15
+          pointBackgroundColor: "#e3532f"
         }]
       },
       options: {
         responsive: true,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
         plugins: {
-          legend: {
+          legend: { display: false },
+          title: {
             display: true,
-            position: "top",
-            labels: {
-              color: "#111",
-              font: {
-                family: "Patrick Hand, Comic Sans MS, cursive",
-                size: 16
-              },
-              boxWidth: 36
-            }
+            text: "Visitor History",
+            color: "#111",
+            font: {
+              family: "Segoe UI, Arial, sans-serif",
+              size: 24,
+              weight: "700"
+            },
+            padding: { top: 8, bottom: 14 }
           },
-          handDrawnDecorations: {
-            repoLabel: repoLabel
+          tooltip: {
+            displayColors: false,
+            callbacks: {
+              title: function (items) { return items[0].label; },
+              label: function (item) { return "Views: " + item.formattedValue; }
+            }
           }
         },
         scales: {
@@ -254,63 +240,38 @@
             title: {
               display: true,
               text: "Date",
-              color: "#111",
-              font: {
-                family: "Patrick Hand, Comic Sans MS, cursive",
-                size: 24
-              }
+              color: "#222",
+              font: { family: "Segoe UI, Arial, sans-serif", size: 16, weight: "600" }
             },
-            offset: true,
             ticks: {
-              color: "#111",
-              font: {
-                family: "Patrick Hand, Comic Sans MS, cursive",
-                size: 14
-              },
-              maxTicksLimit: 6
+              color: "#222",
+              font: { family: "Segoe UI, Arial, sans-serif", size: 13 },
+              maxTicksLimit: 8
             },
-            grid: {
-              display: false
-            },
-            border: {
-              display: true,
-              color: "#111",
-              width: 3
-            }
+            grid: { display: false },
+            border: { display: true, color: "#1f1f1f", width: 2 }
           },
           y: {
             beginAtZero: true,
             suggestedMax: suggestedMax,
+            ticks: {
+              stepSize: stepSize,
+              color: "#222",
+              font: { family: "Segoe UI, Arial, sans-serif", size: 13 },
+              callback: formatTick
+            },
             title: {
               display: true,
               text: "Site Views",
-              color: "#111",
-              font: {
-                family: "Patrick Hand, Comic Sans MS, cursive",
-                size: 24
-              }
+              color: "#222",
+              font: { family: "Segoe UI, Arial, sans-serif", size: 16, weight: "600" }
             },
-            ticks: {
-              color: "#111",
-              font: {
-                family: "Patrick Hand, Comic Sans MS, cursive",
-                size: 14
-              },
-              stepSize: stepSize,
-              callback: formatTick
-            },
-            grid: {
-              display: false
-            },
-            border: {
-              display: true,
-              color: "#111",
-              width: 3
-            }
+            grid: { display: false },
+            border: { display: true, color: "#1f1f1f", width: 2 }
           }
         }
       },
-      plugins: [handDrawnDecorations]
+      plugins: [createDecorPlugin(repoLabel)]
     });
   }
 
@@ -327,9 +288,13 @@
       }
 
       var latest = records[records.length - 1];
-      var repoLabel = (payload.site_url || "yonghao-tan.github.io").replace(/^https?:\/\//, "").replace(/\/$/, "");
+      var repoLabel = (payload.site_url || "yonghao-tan.github.io")
+        .replace(/^https?:\/\//, "")
+        .replace(/\/$/, "");
+
       setLastSnapshot(latest.date);
       setSnapshotTotals(latest);
+
       var series = buildCumulativeSeries(records);
       renderChart(series.labels, series.values, repoLabel);
     } catch (err) {
@@ -341,4 +306,3 @@
   document.addEventListener("DOMContentLoaded", initVisitorChart);
 })();
 </script>
-
