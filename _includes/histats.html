@@ -1,22 +1,10 @@
-<!-- Histats Visitor Chart -->
-{% if site.histats_id %}
-<div style="text-align: center; margin-top: 40px; padding: 10px 0;">
-  <div id="histats_counter"></div>
-  <noscript>
-    <a href="https://www.histats.com" alt="free web stats">
-      <img src="https://sstatic1.histats.com/0.gif?{{ site.histats_id }}&101" alt="free web stats" border="0">
-    </a>
-  </noscript>
-  <script type="text/javascript">
-    var _Hasync = _Hasync || [];
-    _Hasync.push(['Histats.start', '1,{{ site.histats_id }},4,0,0,0,00010000']);
-    _Hasync.push(['Histats.fasi', '1']);
-    _Hasync.push(['Histats.track_hits', '']);
-    (function() {
-      var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-      hs.src = 'https://histats.com/js/histats.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hs, s);
-    })();
-  </script>
+<!-- Busuanzi visitor statistics -->
+<div style="text-align: center; margin-top: 40px; padding: 20px 0; color: #666; font-size: 14px; border-top: 1px solid #e0e0e0;">
+  <span id="busuanzi_container_site_pv" style="margin-right: 20px;">
+    <i class="fa fa-eye"></i> Total Views: <span id="busuanzi_value_site_pv"></span>
+  </span>
+  <span id="busuanzi_container_site_uv">
+    <i class="fa fa-user"></i> Total Visitors: <span id="busuanzi_value_site_uv"></span>
+  </span>
 </div>
-{% endif %}
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

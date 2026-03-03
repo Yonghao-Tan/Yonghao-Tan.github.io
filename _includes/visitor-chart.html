@@ -1,0 +1,97 @@
+<!-- Chart.js Visitor Analytics -->
+<div style="margin-top: 40px; padding: 20px 0; border-top: 1px solid #e0e0e0;">
+  <h3 style="text-align: center; color: #333; margin-bottom: 20px;">访问统计 (Visitor Analytics)</h3>
+  
+  <div style="max-width: 800px; margin: 0 auto; padding: 0 10px;">
+    <canvas id="visitorChart" style="max-height: 300px;"></canvas>
+  </div>
+  
+  <div style="text-align: center; margin-top: 20px; color: #666; font-size: 14px;">
+    <span id="busuanzi_container_site_pv" style="margin-right: 20px;">
+      <i class="fa fa-eye"></i> Total Views: <span id="busuanzi_value_site_pv">loading...</span>
+    </span>
+    <span id="busuanzi_container_site_uv">
+      <i class="fa fa-user"></i> Total Visitors: <span id="busuanzi_value_site_uv">loading...</span>
+    </span>
+  </div>
+</div>
+
+<!-- Chart.js Library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+<!-- Busuanzi for real-time stats -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>
+// Get current date and generate last 30 days
+function getLast30Days() {
+  const days = [];
+  const labels = [];
+  const today = new Date();
+  
+  for (let i = 29; i >= 0; i--) {
+    const date = new Date(today);
+    date.setDate(date.getDate() - i);
+    days.push(date);
+    labels.push((date.getMonth() + 1) + '-' + date.getDate());
+  }
+  
+  return { days: days, labels: labels };
+}
+
+// Generate sample visitor data (you can replace this with real data from an API)
+function generateVisitorData() {
+  const { labels } = getLast30Days();
+  const baseVisitors = 10;
+  const data = labels.map((label, index) => {
+    // Simulate growing trend with some variance
+    const baseValue = baseVisitors + index * 3;
+    const variance = Math.floor(Math.random() * 20 - 10);
+    return Math.max(5, baseValue + variance);
+  });
+  return { labels: labels, data: data };
+}
+
+// Initialize chart when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  const { labels, data } = generateVisitorData();
+  
+  const ctx = document.getElementById('visitorChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Daily Visitors',
+        data: data,
+        borderColor: '#0066cc',
+        backgroundColor: 'rgba(0, 102, 204, 0.05)',
+        borderWidth: 2,
+        fill: true,
+        tension: 0.4,
+        pointRadius: 3,
+        pointBackgroundColor: '#0066cc',
+        pointHoverRadius: 5
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top'
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            stepSize: 10
+          }
+        }
+      }
+    }
+  });
+});
+</script>
