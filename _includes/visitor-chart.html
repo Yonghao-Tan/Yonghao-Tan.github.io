@@ -27,11 +27,9 @@
 <style>
   .visitor-history {
     margin-top: 42px;
-    padding: 24px 14px 8px;
+    padding: 24px 0 8px;
     border-top: 1px solid #e0e0e0;
     font-family: "Patrick Hand", "Comic Sans MS", cursive;
-    background: #f4f4f4;
-    border-radius: 12px;
   }
 
   .visitor-history__title {
@@ -46,11 +44,10 @@
     max-width: 860px;
     margin: 0 auto;
     padding: 0 10px;
-    height: 460px;
   }
 
   .visitor-history__canvas {
-    max-height: 460px;
+    max-height: 360px;
   }
 
   .visitor-history__meta {
@@ -80,12 +77,8 @@
       line-height: 1.5;
     }
 
-    .visitor-history__canvas-wrap {
-      height: 360px;
-    }
-
     .visitor-history__canvas {
-      max-height: 360px;
+      max-height: 320px;
     }
   }
 </style>
@@ -238,7 +231,7 @@
       },
       options: {
         responsive: true,
-        maintainAspectRatio: false,
+        maintainAspectRatio: true,
         plugins: {
           legend: {
             display: true,
