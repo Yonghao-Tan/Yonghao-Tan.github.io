@@ -1,11 +1,11 @@
-<div style="margin-top: 40px; padding: 20px 0; border-top: 1px solid #e0e0e0;">
-  <h3 style="text-align: center; color: #333; margin-bottom: 20px;">Visitor Analytics</h3>
+<div class="visitor-history">
+  <h3 class="visitor-history__title">Visitor History</h3>
 
-  <div style="max-width: 860px; margin: 0 auto; padding: 0 10px;">
-    <canvas id="visitorChart" style="max-height: 320px;"></canvas>
+  <div class="visitor-history__canvas-wrap">
+    <canvas id="visitorChart" class="visitor-history__canvas"></canvas>
   </div>
 
-  <div style="text-align: center; margin-top: 20px; color: #666; font-size: 14px;">
+  <div class="visitor-history__meta">
     <span id="busuanzi_container_site_pv" style="margin-right: 20px;">
       <i class="fa fa-eye"></i> Total Views: <span id="busuanzi_value_site_pv">--</span>
     </span>
@@ -16,7 +16,68 @@
       <i class="fa fa-calendar"></i> Last Snapshot: <span id="visitor_last_snapshot">--</span>
     </span>
   </div>
+
+  <div class="visitor-history__sig">visitor-history.com style</div>
 </div>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<style>
+  .visitor-history {
+    margin-top: 42px;
+    padding: 24px 0 8px;
+    border-top: 1px solid #e0e0e0;
+    font-family: "Patrick Hand", "Comic Sans MS", cursive;
+  }
+
+  .visitor-history__title {
+    text-align: center;
+    color: #111;
+    margin-bottom: 14px;
+    font-size: 36px;
+    letter-spacing: 0.5px;
+  }
+
+  .visitor-history__canvas-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+
+  .visitor-history__canvas {
+    max-height: 360px;
+  }
+
+  .visitor-history__meta {
+    text-align: center;
+    margin-top: 20px;
+    color: #555;
+    font-size: 18px;
+    letter-spacing: 0.2px;
+  }
+
+  .visitor-history__sig {
+    text-align: right;
+    max-width: 860px;
+    margin: 4px auto 0;
+    color: #6b6b6b;
+    font-size: 17px;
+    padding-right: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .visitor-history__title {
+      font-size: 30px;
+    }
+
+    .visitor-history__meta {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+</style>
 
 <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -53,7 +114,7 @@
     return parts[1] + "-" + parts[2];
   }
 
-  function buildDailySeries(records) {
+  function buildCumulativeSeries(records) {
     if (!records.length) {
       return { labels: [], values: [] };
     }
@@ -63,11 +124,8 @@
     var values = [];
 
     for (var i = start; i < records.length; i += 1) {
-      var current = records[i];
-      var previous = i > 0 ? records[i - 1] : null;
-      var dailyPv = previous ? current.site_pv - previous.site_pv : 0;
-      labels.push(formatLabel(current.date));
-      values.push(dailyPv > 0 ? dailyPv : 0);
+      labels.push(formatLabel(records[i].date));
+      values.push(records[i].site_pv);
     }
 
     return { labels: labels, values: values };
@@ -78,7 +136,61 @@
     if (el) el.textContent = text || "--";
   }
 
-  function renderChart(labels, values) {
+  function setSnapshotTotals(latest) {
+    if (!latest) return;
+    var pv = document.getElementById("busuanzi_value_site_pv");
+    var uv = document.getElementById("busuanzi_value_site_uv");
+    if (pv && (!pv.textContent || pv.textContent === "--")) pv.textContent = latest.site_pv;
+    if (uv && (!uv.textContent || uv.textContent === "--")) uv.textContent = latest.site_uv;
+  }
+
+  function formatTick(value) {
+    if (value >= 1000000) return (value / 1000000).toFixed(1) + "M";
+    if (value >= 1000) return (value / 1000).toFixed(0) + "K";
+    return value;
+  }
+
+  var handDrawnDecorations = {
+    id: "handDrawnDecorations",
+    afterDatasetsDraw: function (chart, args, pluginOptions) {
+      var ctx = chart.ctx;
+      var area = chart.chartArea;
+      var label = pluginOptions.repoLabel || "repo";
+      if (!area) return;
+
+      ctx.save();
+      ctx.strokeStyle = "#111";
+      ctx.fillStyle = "#111";
+      ctx.lineWidth = 2;
+      ctx.font = '24px "Patrick Hand", "Comic Sans MS", cursive';
+
+      var textWidth = ctx.measureText(label).width;
+      var boxX = area.left + 12;
+      var boxY = area.top + 10;
+      var boxW = textWidth + 38;
+      var boxH = 34;
+
+      ctx.strokeRect(boxX, boxY, boxW, boxH);
+      ctx.fillStyle = "#e64a2e";
+      ctx.beginPath();
+      ctx.arc(boxX + 12, boxY + (boxH / 2), 4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = "#111";
+      ctx.fillText(label, boxX + 22, boxY + 24);
+
+      var meta = chart.getDatasetMeta(0);
+      var lastPoint = meta && meta.data && meta.data.length ? meta.data[meta.data.length - 1] : null;
+      if (lastPoint) {
+        ctx.fillStyle = "#e64a2e";
+        ctx.font = '20px "Patrick Hand", "Comic Sans MS", cursive';
+        ctx.fillText("TOP", lastPoint.x + 8, lastPoint.y - 8);
+      }
+
+      ctx.restore();
+    }
+  };
+
+  function renderChart(labels, values, repoLabel) {
     var canvas = document.getElementById("visitorChart");
     if (!canvas || typeof Chart === "undefined") return;
 
@@ -87,15 +199,18 @@
       data: {
         labels: labels,
         datasets: [{
-          label: "Daily Site Views",
+          label: "Total Site Views",
           data: values,
-          borderColor: "#1769aa",
-          backgroundColor: "rgba(23, 105, 170, 0.12)",
-          fill: true,
-          borderWidth: 2,
-          pointRadius: 3,
+          borderColor: "#e64a2e",
+          backgroundColor: "transparent",
+          fill: false,
+          borderWidth: 3,
+          pointRadius: function (ctx) {
+            return ctx.dataIndex === ctx.dataset.data.length - 1 ? 4 : 0;
+          },
           pointHoverRadius: 5,
-          tension: 0.25
+          pointBackgroundColor: "#e64a2e",
+          tension: 0.15
         }]
       },
       options: {
@@ -103,28 +218,79 @@
         maintainAspectRatio: true,
         plugins: {
           legend: {
-            display: true
+            display: true,
+            position: "top",
+            labels: {
+              color: "#111",
+              font: {
+                family: "Patrick Hand, Comic Sans MS, cursive",
+                size: 18
+              },
+              boxWidth: 36
+            }
+          },
+          handDrawnDecorations: {
+            repoLabel: repoLabel
           }
         },
         scales: {
           x: {
             title: {
               display: true,
-              text: "Date (MM-DD)"
+              text: "Date",
+              color: "#111",
+              font: {
+                family: "Patrick Hand, Comic Sans MS, cursive",
+                size: 34
+              }
+            },
+            ticks: {
+              color: "#111",
+              font: {
+                family: "Patrick Hand, Comic Sans MS, cursive",
+                size: 16
+              }
+            },
+            grid: {
+              display: false
+            },
+            border: {
+              display: true,
+              color: "#111",
+              width: 3
             }
           },
           y: {
             beginAtZero: true,
             title: {
               display: true,
-              text: "Views"
+              text: "Site Views",
+              color: "#111",
+              font: {
+                family: "Patrick Hand, Comic Sans MS, cursive",
+                size: 34
+              }
             },
             ticks: {
-              precision: 0
+              color: "#111",
+              font: {
+                family: "Patrick Hand, Comic Sans MS, cursive",
+                size: 16
+              },
+              callback: formatTick
+            },
+            grid: {
+              display: false
+            },
+            border: {
+              display: true,
+              color: "#111",
+              width: 3
             }
           }
         }
-      }
+      },
+      plugins: [handDrawnDecorations]
     });
   }
 
@@ -141,9 +307,11 @@
       }
 
       var latest = records[records.length - 1];
+      var repoLabel = (payload.site_url || "yonghao-tan.github.io").replace(/^https?:\/\//, "").replace(/\/$/, "");
       setLastSnapshot(latest.date);
-      var series = buildDailySeries(records);
-      renderChart(series.labels, series.values);
+      setSnapshotTotals(latest);
+      var series = buildCumulativeSeries(records);
+      renderChart(series.labels, series.values, repoLabel);
     } catch (err) {
       setLastSnapshot("Load failed");
       console.warn("[visitor-chart]", err);
