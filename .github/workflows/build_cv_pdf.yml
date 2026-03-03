@@ -1,0 +1,48 @@
+name: Build CV PDF
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - _pages/CV.md
+      - scripts/build_cv_pdf.py
+      - .github/workflows/build_cv_pdf.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-cv-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install PDF build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc wkhtmltopdf
+
+      - name: Build CV PDF from markdown
+        run: |
+          python scripts/build_cv_pdf.py
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet -- "files/CV_Yonghao Tan.pdf" files/backups; then
+            echo "No PDF changes."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "files/CV_Yonghao Tan.pdf" files/backups
+          git commit -m "chore: rebuild CV PDF from markdown"
+          git push
