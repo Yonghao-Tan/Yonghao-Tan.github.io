@@ -13,6 +13,7 @@ google_scholar_stats_use_cdn : false
 
 # google analytics
 google_analytics_id      : G-K1GD9GDBHV
+google_analytics_property_id :  # Get your Property ID from Google Analytics (format: 123456789)
 
 # SEO Related
 google_site_verification :  # get google_site_verification from https://search.google.com/search-console/about
