@@ -1,7 +1,8 @@
 param(
   [string]$MarkdownPath = "_pages/CV.md",
   [string]$OutputPdfPath = "files/CV_Yonghao Tan.pdf",
-  [string]$BackupDir = "files/backups"
+  [string]$BackupDir = "files/backups",
+  [string]$DocumentTitle = "Yonghao Tan CV"
 )
 
 $ErrorActionPreference = "Stop"
@@ -43,6 +44,7 @@ function Get-PandocPath {
 $markdownAbs = Resolve-RepoPath $MarkdownPath
 $outputPdfAbs = Resolve-RepoPath $OutputPdfPath
 $backupDirAbs = Resolve-RepoPath $BackupDir
+$repoRoot = Split-Path -Parent $PSScriptRoot
 $outputDir = Split-Path -Parent $outputPdfAbs
 if (-not (Test-Path $outputDir)) {
   New-Item -ItemType Directory -Path $outputDir | Out-Null
@@ -65,7 +67,7 @@ $tmpHtml = Join-Path $tmpDir "cv.html"
 
 $css = @"
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
   line-height: 1.45;
   color: #222;
   margin: 32px 38px;
@@ -93,13 +95,34 @@ p {
 a {
   color: #145ea8;
 }
+.cv-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+.cv-header-main {
+  flex: 1;
+  min-width: 0;
+}
+.cv-header-main ul {
+  margin-top: 0.35em;
+}
+.cv-header-photo {
+  flex: 0 0 auto;
+}
+.cv-photo {
+  width: 118px;
+  height: auto;
+  border: 1px solid #d9d9d9;
+}
 "@
 
 Set-Content -Path $tmpMd -Value $body -Encoding UTF8
 Set-Content -Path $tmpCss -Value $css -Encoding UTF8
 
 $pandoc = Get-PandocPath
-& $pandoc $tmpMd -f markdown -t html5 --standalone --metadata title="Yonghao Tan CV" --css $tmpCss -o $tmpHtml
+& $pandoc $tmpMd -f markdown -t html5 --standalone --self-contained "--resource-path=$repoRoot" --metadata "title=$DocumentTitle" --css $tmpCss -o $tmpHtml
 
 if (Test-Path $outputPdfAbs) {
   if (-not (Test-Path $backupDirAbs)) {
@@ -114,7 +137,7 @@ if (Test-Path $outputPdfAbs) {
 
 $browser = Get-BrowserPath
 $fileUrl = "file:///" + ($tmpHtml -replace "\\", "/")
-& $browser --headless --disable-gpu --no-first-run --no-default-browser-check "--print-to-pdf=$outputPdfAbs" $fileUrl | Out-Null
+& $browser --headless --disable-gpu --no-first-run --no-default-browser-check --no-pdf-header-footer "--print-to-pdf=$outputPdfAbs" $fileUrl | Out-Null
 
 $ok = $false
 for ($i = 0; $i -lt 60; $i++) {

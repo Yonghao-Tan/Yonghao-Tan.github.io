@@ -134,6 +134,20 @@ Pingcheng Dong\*, **Yonghao Tan\***, Dong Zhang, Tianwei Ni, Xuejiao Liu, Yu Liu
 
 <!-- - [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020** -->
 
+# 📚 Research Projects
+- Hybrid Bonding based co-design AI accelerator (AC-RHB)
+  - Co-design optimization for LLMs
+  - Implement the AI-core and RERAM with 55nm die-on-wafer stacking via bumping process
+
+- Transformer based co-design AI accelerator (AC-Transformer)
+  - Hardware/Software collaborative optimization of Transformer-based architecture
+  - Implement an energy-efficient Transformer-based accelerator for semantic segmentation with 28nm ASIC process
+
+- ASIC design of SLAM accelerator in 28nm CMOS technology
+  - Propose a reconfigurable visual-inertial odometry accelerator and implemented it on FPGA platform which can process data from image sensor and inertial measurement unit for trajectory output in real-time at 160MHz and 110fps
+  - Optimize the hardware architecture and perform back-end design for ASIC development
+
+
 # 🎖 Honors and Awards
 - *2025.08* Best Teaching Assistant Award of ECE Department in HKUST
 - *2023.05* Outstanding graduates at the school level of SUSTech
@@ -159,19 +173,6 @@ Pingcheng Dong\*, **Yonghao Tan\***, Dong Zhang, Tianwei Ni, Xuejiao Liu, Yu Liu
 - *2019.05 - 2020.02*, [Lorem](https://github.com/), China. -->
 <!-- - files: set up /files/ and put files into it -->
 <!-- # 📚 [CV](https://Yonghao-Tan.github.io/files/CV_YonghaoTan.pdf) -->
-
-# 📚 Research Projects
-- Hybrid Bonding based co-design AI accelerator (AC-RHB)
-  - Co-design optimization for LLMs
-  - Implement the AI-core and RERAM with 55nm die-on-wafer stacking via bumping process
-
-- Transformer based co-design AI accelerator (AC-Transformer)
-  - Hardware/Software collaborative optimization of Transformer-based architecture
-  - Implement an energy-efficient Transformer-based accelerator for semantic segmentation with 28nm ASIC process
-
-- ASIC design of SLAM accelerator in 28nm CMOS technology
-  - Propose a reconfigurable visual-inertial odometry accelerator and implemented it on FPGA platform which can process data from image sensor and inertial measurement unit for trajectory output in real-time at 160MHz and 110fps
-  - Optimize the hardware architecture and perform back-end design for ASIC development
 
 # 😀 Teaching Assistant
 - ELEC2350: Introduction to Computer Organization and Design (2025 Fall)

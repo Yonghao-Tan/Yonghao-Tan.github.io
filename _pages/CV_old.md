@@ -54,6 +54,21 @@ redirect_from:
 - Hardware/software collaborative optimization of Transformer-based architecture.
 - Implement an energy-efficient Transformer-based accelerator for semantic segmentation with 28nm ASIC process.
 
+### ASIC Design of SLAM Accelerator in 28nm CMOS Technology
+- **Date:** Oct. 2021 - Jun. 2023
+- **Affiliation:** Southern University of Science and Technology, Shenzhen, China
+- **Mentor:** Prof. Fengwei An
+- Propose a reconfigurable visual-inertial odometry accelerator and implement it on FPGA.
+- Process data from image sensor and inertial measurement unit for real-time trajectory output at 160MHz and 110fps.
+- Optimize hardware architecture and perform back-end design for ASIC development.
+
+### Reconfigurable SLAM Coprocessor
+- **Date:** Jan. 2021 - Oct. 2021
+- **Affiliation:** Southern University of Science and Technology, Shenzhen, China
+- **Mentor:** Prof. Fengwei An
+- Investigate and co-optimize SLAM algorithms and their operations.
+- Propose a reconfigurable coprocessor with an instruction set that supports full functionality of operations in SLAM algorithms.
+
 ## Publications
 
 - **2026** Tan, Y.\*, Ma, S.\*, Dong, P., Luo, P., Lei, Z., Lu, W., Ying, G., ... & Cheng, K. T.  

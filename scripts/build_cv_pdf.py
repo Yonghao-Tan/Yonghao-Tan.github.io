@@ -40,6 +40,7 @@ def main() -> int:
     parser.add_argument("--markdown", default="_pages/CV.md", help="Path to markdown CV source.")
     parser.add_argument("--output", default="files/CV_Yonghao Tan.pdf", help="Path to output PDF.")
     parser.add_argument("--backup-dir", default="files/backups", help="Directory for PDF backups.")
+    parser.add_argument("--title", default="Yonghao Tan CV", help="Document title metadata.")
     args = parser.parse_args()
 
     repo_root = Path(__file__).resolve().parents[1]
@@ -67,7 +68,7 @@ def main() -> int:
 
         css_text = """\
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
   line-height: 1.45;
   color: #222;
   margin: 32px 38px;
@@ -95,6 +96,27 @@ p {
 a {
   color: #145ea8;
 }
+.cv-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+.cv-header-main {
+  flex: 1;
+  min-width: 0;
+}
+.cv-header-main ul {
+  margin-top: 0.35em;
+}
+.cv-header-photo {
+  flex: 0 0 auto;
+}
+.cv-photo {
+  width: 118px;
+  height: auto;
+  border: 1px solid #d9d9d9;
+}
 """
 
         temp_md.write_text(markdown_body, encoding="utf-8")
@@ -109,8 +131,11 @@ a {
                 "-t",
                 "html5",
                 "--standalone",
+                "--self-contained",
+                "--resource-path",
+                str(repo_root),
                 "--metadata",
-                "title=Yonghao Tan CV",
+                f"title={args.title}",
                 "--css",
                 str(temp_css),
                 "-o",
