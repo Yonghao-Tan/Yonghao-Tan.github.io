@@ -22,7 +22,9 @@ layout: compress
         <div class="page__inner-wrap">
           <section class="page__content" itemprop="text">
             {{ content }}
-            {% include visitor-chart.html %}
+            {% if page.show_visitor_chart %}
+              {% include visitor-chart.html %}
+            {% endif %}
           </section>
         </div>
       </article>

@@ -1,11 +1,9 @@
 ---
 layout: archive
-title: "CV"
-permalink: /cv/
+title: "CV (Legacy)"
+permalink: /cv-legacy/
 author_profile: true
-redirect_from:
-  - /about/
-  - /about.html
+published: false
 ---
 
 ## Yonghao Tan

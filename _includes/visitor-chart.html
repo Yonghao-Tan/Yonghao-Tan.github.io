@@ -6,11 +6,11 @@
   </div>
 
   <div class="visitor-chart-meta">
-    <span class="visitor-chip" id="busuanzi_container_site_pv">
-      <i class="fa fa-eye"></i> Total Views: <span id="busuanzi_value_site_pv">--</span>
+    <span class="visitor-chip">
+      <i class="fa fa-eye"></i> Total Views: <span id="visitor_total_views">--</span>
     </span>
-    <span class="visitor-chip" id="busuanzi_container_site_uv">
-      <i class="fa fa-user"></i> Total Visitors: <span id="busuanzi_value_site_uv">--</span>
+    <span class="visitor-chip">
+      <i class="fa fa-user"></i> Total Visitors: <span id="visitor_total_visitors">--</span>
     </span>
     <span class="visitor-chip">
       <i class="fa fa-calendar"></i> Last Snapshot: <span id="visitor_last_snapshot">--</span>
@@ -98,7 +98,6 @@
 </style>
 
 <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
 (function () {
   var MAX_DAYS = 90;
@@ -175,10 +174,10 @@
 
   function setSnapshotTotals(latest) {
     if (!latest) return;
-    var pv = document.getElementById("busuanzi_value_site_pv");
-    var uv = document.getElementById("busuanzi_value_site_uv");
-    if (pv && (!pv.textContent || pv.textContent === "--")) pv.textContent = latest.site_pv;
-    if (uv && (!uv.textContent || uv.textContent === "--")) uv.textContent = latest.site_uv;
+    var pv = document.getElementById("visitor_total_views");
+    var uv = document.getElementById("visitor_total_visitors");
+    if (pv) pv.textContent = latest.site_pv;
+    if (uv) uv.textContent = latest.site_uv;
   }
 
   function renderChart(labels, values) {

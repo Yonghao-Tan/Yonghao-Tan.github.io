@@ -11,9 +11,26 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List
 from urllib.error import HTTPError, URLError
+from urllib.parse import urlparse, urlunparse
 from urllib.request import Request, urlopen
 
 BUSUANZI_ENDPOINT = "https://busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback"
+
+
+def normalize_site_url(site_url: str) -> str:
+    raw = (site_url or "").strip()
+    if not raw:
+        raw = "https://yonghao-tan.github.io/"
+    if "://" not in raw:
+        raw = "https://" + raw
+
+    parsed = urlparse(raw)
+    scheme = parsed.scheme or "https"
+    netloc = parsed.netloc.lower()
+    path = parsed.path or "/"
+    if not path.endswith("/"):
+        path = path + "/"
+    return urlunparse((scheme, netloc, path, "", "", ""))
 
 
 def fetch_busuanzi_snapshot(site_url: str) -> Dict[str, int]:
@@ -70,6 +87,13 @@ def upsert_record(records: List[Dict[str, Any]], snapshot: Dict[str, Any], keep_
     by_date[snapshot["date"]] = snapshot
 
     ordered = [by_date[key] for key in sorted(by_date.keys())]
+    previous = None
+    for item in ordered:
+        if previous:
+            item["site_pv"] = max(int(item.get("site_pv", 0)), int(previous.get("site_pv", 0)))
+            item["site_uv"] = max(int(item.get("site_uv", 0)), int(previous.get("site_uv", 0)))
+            item["page_pv"] = max(int(item.get("page_pv", 0)), int(previous.get("page_pv", 0)))
+        previous = item
     if keep_days > 0:
         ordered = ordered[-keep_days:]
     return ordered
@@ -81,7 +105,9 @@ def main() -> int:
     output_path = (repo_root / output_rel).resolve()
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    site_url = os.environ.get("VISITOR_STATS_SITE_URL", "https://yonghao-tan.github.io/")
+    site_url = normalize_site_url(
+        os.environ.get("VISITOR_STATS_SITE_URL", "https://yonghao-tan.github.io/")
+    )
     snapshot_date = os.environ.get(
         "VISITOR_STATS_DATE", datetime.now(timezone.utc).strftime("%Y-%m-%d")
     )

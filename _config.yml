@@ -6,9 +6,11 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Yonghao\n (谭雍昊)"
-description              : "PhD candidate at HKUST. Focusing on software/hardware co-design AI chip, LLM/VLM, and 3d processing."
+title                    : "Yonghao Tan (谭雍昊)"
+description              : "PhD candidate at HKUST working on software-hardware co-design, AI chips, LLM/VLM acceleration, and 3D processing."
 repository               : "Yonghao-Tan/Yonghao-Tan.github.io"
+url                      : "https://yonghao-tan.github.io"
+baseurl                  : ""
 google_scholar_stats_use_cdn : false
 
 # google analytics
@@ -24,14 +26,14 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Yonghao Tan (谭雍昊)"
   avatar           : "images/bio.jpeg"
-  bio              : "The Hong Kong University of Science and Technology"
+  bio              : "PhD Candidate, Electronic and Computer Engineering, HKUST"
   location         : "Hong Kong SAR, China"
   employer         :
-  pubmed           : 
-  googlescholar    : "https://scholar.google.com/citations?user=user=o-J8B_4AAAAJ"
+  pubmed           :
+  googlescholar    : "https://scholar.google.com/citations?user=o-J8B_4AAAAJ"
   email            : "ytanaz@connect.ust.hk"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
-  uri              :
+  uri              : "https://yonghao-tan.github.io/"
   bitbucket        :
   codepen          :
   dribbble         :
@@ -52,12 +54,13 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : 
+  twitter          :
   vine             :
   weibo            :
   xing             :
   youtube          :
   wikipedia        :
+
 # Reading Files
 include:
   - .htaccess

@@ -22,7 +22,7 @@ jobs:
 
       - name: Collect daily snapshot
         env:
-          VISITOR_STATS_SITE_URL: ${{ vars.VISITOR_STATS_SITE_URL || format('https://{0}.github.io/', github.repository_owner) }}
+          VISITOR_STATS_SITE_URL: ${{ vars.VISITOR_STATS_SITE_URL || 'https://yonghao-tan.github.io/' }}
         run: |
           python scripts/collect_visitor_stats.py
 

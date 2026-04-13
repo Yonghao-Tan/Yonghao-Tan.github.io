@@ -1,11 +1,9 @@
 ---
 layout: archive
-title: "CV"
+title: "Curriculum Vitae"
 permalink: /cv/
 author_profile: true
-redirect_from:
-  - /about/
-  - /about.html
+description: "Curriculum Vitae of Yonghao Tan."
 ---
 
 ## Yonghao Tan
