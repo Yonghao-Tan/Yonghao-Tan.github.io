@@ -31,26 +31,26 @@ description: "Curriculum Vitae of Yonghao Tan."
 
 ## Research Experience
 
-### SLAM-Based Co-Design Embodied AI Chip
+### 5nm UCIe-Enabled Multi-Chiplet Generalizable Rendering Processor
 - **Date:** Jan. 2025 - Present
 - **Affiliation:** AI Chip Center for Emerging Smart Systems, Hong Kong, China
-- **Mentor:** Prof. Tim CHENG Kwang-Ting
-- Integrate SLAM into a novel embodied AI system.
-- Co-design exploration of heterogenous SLAM and AI computing core design.
+- Architected a 5nm 4-chiplet GeNeRF processor for generalizable rendering to address the heavy external-memory traffic induced by multi-view feature fetching.
+- Introduced a UCIe-enabled cross-die unified cache, distributed source-view management, and balance-aware scheduling to maximize source-view reuse while reducing off-chip and cross-die data movement.
+- Silicon results reached 91.43 TOPS/W, 55.43 FPS real-time rendering, and 0.29 uJ/pixel through hierarchical sparsity and hybrid NeRF-SR execution in a 45 mm x 45 mm MCM package footprint.
 
-### Hybrid Bonding Based Co-Design AI Accelerator
+### 55nm ReRAM-on-Logic Stacked LLM Accelerator for Speculative Decoding
 - **Date:** Apr. 2024 - Present
 - **Affiliation:** AI Chip Center for Emerging Smart Systems, Hong Kong, China
-- **Mentor:** Prof. Tim CHENG Kwang-Ting
-- Co-design optimization for LLMs.
-- Implement the AI-core and ReRAM with 55nm die-on-wafer stacking via bumping process.
+- Architected a 55nm edge LLM accelerator whose logic die is stacked with four ReRAM dies via face-to-face bump bonding to support in-stack storage of draft-model codebooks.
+- Developed block-clustered weight compression, local-rotation-based outlier-free W4A8 quantization, and adaptive parallel speculative decoding to reduce both target-model EMA and rejected-draft overhead.
+- The prototype delivered 14.08 to 135.69 token/s and a 4.46x to 7.17x throughput speedup over a BF16 speculative-decoding baseline on a 55.98 mm² logic die.
 
-### Transformer Based Co-Design AI Accelerator
+### 28nm CNN-Transformer Accelerator for Semantic Segmentation
 - **Date:** Nov. 2021 - Sept. 2024
 - **Affiliation:** AI Chip Center for Emerging Smart Systems, Hong Kong, China
-- **Mentor:** Prof. Tim CHENG Kwang-Ting
-- Hardware/software collaborative optimization of Transformer-based architecture.
-- Implement an energy-efficient Transformer-based accelerator for semantic segmentation with 28nm ASIC process.
+- Architected a 28nm memory-compute-intensity-aware accelerator for high-resolution ConvFormer and SegFormer semantic-segmentation workloads.
+- Combined hybrid-attention processing, data-reuse-oriented layer fusion, and cascaded feature-map pruning to reduce attention-side EMA and eliminate redundant KV and weight movement across fused blocks.
+- Silicon results achieved 0.22 uJ/token on SegFormer-B0 and up to 52.90 TOPS/W peak efficiency in a 13.93 mm² chip.
 
 ## Publications
 
@@ -75,21 +75,20 @@ description: "Curriculum Vitae of Yonghao Tan."
   IEEE Transactions on Circuits and Systems II: Express Briefs, 70(1), 286-290.
 
 - **2022** Tan, Y.\*, Sun, M.\*, Deng, H., Wu, H., Zhou, M., Chen, Y., ... & An, F.  
-  *A Reconfigurable Visual-Inertial Odometry Accelerated Core with High Area and Energy Efficiency for Autonomous Mobile Robots*.  
+  *A Reconfigurable Visual-Inertial Odometry Accelerator with High Area and Energy Efficiency for Autonomous Mobile Robots*.  
   Sensors, 22(19), 7669.
 
 \* Authors marked with an asterisk contributed equally to the corresponding work.
 
 ## Honors and Awards
 
-- Oct. 2022: First-class Outstanding Students Scholarship (Top 5% in SUSTech)
-- May 2022: Successful Participant in Mathematical Contest in Modeling
-- Dec. 2021: Shenzhen Longsys Electronics Company Award (Top 2% in School of Microelectronics)
-- Dec. 2021: First Prize, 2021 National College Students FPGA Innovation Design Competition (Top 22 in 1341 teams)
-- Oct. 2021: First Prize, 2021 International Competition of Autonomous Running Robots (Top 1 of 34 teams in final match)
-- Oct. 2021: Second-class Outstanding Students Scholarship
-- Mar. 2021: Third Prize, 2020 Asia and Pacific Mathematical Contest in Modeling
-- Oct. 2020: Second-class Outstanding Students Scholarship
+- Aug. 2025: Best Teaching Assistant Award, Department of Electronic and Computer Engineering, HKUST
+- May 2023: Outstanding Graduate (School Level), SUSTech
+- Sept. 2022: First-Class Outstanding Students Scholarship with the highest score
+- Apr. 2022: Undergraduate Innovation and Entrepreneurship Training Program
+- Dec. 2021: Shenzhen Longsys Electronics Company Award (Top 2% in the School of Microelectronics)
+- Dec. 2021: First Prize, 2021 National College Students FPGA Innovation Design Competition (Top 22 out of 1,341 teams)
+- Oct. 2021: First Prize, 2021 International Competition of Autonomous Running Robots (1st place out of 34 finalist teams)
 
 ## Fundings
 

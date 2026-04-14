@@ -39,6 +39,24 @@ My research interests include software-hardware co-design, AI accelerators, LLM/
 - *2021.12*: Our team won the first prize in the 2021 National College Students FPGA Innovation Design Competition.
 - *2021.10*: Our team won the first prize in the 2021 International Competition of Autonomous Running Robots.
 
+<span class='anchor' id='research-projects'></span>
+# Research Projects
+
+- **5nm UCIe-Enabled Multi-Chiplet Generalizable Rendering Processor** (*Jan. 2025 - Present*)
+  - Architected a 5nm 4-chiplet GeNeRF processor for generalizable rendering to address the heavy external-memory traffic induced by multi-view feature fetching.
+  - Introduced a UCIe-enabled cross-die unified cache, distributed source-view management, and balance-aware scheduling to maximize source-view reuse while reducing off-chip and cross-die data movement.
+  - Silicon results reached 91.43 TOPS/W, 55.43 FPS real-time rendering, and 0.29 uJ/pixel through hierarchical sparsity and hybrid NeRF-SR execution in a 45 mm x 45 mm MCM package footprint.
+
+- **55nm ReRAM-on-Logic Stacked LLM Accelerator for Speculative Decoding** (*Apr. 2024 - Present*)
+  - Architected a 55nm edge LLM accelerator whose logic die is stacked with four ReRAM dies via face-to-face bump bonding to support in-stack storage of draft-model codebooks.
+  - Developed block-clustered weight compression, local-rotation-based outlier-free W4A8 quantization, and adaptive parallel speculative decoding to reduce both target-model EMA and rejected-draft overhead.
+  - The prototype delivered 14.08 to 135.69 token/s and a 4.46x to 7.17x throughput speedup over a BF16 speculative-decoding baseline on a 55.98 mm² logic die.
+
+- **28nm CNN-Transformer Accelerator for Semantic Segmentation** (*Nov. 2021 - Sept. 2024*)
+  - Architected a 28nm memory-compute-intensity-aware accelerator for high-resolution ConvFormer and SegFormer semantic-segmentation workloads.
+  - Combined hybrid-attention processing, data-reuse-oriented layer fusion, and cascaded feature-map pruning to reduce attention-side EMA and eliminate redundant KV and weight movement across fused blocks.
+  - Silicon results achieved 0.22 uJ/token on SegFormer-B0 and up to 52.90 TOPS/W peak efficiency in a 13.93 mm² chip.
+
 <span class='anchor' id='publications'></span>
 # Publications
 
@@ -100,42 +118,15 @@ Pingcheng Dong\*, **Yonghao Tan\***, Dong Zhang, Tianwei Ni, Xuejiao Liu, Yu Liu
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge"><a href="https://www.mdpi.com/journal/sensors" style="color: white; text-decoration:none">Sensors</a></div><img src='{{ "/images/Sensors.png" | relative_url }}' alt="Sensors paper thumbnail" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-[A Reconfigurable Visual-Inertial Odometry Accelerator with High Area and Energy Efficiency for Autonomous Mobile Robots](https://www.mdpi.com/1424-8220/22/19/7669)
-
-**Yonghao Tan\***, Mengying Sun\*, Huanshihong Deng, Haihan Wu, Minghao Zhou, Yifei Chen, Zhuo Yu, Qinghan Zeng, Ping Li, Lei Chen, Fengwei An
-
-*Equal contribution.*
-</div>
-</div>
-
-<span class='anchor' id='research-projects'></span>
-# Research Projects
-- Hybrid Bonding based co-design AI accelerator (AC-RHB)
-  - Co-design optimization for LLMs.
-  - Implement the AI core and ReRAM with 55nm die-on-wafer stacking via bumping process.
-
-- Transformer based co-design AI accelerator (AC-Transformer)
-  - Hardware-software collaborative optimization of Transformer-based architectures.
-  - Implement an energy-efficient Transformer accelerator for semantic segmentation in 28nm ASIC technology.
-
-- ASIC design of a SLAM accelerator in 28nm CMOS technology
-  - Propose a reconfigurable visual-inertial odometry accelerator implemented on FPGA for real-time trajectory output at 160MHz and 110fps.
-  - Optimize the hardware architecture and complete the back-end design for ASIC development.
-
 <span class='anchor' id='honors-and-awards'></span>
 # Honors and Awards
-- *2025.08* Best Teaching Assistant Award of the ECE Department, HKUST
-- *2023.05* Outstanding Graduate at the School Level, SUSTech
+- *2025.08* Best Teaching Assistant Award, Department of Electronic and Computer Engineering, HKUST
+- *2023.05* Outstanding Graduate (School Level), SUSTech
 - *2022.09* First-Class Outstanding Students Scholarship with the highest score
 - *2022.04* Undergraduate Innovation and Entrepreneurship Training Program
 - *2021.12* [Shenzhen Longsys Electronics Company Award](https://mp.weixin.qq.com/s/VHIBf6Eoyta85k2y93iQDQ) (Top 2% in the School of Microelectronics)
-- *2021.12* [First Prize, 2021 National College Students FPGA Innovation Design Competition](https://sme.sustech.edu.cn/index/news/neiye/id/501.html) (Top 22 out of 1341 teams)
+- *2021.12* [First Prize, 2021 National College Students FPGA Innovation Design Competition](https://sme.sustech.edu.cn/index/news/neiye/id/501.html) (Top 22 out of 1,341 teams)
 - *2021.10* [First Prize, 2021 International Competition of Autonomous Running Robots](https://newshub.sustech.edu.cn/html/202110/41348.html) (1st place out of 34 finalist teams)
-- *2021.09* Second-Class Outstanding Students Scholarship
-- *2021.07* Guangdong College Students' Scientific and Technological Innovation Program
-- *2020.09* Second-Class Outstanding Students Scholarship
 
 <span class='anchor' id='education'></span>
 # Education
