@@ -45,9 +45,13 @@ $markdownAbs = Resolve-RepoPath $MarkdownPath
 $outputPdfAbs = Resolve-RepoPath $OutputPdfPath
 $backupDirAbs = Resolve-RepoPath $BackupDir
 $repoRoot = Split-Path -Parent $PSScriptRoot
+$cssAbs = Join-Path $repoRoot "assets\css\cv-pdf.css"
 $outputDir = Split-Path -Parent $outputPdfAbs
 if (-not (Test-Path $outputDir)) {
   New-Item -ItemType Directory -Path $outputDir | Out-Null
+}
+if (-not (Test-Path $cssAbs)) {
+  throw "Cannot find CV PDF stylesheet: $cssAbs"
 }
 
 $raw = Get-Content -Raw -Encoding UTF8 -Path $markdownAbs
@@ -62,67 +66,12 @@ $tmpDir = Join-Path $env:TEMP ("cv-build-" + [guid]::NewGuid().ToString("N"))
 New-Item -ItemType Directory -Path $tmpDir | Out-Null
 
 $tmpMd = Join-Path $tmpDir "cv.md"
-$tmpCss = Join-Path $tmpDir "cv.css"
 $tmpHtml = Join-Path $tmpDir "cv.html"
 
-$css = @"
-body {
-  font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
-  line-height: 1.45;
-  color: #222;
-  margin: 32px 38px;
-  font-size: 12pt;
-}
-h1, h2, h3 {
-  color: #111;
-  margin-top: 0.9em;
-  margin-bottom: 0.35em;
-}
-h2 {
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 4px;
-}
-ul {
-  margin-top: 0.25em;
-  margin-bottom: 0.5em;
-}
-li {
-  margin-bottom: 0.2em;
-}
-p {
-  margin: 0.3em 0;
-}
-a {
-  color: #145ea8;
-}
-.cv-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 20px;
-}
-.cv-header-main {
-  flex: 1;
-  min-width: 0;
-}
-.cv-header-main ul {
-  margin-top: 0.35em;
-}
-.cv-header-photo {
-  flex: 0 0 auto;
-}
-.cv-photo {
-  width: 118px;
-  height: auto;
-  border: 1px solid #d9d9d9;
-}
-"@
-
 Set-Content -Path $tmpMd -Value $body -Encoding UTF8
-Set-Content -Path $tmpCss -Value $css -Encoding UTF8
 
 $pandoc = Get-PandocPath
-& $pandoc $tmpMd -f markdown -t html5 --standalone --self-contained "--resource-path=$repoRoot" --metadata "title=$DocumentTitle" --css $tmpCss -o $tmpHtml
+& $pandoc $tmpMd -f markdown -t html5 --standalone --self-contained "--resource-path=$repoRoot" --metadata "title=$DocumentTitle" --css $cssAbs -o $tmpHtml
 
 if (Test-Path $outputPdfAbs) {
   if (-not (Test-Path $backupDirAbs)) {

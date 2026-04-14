@@ -1,0 +1,292 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.45;
+  color: #1f2933;
+  margin: 26px 30px;
+  font-size: 11.5pt;
+}
+
+a {
+  color: #114c86;
+  text-decoration: none;
+}
+
+p,
+li {
+  line-height: 1.5;
+}
+
+.cv-shell {
+  width: 100%;
+}
+
+.cv-hero {
+  padding: 18px 22px;
+  border: 1px solid #d3dcea;
+  border-radius: 16px;
+  background: #f4f7fb;
+}
+
+.cv-hero__eyebrow,
+.cv-section__eyebrow {
+  margin: 0;
+  color: #56708a;
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cv-hero__name {
+  margin: 6px 0 0;
+  color: #102d4b;
+  font-size: 24pt;
+  line-height: 1.05;
+}
+
+.cv-hero__title,
+.cv-hero__summary {
+  margin: 8px 0 0;
+  color: #445566;
+}
+
+.cv-chip-list {
+  margin-top: 10px;
+}
+
+.cv-chip {
+  display: inline-block;
+  margin: 0 6px 6px 0;
+  padding: 5px 10px;
+  border: 1px solid #d8e3f0;
+  border-radius: 999px;
+  color: #214868;
+  background: #eef4fb;
+  font-size: 9pt;
+  font-weight: 700;
+}
+
+.cv-hero__panel {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #d7deea;
+}
+
+.cv-contact-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cv-contact-list li {
+  margin-bottom: 8px;
+}
+
+.cv-contact__label {
+  display: block;
+  color: #6d7b89;
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cv-contact__value {
+  color: #183b5d;
+  font-weight: 700;
+}
+
+.cv-action-row {
+  display: none;
+}
+
+.cv-layout {
+  margin-top: 16px;
+}
+
+.cv-column + .cv-column {
+  margin-top: 16px;
+}
+
+.cv-section {
+  margin-top: 16px;
+  padding: 14px 18px;
+  border: 1px solid #d7deea;
+  border-radius: 14px;
+  background: #ffffff;
+  page-break-inside: avoid;
+}
+
+.cv-section:first-child {
+  margin-top: 0;
+}
+
+.cv-section__title {
+  margin: 2px 0 0;
+  color: #102d4b;
+  font-size: 15pt;
+}
+
+.cv-entry,
+.cv-publication,
+.cv-list li {
+  padding-top: 12px;
+  margin-top: 12px;
+  border-top: 1px solid #e1e7f0;
+}
+
+.cv-entry:first-of-type,
+.cv-publication:first-of-type,
+.cv-list li:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.cv-entry__head {
+  margin-bottom: 6px;
+}
+
+.cv-entry__title {
+  margin: 0;
+  color: #1d2b38;
+  font-size: 12pt;
+}
+
+.cv-entry__subtitle,
+.cv-entry__note,
+.cv-publication__authors,
+.cv-publication__venue-text,
+.cv-footnote,
+.cv-list__detail,
+.cv-skill-group p {
+  color: #5f6976;
+}
+
+.cv-entry__subtitle {
+  margin: 4px 0 0;
+}
+
+.cv-entry__date {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  color: #244868;
+  background: #edf3fa;
+  font-size: 9pt;
+  font-weight: 700;
+}
+
+.cv-bullet-list {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.cv-bullet-list li {
+  margin-bottom: 4px;
+}
+
+.cv-fact-grid {
+  margin-top: 10px;
+}
+
+.cv-fact {
+  display: inline-block;
+  min-width: 140px;
+  margin: 0 10px 10px 0;
+  padding: 8px 10px;
+  border: 1px solid #dce5f2;
+  border-radius: 10px;
+  background: #f7fafd;
+}
+
+.cv-fact__label {
+  display: block;
+  margin-bottom: 2px;
+  color: #6d7b89;
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cv-fact__value {
+  color: #123a63;
+  font-weight: 800;
+}
+
+.cv-publication-list,
+.cv-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cv-publication__meta {
+  margin-bottom: 6px;
+}
+
+.cv-publication__year,
+.cv-publication__venue {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 8.5pt;
+  font-weight: 800;
+}
+
+.cv-publication__year {
+  color: #ffffff;
+  background: #123a63;
+}
+
+.cv-publication__venue {
+  color: #244868;
+  background: #edf3fa;
+}
+
+.cv-publication__title,
+.cv-publication__authors,
+.cv-publication__venue-text {
+  margin: 0;
+}
+
+.cv-publication__title {
+  color: #1d2b38;
+  font-weight: 700;
+}
+
+.cv-publication__venue-text {
+  margin-top: 4px;
+}
+
+.cv-list__date {
+  display: block;
+  margin-bottom: 3px;
+  color: #123a63;
+  font-weight: 800;
+}
+
+.cv-skill-grid {
+  margin-top: 0;
+}
+
+.cv-skill-group {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: 1px solid #dce5f2;
+  border-radius: 10px;
+  background: #f7fafd;
+}
+
+.cv-skill-group:first-child {
+  margin-top: 0;
+}
+
+.cv-skill-group h3 {
+  margin: 0 0 4px;
+  color: #123a63;
+  font-size: 10pt;
+}

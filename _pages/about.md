@@ -42,12 +42,12 @@ My research interests include software-hardware co-design, AI accelerators, LLM/
 <span class='anchor' id='research-projects'></span>
 # Research Projects
 
-- **5nm UCIe-Enabled Multi-Chiplet Generalizable Rendering Processor** (*Jan. 2025 - Present*)
+- **5nm UCIe-Enabled Multi-Chiplet Generalizable Rendering Processor** (*Mar. 2024 - Sept. 2025*)
   - Architected a 5nm 4-chiplet GeNeRF processor for generalizable rendering to address the heavy external-memory traffic induced by multi-view feature fetching.
   - Introduced a UCIe-enabled cross-die unified cache, distributed source-view management, and balance-aware scheduling to maximize source-view reuse while reducing off-chip and cross-die data movement.
   - Silicon results reached 91.43 TOPS/W, 55.43 FPS real-time rendering, and 0.29 uJ/pixel through hierarchical sparsity and hybrid NeRF-SR execution in a 45 mm x 45 mm MCM package footprint.
 
-- **55nm ReRAM-on-Logic Stacked LLM Accelerator for Speculative Decoding** (*Apr. 2024 - Present*)
+- **55nm ReRAM-on-Logic Stacked LLM Accelerator for Speculative Decoding** (*Apr. 2024 - Aug. 2025*)
   - Architected a 55nm edge LLM accelerator whose logic die is stacked with four ReRAM dies via face-to-face bump bonding to support in-stack storage of draft-model codebooks.
   - Developed block-clustered weight compression, local-rotation-based outlier-free W4A8 quantization, and adaptive parallel speculative decoding to reduce both target-model EMA and rejected-draft overhead.
   - The prototype delivered 14.08 to 135.69 token/s and a 4.46x to 7.17x throughput speedup over a BF16 speculative-decoding baseline on a 55.98 mm² logic die.

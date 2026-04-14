@@ -47,9 +47,12 @@ def main() -> int:
     markdown_path = (repo_root / args.markdown).resolve()
     output_pdf = (repo_root / args.output).resolve()
     backup_dir = (repo_root / args.backup_dir).resolve()
+    css_path = (repo_root / "assets/css/cv-pdf.css").resolve()
 
     if not markdown_path.exists():
         raise RuntimeError(f"Markdown file not found: {markdown_path}")
+    if not css_path.exists():
+        raise RuntimeError(f"CSS file not found: {css_path}")
 
     output_pdf.parent.mkdir(parents=True, exist_ok=True)
     backup_dir.mkdir(parents=True, exist_ok=True)
@@ -63,64 +66,9 @@ def main() -> int:
     with tempfile.TemporaryDirectory(prefix="cv-build-") as temp_dir:
         temp_path = Path(temp_dir)
         temp_md = temp_path / "cv.md"
-        temp_css = temp_path / "cv.css"
         temp_html = temp_path / "cv.html"
 
-        css_text = """\
-body {
-  font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
-  line-height: 1.45;
-  color: #222;
-  margin: 32px 38px;
-  font-size: 12pt;
-}
-h1, h2, h3 {
-  color: #111;
-  margin-top: 0.9em;
-  margin-bottom: 0.35em;
-}
-h2 {
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 4px;
-}
-ul {
-  margin-top: 0.25em;
-  margin-bottom: 0.5em;
-}
-li {
-  margin-bottom: 0.2em;
-}
-p {
-  margin: 0.3em 0;
-}
-a {
-  color: #145ea8;
-}
-.cv-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 20px;
-}
-.cv-header-main {
-  flex: 1;
-  min-width: 0;
-}
-.cv-header-main ul {
-  margin-top: 0.35em;
-}
-.cv-header-photo {
-  flex: 0 0 auto;
-}
-.cv-photo {
-  width: 118px;
-  height: auto;
-  border: 1px solid #d9d9d9;
-}
-"""
-
         temp_md.write_text(markdown_body, encoding="utf-8")
-        temp_css.write_text(css_text, encoding="utf-8")
 
         run_command(
             [
@@ -137,7 +85,7 @@ a {
                 "--metadata",
                 f"title={args.title}",
                 "--css",
-                str(temp_css),
+                str(css_path),
                 "-o",
                 str(temp_html),
             ]
