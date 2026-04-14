@@ -1,4 +1,4 @@
-name: Build CV PDF
+name: Build CV Assets
 
 on:
   push:
@@ -6,7 +6,16 @@ on:
       - main
     paths:
       - _pages/CV.md
+      - _resume/CV_Yonghao Tan.md
+      - _layouts/cv-markdown-resume.html
+      - _includes/generated/cv-resume-body.html
+      - assets/css/cv-resume.css
+      - scripts/build_cv_pdf.mjs
+      - scripts/build_cv_pdf.ps1
       - scripts/build_cv_pdf.py
+      - .npmrc
+      - package.json
+      - package-lock.json
       - .github/workflows/build_cv_pdf.yml
   workflow_dispatch:
 
@@ -20,29 +29,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          python-version: "3.x"
+          node-version: "24"
 
-      - name: Install PDF build dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pandoc wkhtmltopdf
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Build CV PDF from markdown
-        run: |
-          python scripts/build_cv_pdf.py
+      - name: Build CV Assets
+        run: npm run build:cv
 
       - name: Commit and push if changed
         run: |
-          if git diff --quiet -- "files/CV_Yonghao Tan.pdf" files/backups; then
-            echo "No PDF changes."
+          if git diff --quiet -- "_includes/generated/cv-resume-body.html" "files/CV_Yonghao Tan.html" "files/CV_Yonghao Tan.pdf"; then
+            echo "No CV asset changes."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "files/CV_Yonghao Tan.pdf" files/backups
-          git commit -m "chore: rebuild CV PDF from markdown"
+          git add "_includes/generated/cv-resume-body.html" "files/CV_Yonghao Tan.html" "files/CV_Yonghao Tan.pdf"
+          git commit -m "chore: rebuild CV assets from markdown source"
           git push

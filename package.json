@@ -1,0 +1,16 @@
+{
+  "name": "yonghao-tan-github-io",
+  "private": true,
+  "scripts": {
+    "build:cv": "node scripts/build_cv_pdf.mjs",
+    "build:cv-pdf": "node scripts/build_cv_pdf.mjs"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0",
+    "markdown-it-deflist": "^2.1.0",
+    "markdown-it-link-attributes": "^4.0.1",
+    "node-html-parser": "^7.0.1",
+    "pdfkit": "^0.17.2"
+  }
+}

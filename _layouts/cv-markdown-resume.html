@@ -1,0 +1,37 @@
+---
+layout: compress
+---
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+    <link rel="stylesheet" href="{{ '/assets/css/cv-resume.css' | relative_url }}">
+  </head>
+
+  <body class="layout--cv-resume">
+
+    {% include browser-upgrade.html %}
+    {% include masthead.html %}
+
+    <div id="main" role="main">
+      <article class="page page--cv-resume" itemscope itemtype="http://schema.org/CreativeWork">
+        {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+        <div class="page__inner-wrap">
+          <section class="page__content cv-resume-shell" itemprop="text">
+            <div class="cv-resume-actions">
+              <a class="cv-resume-action" href="{{ '/files/CV_Yonghao%20Tan.pdf' | relative_url }}">English PDF</a>
+              <a class="cv-resume-action" href="{{ '/files/CV_Yonghao%20Tan_CN.pdf' | relative_url }}">Chinese PDF</a>
+              <a class="cv-resume-action" href="{{ '/files/CV_Yonghao%20Tan.html' | relative_url }}">Standalone HTML</a>
+            </div>
+            {{ content }}
+          </section>
+        </div>
+      </article>
+    </div>
+
+    {% include scripts.html %}
+
+  </body>
+</html>
