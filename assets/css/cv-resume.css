@@ -82,14 +82,11 @@ body.layout--cv-resume {
   letter-spacing: 0.05em;
   text-align: center;
   text-transform: uppercase;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.12em;
 }
 
 #markdown-resume-preview h2,
 #markdown-resume-export h2 {
-  margin: 1.25rem 0 0.4rem;
+  margin: 1rem 0 0.4rem;
   padding-bottom: 0.14rem;
   border-bottom: 1px solid #beb2a2;
   font-size: 1.1em;
@@ -112,7 +109,7 @@ body.layout--cv-resume {
 #markdown-resume-export ul,
 #markdown-resume-export ol {
   margin: 0.18rem 0 0.72rem;
-  padding-left: 1.18rem;
+  padding-left: 0.8rem;
 }
 
 #markdown-resume-preview ul,
@@ -129,6 +126,11 @@ body.layout--cv-resume {
 #markdown-resume-export li {
   margin-bottom: 0.14rem;
   line-height: 1.31;
+}
+
+#markdown-resume-preview ul li,
+#markdown-resume-export ul li {
+  font-size: 1.04em;
 }
 
 #markdown-resume-preview dl,
@@ -163,7 +165,7 @@ body.layout--cv-resume {
 #markdown-resume-export dl + h2,
 #markdown-resume-export ul + h2,
 #markdown-resume-export p + h2 {
-  margin-top: 1.6rem;
+  margin-top: 1.45rem;
 }
 
 #markdown-resume-preview ul + dl,

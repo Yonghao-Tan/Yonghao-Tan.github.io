@@ -43,25 +43,28 @@ Overall GPA: 3.77 / 4.0 | Weighted Average: 90.38 | Rank: 11 / 77
   : *AI Chip Center for Emerging Smart Systems (ACCESS), Hong Kong, China*
   : **Mar. 2024 - Sept. 2025**
 
-- Architected a 5nm 4-chiplet GeNeRF processor for generalizable rendering to address the heavy external-memory traffic induced by multi-view feature fetching.
-- Introduced a UCIe-enabled cross-die unified cache, distributed source-view management, and balance-aware scheduling to maximize source-view reuse while reducing off-chip and cross-die data movement.
-- Silicon results reached 91.43 TOPS/W, 55.43 FPS real-time rendering, and 0.29 uJ/pixel through hierarchical sparsity and hybrid NeRF-SR execution in a 45 mm x 45 mm MCM package footprint.
+- For a 5nm four-chiplet generalizable neural rendering (GeNeRF) processor, designed a Universal Chiplet Interconnect Express (UCIe) cross-die cache and source-view placement flow to keep reused features on package.
+- Built a coarse-to-fine sparse rendering flow that skips low-value rays, prunes low-impact source views, and shares fine-stage work across neighboring tiles to reduce computation.
+- Added a patch-level super-resolution schedule that routes simple regions to lightweight upsampling and keeps full rendering on detail-sensitive regions.
+- Measured 91.43 TOPS/W, 55.43 FPS, 0.29 uJ/pixel, and 95.78% lower external-memory access in silicon.
 
-**55nm ReRAM-on-Logic Stacked LLM Accelerator for Speculative Decoding**
+**55nm ReRAM-on-Logic Stacked LLM Accelerator**
   : *AI Chip Center for Emerging Smart Systems (ACCESS), Hong Kong, China*
   : **Apr. 2024 - Aug. 2025**
 
-- Architected a 55nm edge LLM accelerator whose logic die is stacked with four ReRAM dies via face-to-face bump bonding to support in-stack storage of draft-model codebooks.
-- Developed block-clustered weight compression, local-rotation-based outlier-free W4A8 quantization, and adaptive parallel speculative decoding to reduce both target-model EMA and rejected-draft overhead.
-- The prototype delivered 14.08 to 135.69 token/s and a 4.46x to 7.17x throughput speedup over a BF16 speculative-decoding baseline on a 55.98 mm<sup>2</sup> logic die.
+- For a 55nm edge large language model (LLM) accelerator, developed a two-stage local rotation flow that stabilized 4-bit weight and 8-bit activation quantization for the target model.
+- Built a stacked resistive RAM (ReRAM) memory path with blockwise codebooks so draft-model weights could be reconstructed on package instead of being repeatedly fetched from external memory.
+- Implemented adaptive parallel speculative decoding and an out-of-order scheduler that changed drafting strategy from verification feedback and overlapped compute, memory, and communication.
+- Measured 14.08 to 135.69 token/s and 4.46x to 7.17x speedup over vanilla speculative decoding, using 8MB in-stack storage over 2048 face-to-face bumps at 25.6 GB/s.
 
 **28nm CNN-Transformer Accelerator for Semantic Segmentation**
   : *AI Chip Center for Emerging Smart Systems (ACCESS), Hong Kong, China*
   : **Nov. 2021 - Sept. 2024**
 
-- Architected a 28nm memory-compute-intensity-aware accelerator for high-resolution ConvFormer and SegFormer semantic-segmentation workloads.
-- Combined hybrid-attention processing, data-reuse-oriented layer fusion, and cascaded feature-map pruning to reduce attention-side EMA and eliminate redundant KV and weight movement across fused blocks.
-- Silicon results achieved 0.22 uJ/token on SegFormer-B0 and up to 52.90 TOPS/W peak efficiency in a 13.93 mm<sup>2</sup> chip.
+- For a 28nm ConvFormer and SegFormer accelerator, built a hybrid attention engine that used linear attention for most tiles and kept a small number of full-attention tiles for accuracy.
+- Designed a layer-fusion schedule with key/value and weight reuse so fused attention and convolution blocks could share buffered data instead of reloading it from external memory.
+- Implemented a cascaded feature-map pruning flow for the segmentation head, using expansion, mask-based pruning, and density restoration to remove low-value compute.
+- Measured 0.22 uJ/token on SegFormer-B0 and up to 52.90 TOPS/W in 28nm silicon, with 91.10% less segmentation-head computation.
 
 ## Publications
 
@@ -76,6 +79,10 @@ Overall GPA: 3.77 / 4.0 | Weighted Average: 90.38 | Rank: 11 / 77
 **A 28nm 0.22uJ/Token Memory-Compute-Intensity-Aware CNN-Transformer Accelerator with Hybrid-Attention-Based Layer-Fusion and Cascaded Pruning for Semantic-Segmentation**
   : Dong, P.\*, <u>Tan, Y.</u>\*, Liu, X., Luo, P., Liu, Y., Liang, L., ... &amp; Cheng, K. T.
   : *2025 IEEE International Solid-State Circuits Conference (ISSCC), IEEE.*
+
+**APSQ: Additive Partial Sum Quantization with Algorithm-Hardware Co-Design**
+  : <u>Tan, Y.</u>\*, Dong, P.\*, Wu, Y., Liu, Y., Liu, X., Luo, P., Liu, S. Y., Huang, X., Zhang, D., Liang, L., &amp; Cheng, K. T.
+  : *2025 62nd ACM/IEEE Design Automation Conference (DAC), IEEE.*
 
 **Genetic Quantization-Aware Approximation for Non-Linear Operations in Transformers**
   : Dong, P.\*, <u>Tan, Y.</u>\*, Zhang, D., Ni, T., Liu, X., Liu, Y., ... &amp; Cheng, K. T.

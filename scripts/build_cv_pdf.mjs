@@ -34,7 +34,7 @@ const FONT_SERIF_ITALIC = "Times-Italic";
 
 function parseArgs(argv) {
   const options = {
-    markdown: "_resume/CV_Yonghao Tan.md",
+    markdown: "_resume/CV_Yonghao_Tan.md",
     includeOutput: "_includes/generated/cv-resume-body.html",
     htmlOutput: "files/CV_Yonghao_Tan.html",
     pdfOutput: "files/CV_Yonghao_Tan.pdf",
@@ -217,11 +217,10 @@ function looksLikeDate(text) {
   return /(present|jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec|\d{4})/i.test(text);
 }
 
-function drawSectionHeading(doc, title) {
-  const nearTop = doc.y <= doc.page.margins.top + 8;
-  const topGap = nearTop ? 0 : 7;
+function drawSectionHeading(doc, title, options = {}) {
+  const topGap = options.topGap ?? 7;
   ensureSpace(doc, 24 + topGap);
-  if (!nearTop) {
+  if (topGap > 0) {
     doc.y += topGap;
   }
   const width = doc.page.width - doc.page.margins.left - doc.page.margins.right;
@@ -341,16 +340,15 @@ function drawBullets(doc, listElement) {
   const width = doc.page.width - doc.page.margins.left - doc.page.margins.right;
   const items = listElement.querySelectorAll("li").map((item) => textContent(item)).filter(Boolean);
 
-  doc.font(FONT_SERIF).fontSize(9.55).fillColor("#2f2821");
+  doc.font(FONT_SERIF).fontSize(10.1).fillColor("#2f2821");
   for (const item of items) {
     const bulletText = `• ${item}`;
-    ensureSpace(doc, doc.heightOfString(bulletText, { width, indent: 11, lineGap: 0.75 }) + 1);
-    doc.text(bulletText, doc.page.margins.left, doc.y, {
-      width,
-      indent: 11,
-      lineGap: 0.75,
+    ensureSpace(doc, doc.heightOfString(bulletText, { width, lineGap: 0.82 }) + 1.4);
+    doc.text(bulletText, doc.page.margins.left + 1.5, doc.y, {
+      width: width - 1.5,
+      lineGap: 0.82,
     });
-    doc.y += 0.9;
+    doc.y += 1.15;
   }
   doc.y += 4.5;
 }
@@ -491,19 +489,7 @@ async function buildPdf(pdfPath, bodyHtml, frontmatterData, title) {
     align: "center",
   });
 
-  const renderedNameWidth = doc.font(FONT_SERIF_BOLD).fontSize(nameFontSize).widthOfString(displayName);
-  const underlinePadding = 2;
-  const underlineStartX = nameX + Math.max(0, (nameWidth - renderedNameWidth) / 2) - underlinePadding;
-  const underlineEndX = nameX + Math.min(nameWidth, (nameWidth + renderedNameWidth) / 2) + underlinePadding;
-  const underlineY = nameY + 23.5;
-  doc
-    .moveTo(underlineStartX, underlineY)
-    .lineTo(underlineEndX, underlineY)
-    .lineWidth(0.85)
-    .strokeColor("#231e19")
-    .stroke();
-
-  doc.y += 6;
+  doc.y += 3.5;
 
   const headerLines = buildHeaderLines(frontmatterData.header);
   doc.font(FONT_SERIF).fontSize(9.55).fillColor("#4d453b");
@@ -525,6 +511,7 @@ async function buildPdf(pdfPath, bodyHtml, frontmatterData, title) {
 
   const root = parse(bodyHtml.replace(/<sup>(.*?)<\/sup>/gi, "^$1"));
   let currentSection = "";
+  let sectionCount = 0;
 
   for (const node of root.childNodes) {
     if (node.nodeType !== 1) continue;
@@ -539,7 +526,10 @@ async function buildPdf(pdfPath, bodyHtml, frontmatterData, title) {
         doc.addPage();
       }
       currentSection = nextSection;
-      drawSectionHeading(doc, currentSection);
+      drawSectionHeading(doc, currentSection, {
+        topGap: sectionCount === 0 || doc.y <= doc.page.margins.top + 8 ? 0 : 7,
+      });
+      sectionCount += 1;
       continue;
     }
 
