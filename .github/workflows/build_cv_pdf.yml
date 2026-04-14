@@ -42,13 +42,13 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          if git diff --quiet -- "_includes/generated/cv-resume-body.html" "files/CV_Yonghao Tan.html" "files/CV_Yonghao Tan.pdf"; then
+          if git diff --quiet -- "_includes/generated/cv-resume-body.html" "files/CV_Yonghao_Tan.html" "files/CV_Yonghao_Tan.pdf"; then
             echo "No CV asset changes."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "_includes/generated/cv-resume-body.html" "files/CV_Yonghao Tan.html" "files/CV_Yonghao Tan.pdf"
+          git add "_includes/generated/cv-resume-body.html" "files/CV_Yonghao_Tan.html" "files/CV_Yonghao_Tan.pdf"
           git commit -m "chore: rebuild CV assets from markdown source"
           git push

@@ -6,57 +6,58 @@
     <title>Yonghao Tan CV</title>
     <style>
 body.layout--cv-resume {
-  background: #efefef;
+  background: #f6f2ec;
+  color: #26211b;
 }
 
 .cv-resume-shell {
-  max-width: 980px;
+  max-width: 940px;
   margin: 0 auto;
-  padding: 0 1rem 2.5rem;
+  padding: 0 1rem 2rem;
 }
 
 .cv-resume-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin: 0 auto 1rem;
+  gap: 0.55rem;
+  margin: 0 auto 0.9rem;
 }
 
 .cv-resume-action {
   display: inline-block;
-  padding: 0.65rem 1rem;
-  border: 1px solid #111111;
-  color: #111111;
-  background: #ffffff;
-  font-size: 0.9rem;
-  font-weight: 700;
+  padding: 0.48rem 0.82rem;
+  border: 1px solid #d9d1c4;
+  color: #433b31;
+  background: #fffdf9;
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: 0.88rem;
+  font-weight: 600;
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }
 
 .cv-resume-action:hover,
 .cv-resume-action:focus {
-  color: #ffffff;
-  background: #111111;
+  border-color: #bcae97;
+  color: #201b16;
+  background: #f4efe7;
 }
 
 #markdown-resume-preview,
 #markdown-resume-export {
   width: 210mm;
   max-width: 100%;
-  padding: 55px 45px;
-  box-sizing: border-box;
-  background: #ffffff;
-  color: #000000;
-  text-align: left;
-  font-family: Verdana, "Helvetica Neue", Arial, sans-serif;
-  font-size: 12px;
-  line-height: 1.3;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-}
-
-#markdown-resume-preview {
   margin: 0 auto;
+  padding: 42px 48px 46px;
+  box-sizing: border-box;
+  border: 1px solid #ebe2d6;
+  background: #ffffff;
+  color: #26211b;
+  text-align: left;
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: 13.15px;
+  line-height: 1.32;
+  box-shadow: none;
 }
 
 #markdown-resume-preview p,
@@ -74,41 +75,51 @@ body.layout--cv-resume {
 #markdown-resume-export h1,
 #markdown-resume-export h2,
 #markdown-resume-export h3 {
-  color: #000000;
-  font-weight: 700;
+  color: #211c16;
+  font-family: "Times New Roman", Georgia, serif;
 }
 
 #markdown-resume-preview h1,
 #markdown-resume-export h1 {
-  margin: 0 0 8px;
-  border-bottom: 1px solid #000000;
-  font-size: 2.5em;
+  margin: 0 0 0.28rem;
+  border-bottom: none;
+  font-size: 2.32em;
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   text-align: center;
-}
-
-#markdown-resume-preview h2,
-#markdown-resume-preview h3,
-#markdown-resume-export h2,
-#markdown-resume-export h3 {
-  margin-bottom: 0.25em;
-  margin-top: 5px;
-  font-size: 1.2em;
-  line-height: 1.5;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.12em;
 }
 
 #markdown-resume-preview h2,
 #markdown-resume-export h2 {
-  border-bottom: 1px solid #000000;
+  margin: 1.25rem 0 0.4rem;
+  padding-bottom: 0.14rem;
+  border-bottom: 1px solid #beb2a2;
+  font-size: 1.1em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.18;
+  text-transform: uppercase;
+}
+
+#markdown-resume-preview h3,
+#markdown-resume-export h3 {
+  margin: 0.72rem 0 0.24rem;
+  font-size: 1.03em;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 #markdown-resume-preview ul,
 #markdown-resume-preview ol,
 #markdown-resume-export ul,
 #markdown-resume-export ol {
-  margin: 0.2em 0 1em;
-  padding-left: 1.5em;
+  margin: 0.18rem 0 0.72rem;
+  padding-left: 1.18rem;
 }
 
 #markdown-resume-preview ul,
@@ -123,68 +134,103 @@ body.layout--cv-resume {
 
 #markdown-resume-preview li,
 #markdown-resume-export li {
-  line-height: 1.3;
+  margin-bottom: 0.14rem;
+  line-height: 1.31;
 }
 
 #markdown-resume-preview dl,
 #markdown-resume-export dl {
-  display: flex;
-  gap: 0.5rem;
+  margin: 0.18rem 0 0.5rem;
 }
 
-#markdown-resume-preview dl dt,
-#markdown-resume-preview dl dd:not(:last-child),
-#markdown-resume-export dl dt,
-#markdown-resume-export dl dd:not(:last-child) {
-  flex: 1;
+#markdown-resume-preview dt,
+#markdown-resume-export dt {
+  font-weight: 700;
 }
 
 #markdown-resume-preview dd,
 #markdown-resume-export dd {
   margin-left: 0;
+  color: #3f382f;
+}
+
+#markdown-resume-preview em,
+#markdown-resume-export em {
+  font-style: italic;
+}
+
+#markdown-resume-preview h2 + dl,
+#markdown-resume-export h2 + dl {
+  margin-top: 0.28rem;
+}
+
+#markdown-resume-preview dl + h2,
+#markdown-resume-preview ul + h2,
+#markdown-resume-preview p + h2,
+#markdown-resume-export dl + h2,
+#markdown-resume-export ul + h2,
+#markdown-resume-export p + h2 {
+  margin-top: 1.6rem;
+}
+
+#markdown-resume-preview ul + dl,
+#markdown-resume-preview dl + dl,
+#markdown-resume-preview p + dl,
+#markdown-resume-export ul + dl,
+#markdown-resume-export dl + dl,
+#markdown-resume-export p + dl {
+  margin-top: 0.44rem;
 }
 
 #markdown-resume-preview a,
 #markdown-resume-export a {
-  color: #000000;
+  color: #1e1a15;
   text-decoration: none;
+}
+
+#markdown-resume-preview strong,
+#markdown-resume-export strong {
+  font-weight: 700;
 }
 
 #markdown-resume-preview .resume-header,
 #markdown-resume-export .resume-header {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.82rem;
   text-align: center;
+}
+
+#markdown-resume-preview .resume-header-item,
+#markdown-resume-export .resume-header-item {
+  color: #4f473d;
+  font-size: 0.98em;
 }
 
 #markdown-resume-preview .resume-header-item:not(.no-separator)::after,
 #markdown-resume-export .resume-header-item:not(.no-separator)::after {
-  content: " | ";
+  content: " · ";
 }
 
 #markdown-resume-preview .resume-header h1,
 #markdown-resume-export .resume-header h1 {
-  margin-bottom: 8px;
+  margin-bottom: 0.22rem;
 }
 
 #markdown-resume-preview sup,
 #markdown-resume-export sup {
-  font-size: 80%;
+  font-size: 75%;
+}
+
+#markdown-resume-preview u,
+#markdown-resume-export u {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
 
 @media (max-width: 900px) {
   #markdown-resume-preview,
   #markdown-resume-export {
-    padding: 32px 24px;
-  }
-
-  #markdown-resume-preview dl,
-  #markdown-resume-export dl {
-    display: block;
-  }
-
-  #markdown-resume-preview dd,
-  #markdown-resume-export dd {
-    margin-top: 0.1rem;
+    padding: 30px 24px 34px;
+    font-size: 12.35px;
   }
 }
 
@@ -206,7 +252,8 @@ body.layout--cv-resume {
     width: 100%;
     max-width: none;
     margin: 0;
-    padding: 55px 45px;
+    padding: 42px 48px 46px;
+    border: none;
     box-shadow: none;
   }
 
@@ -232,37 +279,6 @@ body.layout--cv-resume {
 <span class="resume-header-item"><a href="https://yonghao-tan.github.io/" target="_blank" rel="noopener noreferrer">yonghao-tan.github.io</a></span>
 <span class="resume-header-item no-separator"><a href="https://orcid.org/0000-0001-5372-5863" target="_blank" rel="noopener noreferrer">ORCID 0000-0001-5372-5863</a></span>
 </div>
-<h2>Research Experience</h2>
-<dl>
-<dt><strong>5nm UCIe-Enabled Multi-Chiplet Generalizable Rendering Processor</strong></dt>
-<dd><strong>AI Chip Center for Emerging Smart Systems, Hong Kong, China</strong></dd>
-<dd><strong>Mar. 2024 - Sept. 2025</strong></dd>
-</dl>
-<ul>
-<li>Architected a 5nm 4-chiplet GeNeRF processor for generalizable rendering to address the heavy external-memory traffic induced by multi-view feature fetching.</li>
-<li>Introduced a UCIe-enabled cross-die unified cache, distributed source-view management, and balance-aware scheduling to maximize source-view reuse while reducing off-chip and cross-die data movement.</li>
-<li>Silicon results reached 91.43 TOPS/W, 55.43 FPS real-time rendering, and 0.29 uJ/pixel through hierarchical sparsity and hybrid NeRF-SR execution in a 45 mm x 45 mm MCM package footprint.</li>
-</ul>
-<dl>
-<dt><strong>55nm ReRAM-on-Logic Stacked LLM Accelerator for Speculative Decoding</strong></dt>
-<dd><strong>AI Chip Center for Emerging Smart Systems, Hong Kong, China</strong></dd>
-<dd><strong>Apr. 2024 - Aug. 2025</strong></dd>
-</dl>
-<ul>
-<li>Architected a 55nm edge LLM accelerator whose logic die is stacked with four ReRAM dies via face-to-face bump bonding to support in-stack storage of draft-model codebooks.</li>
-<li>Developed block-clustered weight compression, local-rotation-based outlier-free W4A8 quantization, and adaptive parallel speculative decoding to reduce both target-model EMA and rejected-draft overhead.</li>
-<li>The prototype delivered 14.08 to 135.69 token/s and a 4.46x to 7.17x throughput speedup over a BF16 speculative-decoding baseline on a 55.98 mm<sup>2</sup> logic die.</li>
-</ul>
-<dl>
-<dt><strong>28nm CNN-Transformer Accelerator for Semantic Segmentation</strong></dt>
-<dd><strong>AI Chip Center for Emerging Smart Systems, Hong Kong, China</strong></dd>
-<dd><strong>Nov. 2021 - Sept. 2024</strong></dd>
-</dl>
-<ul>
-<li>Architected a 28nm memory-compute-intensity-aware accelerator for high-resolution ConvFormer and SegFormer semantic-segmentation workloads.</li>
-<li>Combined hybrid-attention processing, data-reuse-oriented layer fusion, and cascaded feature-map pruning to reduce attention-side EMA and eliminate redundant KV and weight movement across fused blocks.</li>
-<li>Silicon results achieved 0.22 uJ/token on SegFormer-B0 and up to 52.90 TOPS/W peak efficiency in a 13.93 mm<sup>2</sup> chip.</li>
-</ul>
 <h2>Education</h2>
 <dl>
 <dt><strong>Ph.D. in Electronic and Computer Engineering</strong></dt>
@@ -283,6 +299,37 @@ body.layout--cv-resume {
 </dl>
 <p>Supervisor: Prof. Fengwei An</p>
 <p>Overall GPA: 3.77 / 4.0 | Weighted Average: 90.38 | Rank: 11 / 77</p>
+<h2>Research Experience</h2>
+<dl>
+<dt><strong>5nm UCIe-Enabled Multi-Chiplet Generalizable Rendering Processor</strong></dt>
+<dd><em>AI Chip Center for Emerging Smart Systems (ACCESS), Hong Kong, China</em></dd>
+<dd><strong>Mar. 2024 - Sept. 2025</strong></dd>
+</dl>
+<ul>
+<li>Architected a 5nm 4-chiplet GeNeRF processor for generalizable rendering to address the heavy external-memory traffic induced by multi-view feature fetching.</li>
+<li>Introduced a UCIe-enabled cross-die unified cache, distributed source-view management, and balance-aware scheduling to maximize source-view reuse while reducing off-chip and cross-die data movement.</li>
+<li>Silicon results reached 91.43 TOPS/W, 55.43 FPS real-time rendering, and 0.29 uJ/pixel through hierarchical sparsity and hybrid NeRF-SR execution in a 45 mm x 45 mm MCM package footprint.</li>
+</ul>
+<dl>
+<dt><strong>55nm ReRAM-on-Logic Stacked LLM Accelerator for Speculative Decoding</strong></dt>
+<dd><em>AI Chip Center for Emerging Smart Systems (ACCESS), Hong Kong, China</em></dd>
+<dd><strong>Apr. 2024 - Aug. 2025</strong></dd>
+</dl>
+<ul>
+<li>Architected a 55nm edge LLM accelerator whose logic die is stacked with four ReRAM dies via face-to-face bump bonding to support in-stack storage of draft-model codebooks.</li>
+<li>Developed block-clustered weight compression, local-rotation-based outlier-free W4A8 quantization, and adaptive parallel speculative decoding to reduce both target-model EMA and rejected-draft overhead.</li>
+<li>The prototype delivered 14.08 to 135.69 token/s and a 4.46x to 7.17x throughput speedup over a BF16 speculative-decoding baseline on a 55.98 mm<sup>2</sup> logic die.</li>
+</ul>
+<dl>
+<dt><strong>28nm CNN-Transformer Accelerator for Semantic Segmentation</strong></dt>
+<dd><em>AI Chip Center for Emerging Smart Systems (ACCESS), Hong Kong, China</em></dd>
+<dd><strong>Nov. 2021 - Sept. 2024</strong></dd>
+</dl>
+<ul>
+<li>Architected a 28nm memory-compute-intensity-aware accelerator for high-resolution ConvFormer and SegFormer semantic-segmentation workloads.</li>
+<li>Combined hybrid-attention processing, data-reuse-oriented layer fusion, and cascaded feature-map pruning to reduce attention-side EMA and eliminate redundant KV and weight movement across fused blocks.</li>
+<li>Silicon results achieved 0.22 uJ/token on SegFormer-B0 and up to 52.90 TOPS/W peak efficiency in a 13.93 mm<sup>2</sup> chip.</li>
+</ul>
 <h2>Publications</h2>
 <dl>
 <dt><strong>A 5nm 91.43 TOPS/W 4-Chiplet Generalizable-Rendering-Processor with UCIe-Enabled Cross-Die-Cache and Balance-Aware Progressive Multi-Level Sparsity</strong></dt>

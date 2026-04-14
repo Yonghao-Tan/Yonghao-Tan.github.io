@@ -17,32 +17,6 @@ header:
     link: https://orcid.org/0000-0001-5372-5863
 ---
 
-## Research Experience
-
-**5nm UCIe-Enabled Multi-Chiplet Generalizable Rendering Processor**
-  : **AI Chip Center for Emerging Smart Systems, Hong Kong, China**
-  : **Mar. 2024 - Sept. 2025**
-
-- Architected a 5nm 4-chiplet GeNeRF processor for generalizable rendering to address the heavy external-memory traffic induced by multi-view feature fetching.
-- Introduced a UCIe-enabled cross-die unified cache, distributed source-view management, and balance-aware scheduling to maximize source-view reuse while reducing off-chip and cross-die data movement.
-- Silicon results reached 91.43 TOPS/W, 55.43 FPS real-time rendering, and 0.29 uJ/pixel through hierarchical sparsity and hybrid NeRF-SR execution in a 45 mm x 45 mm MCM package footprint.
-
-**55nm ReRAM-on-Logic Stacked LLM Accelerator for Speculative Decoding**
-  : **AI Chip Center for Emerging Smart Systems, Hong Kong, China**
-  : **Apr. 2024 - Aug. 2025**
-
-- Architected a 55nm edge LLM accelerator whose logic die is stacked with four ReRAM dies via face-to-face bump bonding to support in-stack storage of draft-model codebooks.
-- Developed block-clustered weight compression, local-rotation-based outlier-free W4A8 quantization, and adaptive parallel speculative decoding to reduce both target-model EMA and rejected-draft overhead.
-- The prototype delivered 14.08 to 135.69 token/s and a 4.46x to 7.17x throughput speedup over a BF16 speculative-decoding baseline on a 55.98 mm<sup>2</sup> logic die.
-
-**28nm CNN-Transformer Accelerator for Semantic Segmentation**
-  : **AI Chip Center for Emerging Smart Systems, Hong Kong, China**
-  : **Nov. 2021 - Sept. 2024**
-
-- Architected a 28nm memory-compute-intensity-aware accelerator for high-resolution ConvFormer and SegFormer semantic-segmentation workloads.
-- Combined hybrid-attention processing, data-reuse-oriented layer fusion, and cascaded feature-map pruning to reduce attention-side EMA and eliminate redundant KV and weight movement across fused blocks.
-- Silicon results achieved 0.22 uJ/token on SegFormer-B0 and up to 52.90 TOPS/W peak efficiency in a 13.93 mm<sup>2</sup> chip.
-
 ## Education
 
 **Ph.D. in Electronic and Computer Engineering**
@@ -62,6 +36,32 @@ Southern University of Science and Technology (SUSTech)
 Supervisor: Prof. Fengwei An
 
 Overall GPA: 3.77 / 4.0 | Weighted Average: 90.38 | Rank: 11 / 77
+
+## Research Experience
+
+**5nm UCIe-Enabled Multi-Chiplet Generalizable Rendering Processor**
+  : *AI Chip Center for Emerging Smart Systems (ACCESS), Hong Kong, China*
+  : **Mar. 2024 - Sept. 2025**
+
+- Architected a 5nm 4-chiplet GeNeRF processor for generalizable rendering to address the heavy external-memory traffic induced by multi-view feature fetching.
+- Introduced a UCIe-enabled cross-die unified cache, distributed source-view management, and balance-aware scheduling to maximize source-view reuse while reducing off-chip and cross-die data movement.
+- Silicon results reached 91.43 TOPS/W, 55.43 FPS real-time rendering, and 0.29 uJ/pixel through hierarchical sparsity and hybrid NeRF-SR execution in a 45 mm x 45 mm MCM package footprint.
+
+**55nm ReRAM-on-Logic Stacked LLM Accelerator for Speculative Decoding**
+  : *AI Chip Center for Emerging Smart Systems (ACCESS), Hong Kong, China*
+  : **Apr. 2024 - Aug. 2025**
+
+- Architected a 55nm edge LLM accelerator whose logic die is stacked with four ReRAM dies via face-to-face bump bonding to support in-stack storage of draft-model codebooks.
+- Developed block-clustered weight compression, local-rotation-based outlier-free W4A8 quantization, and adaptive parallel speculative decoding to reduce both target-model EMA and rejected-draft overhead.
+- The prototype delivered 14.08 to 135.69 token/s and a 4.46x to 7.17x throughput speedup over a BF16 speculative-decoding baseline on a 55.98 mm<sup>2</sup> logic die.
+
+**28nm CNN-Transformer Accelerator for Semantic Segmentation**
+  : *AI Chip Center for Emerging Smart Systems (ACCESS), Hong Kong, China*
+  : **Nov. 2021 - Sept. 2024**
+
+- Architected a 28nm memory-compute-intensity-aware accelerator for high-resolution ConvFormer and SegFormer semantic-segmentation workloads.
+- Combined hybrid-attention processing, data-reuse-oriented layer fusion, and cascaded feature-map pruning to reduce attention-side EMA and eliminate redundant KV and weight movement across fused blocks.
+- Silicon results achieved 0.22 uJ/token on SegFormer-B0 and up to 52.90 TOPS/W peak efficiency in a 13.93 mm<sup>2</sup> chip.
 
 ## Publications
 

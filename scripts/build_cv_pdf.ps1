@@ -1,6 +1,6 @@
 param(
   [string]$MarkdownPath = "_resume/CV_Yonghao Tan.md",
-  [string]$OutputPdfPath = "files/CV_Yonghao Tan.pdf",
+  [string]$OutputPdfPath = "files/CV_Yonghao_Tan.pdf",
   [string]$BackupDir = "files/backups",
   [string]$DocumentTitle = "Yonghao Tan CV"
 )

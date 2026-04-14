@@ -28,12 +28,16 @@ const markdown = (() => {
   return md;
 })();
 
+const FONT_SERIF = "Times-Roman";
+const FONT_SERIF_BOLD = "Times-Bold";
+const FONT_SERIF_ITALIC = "Times-Italic";
+
 function parseArgs(argv) {
   const options = {
     markdown: "_resume/CV_Yonghao Tan.md",
     includeOutput: "_includes/generated/cv-resume-body.html",
-    htmlOutput: "files/CV_Yonghao Tan.html",
-    pdfOutput: "files/CV_Yonghao Tan.pdf",
+    htmlOutput: "files/CV_Yonghao_Tan.html",
+    pdfOutput: "files/CV_Yonghao_Tan.pdf",
     title: "Yonghao Tan CV",
   };
 
@@ -175,6 +179,10 @@ function buildHeaderLines(headerItems) {
   return lines.map((line) => line.join(" | ")).filter(Boolean);
 }
 
+function normalizeSectionTitle(title) {
+  return normalizeText(title).toLowerCase();
+}
+
 function pageBottom(doc) {
   return doc.page.height - doc.page.margins.bottom;
 }
@@ -188,54 +196,163 @@ function textContent(node) {
   return normalizeText(node.textContent ?? "");
 }
 
+function textHeight(doc, text, { width, font = FONT_SERIF, fontSize = 9.4, lineGap = 0.6 }) {
+  if (!text) return 0;
+  doc.font(font).fontSize(fontSize);
+  return doc.heightOfString(text, { width, lineGap });
+}
+
+function drawText(
+  doc,
+  text,
+  x,
+  y,
+  { width, font = FONT_SERIF, fontSize = 9.4, lineGap = 0.6, align = "left", color = "#26211b" } = {},
+) {
+  if (!text) return;
+  doc.font(font).fontSize(fontSize).fillColor(color).text(text, x, y, { width, lineGap, align });
+}
+
 function looksLikeDate(text) {
   return /(present|jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec|\d{4})/i.test(text);
 }
 
 function drawSectionHeading(doc, title) {
-  ensureSpace(doc, 32);
-  doc.fillColor("#000000").font("Helvetica-Bold").fontSize(13);
-  doc.text(title, doc.page.margins.left, doc.y, {
-    width: doc.page.width - doc.page.margins.left - doc.page.margins.right,
+  const nearTop = doc.y <= doc.page.margins.top + 8;
+  const topGap = nearTop ? 0 : 7;
+  ensureSpace(doc, 24 + topGap);
+  if (!nearTop) {
+    doc.y += topGap;
+  }
+  const width = doc.page.width - doc.page.margins.left - doc.page.margins.right;
+  drawText(doc, title.toUpperCase(), doc.page.margins.left, doc.y, {
+    width,
+    font: FONT_SERIF_BOLD,
+    fontSize: 11.9,
+    lineGap: 0,
+    color: "#231e19",
   });
 
-  const ruleY = doc.y + 3;
+  const ruleY = doc.y + 1.5;
   doc
     .moveTo(doc.page.margins.left, ruleY)
     .lineTo(doc.page.width - doc.page.margins.right, ruleY)
-    .lineWidth(1)
-    .strokeColor("#000000")
+    .lineWidth(0.6)
+    .strokeColor("#b8ad9e")
     .stroke();
 
-  doc.y = ruleY + 8;
+  doc.y = ruleY + 6;
+}
+
+function drawLeftRightBlock(
+  doc,
+  leftText,
+  rightText,
+  {
+    leftFont = FONT_SERIF_BOLD,
+    leftSize = 10.65,
+    leftColor = "#231e19",
+    rightFont = FONT_SERIF_ITALIC,
+    rightSize = 9.75,
+    rightColor = "#5f5548",
+    rightWidth = 140,
+    lineGap = 0.6,
+    after = 2,
+  } = {},
+) {
+  const totalWidth = doc.page.width - doc.page.margins.left - doc.page.margins.right;
+  const leftWidth = totalWidth - rightWidth - 10;
+  const leftHeight = textHeight(doc, leftText, {
+    width: leftWidth,
+    font: leftFont,
+    fontSize: leftSize,
+    lineGap,
+  });
+  const rightHeight = textHeight(doc, rightText, {
+    width: rightWidth,
+    font: rightFont,
+    fontSize: rightSize,
+    lineGap,
+  });
+
+  ensureSpace(doc, Math.max(leftHeight, rightHeight) + after + 2);
+
+  const startY = doc.y;
+  drawText(doc, leftText, doc.page.margins.left, startY, {
+    width: leftWidth,
+    font: leftFont,
+    fontSize: leftSize,
+    lineGap,
+    color: leftColor,
+  });
+
+  if (rightText) {
+    drawText(doc, rightText, doc.page.width - doc.page.margins.right - rightWidth, startY + 0.2, {
+      width: rightWidth,
+      font: rightFont,
+      fontSize: rightSize,
+      lineGap,
+      align: "right",
+      color: rightColor,
+    });
+  }
+
+  doc.y = startY + Math.max(leftHeight, rightHeight) + after;
+}
+
+function drawStackedLines(doc, lines, { font = FONT_SERIF, fontSize = 9.7, color = "#3e372f", gap = 1.5, after = 2 } = {}) {
+  const width = doc.page.width - doc.page.margins.left - doc.page.margins.right;
+  const textLines = lines.filter(Boolean);
+  if (!textLines.length) return;
+
+  let estimatedHeight = 0;
+  for (const line of textLines) {
+    estimatedHeight += textHeight(doc, line, { width, font, fontSize, lineGap: 0.6 }) + gap;
+  }
+  ensureSpace(doc, estimatedHeight + after);
+
+  for (const line of textLines) {
+    drawText(doc, line, doc.page.margins.left, doc.y, {
+      width: doc.page.width - doc.page.margins.left - doc.page.margins.right,
+      font,
+      fontSize,
+      lineGap: 0.6,
+      color,
+    });
+    doc.y += gap;
+  }
+  doc.y += after;
 }
 
 function drawParagraph(doc, text, options = {}) {
   if (!text) return;
 
   const width = doc.page.width - doc.page.margins.left - doc.page.margins.right;
-  doc.font(options.font ?? "Helvetica").fontSize(options.fontSize ?? 10.5).fillColor("#000000");
-  ensureSpace(doc, doc.heightOfString(text, { width, lineGap: 1 }) + 4);
-  doc.text(text, doc.page.margins.left, doc.y, { width, lineGap: 1 });
-  doc.y += options.after ?? 4;
+  const font = options.font ?? FONT_SERIF;
+  const fontSize = options.fontSize ?? 9.7;
+  const lineGap = options.lineGap ?? 0.75;
+  const color = options.color ?? "#2c2620";
+  ensureSpace(doc, textHeight(doc, text, { width, font, fontSize, lineGap }) + (options.after ?? 3));
+  drawText(doc, text, doc.page.margins.left, doc.y, { width, font, fontSize, lineGap, color });
+  doc.y += options.after ?? 3;
 }
 
 function drawBullets(doc, listElement) {
   const width = doc.page.width - doc.page.margins.left - doc.page.margins.right;
   const items = listElement.querySelectorAll("li").map((item) => textContent(item)).filter(Boolean);
 
-  doc.font("Helvetica").fontSize(10.2).fillColor("#000000");
+  doc.font(FONT_SERIF).fontSize(9.55).fillColor("#2f2821");
   for (const item of items) {
-    const bulletText = `- ${item}`;
-    ensureSpace(doc, doc.heightOfString(bulletText, { width, indent: 12, lineGap: 1 }) + 2);
+    const bulletText = `• ${item}`;
+    ensureSpace(doc, doc.heightOfString(bulletText, { width, indent: 11, lineGap: 0.75 }) + 1);
     doc.text(bulletText, doc.page.margins.left, doc.y, {
       width,
-      indent: 12,
-      lineGap: 1,
+      indent: 11,
+      lineGap: 0.75,
     });
-    doc.y += 2;
+    doc.y += 0.9;
   }
-  doc.y += 4;
+  doc.y += 4.5;
 }
 
 function drawDefinitionList(doc, dlElement, sectionTitle) {
@@ -249,71 +366,103 @@ function drawDefinitionList(doc, dlElement, sectionTitle) {
   if (!term) return;
 
   const width = doc.page.width - doc.page.margins.left - doc.page.margins.right;
-  const rightWidth = 125;
-  const leftWidth = width - rightWidth - 8;
   const firstDescription = descriptions[0] ?? "";
   const lastDescription = descriptions[descriptions.length - 1] ?? "";
+  const section = normalizeSectionTitle(sectionTitle);
+
+  if (section === "research experience") {
+    drawLeftRightBlock(doc, term, lastDescription, {
+      leftFont: FONT_SERIF_BOLD,
+      leftSize: 10.8,
+      rightFont: FONT_SERIF_ITALIC,
+      rightSize: 9.8,
+      rightWidth: 150,
+      after: 1.8,
+    });
+    if (firstDescription) {
+      drawParagraph(doc, firstDescription, {
+        font: FONT_SERIF_ITALIC,
+        fontSize: 9.75,
+        color: "#4a4137",
+        after: 2.4,
+      });
+    }
+    return;
+  }
+
+  if (section === "publications") {
+    let estimatedHeight = textHeight(doc, term, { width, font: FONT_SERIF_BOLD, fontSize: 10.1, lineGap: 0.75 }) + 2;
+    if (firstDescription) {
+      estimatedHeight += textHeight(doc, firstDescription, { width, font: FONT_SERIF, fontSize: 9.45, lineGap: 0.7 }) + 1.5;
+    }
+    if (descriptions[1]) {
+      estimatedHeight += textHeight(doc, descriptions[1], { width, font: FONT_SERIF_ITALIC, fontSize: 9.35, lineGap: 0.7 }) + 1.5;
+    }
+    ensureSpace(doc, estimatedHeight + 4);
+
+    drawParagraph(doc, term, {
+      font: FONT_SERIF_BOLD,
+      fontSize: 10.1,
+      lineGap: 0.65,
+      after: 1.2,
+    });
+    if (firstDescription) {
+      drawParagraph(doc, firstDescription, {
+        font: FONT_SERIF,
+        fontSize: 9.45,
+        color: "#3c352d",
+        after: 1.2,
+      });
+    }
+    if (descriptions[1]) {
+      drawParagraph(doc, descriptions[1], {
+        font: FONT_SERIF_ITALIC,
+        fontSize: 9.35,
+        color: "#5a5146",
+        after: 4,
+      });
+    }
+    return;
+  }
 
   if (descriptions.length === 1 && looksLikeDate(firstDescription)) {
-    const blockHeight = Math.max(
-      doc.heightOfString(term, { width: leftWidth }),
-      doc.heightOfString(firstDescription, { width: rightWidth }),
-    );
-    ensureSpace(doc, blockHeight + 6);
-    doc.font("Helvetica-Bold").fontSize(10.7).text(term, doc.page.margins.left, doc.y, { width: leftWidth });
-    doc
-      .font("Helvetica-Bold")
-      .fontSize(10.2)
-      .text(firstDescription, doc.page.width - doc.page.margins.right - rightWidth, doc.y - blockHeight + doc.currentLineHeight(), {
-        width: rightWidth,
-        align: "right",
-      });
-    doc.y += 6;
+    drawLeftRightBlock(doc, term, firstDescription, {
+      leftFont: FONT_SERIF_BOLD,
+      leftSize: 10.45,
+      rightFont: FONT_SERIF_ITALIC,
+      rightSize: 9.65,
+      rightWidth: 142,
+      after: 2.6,
+    });
     return;
   }
 
-  if (descriptions.length === 2 && sectionTitle === "Research Experience") {
-    const titleHeight = doc.heightOfString(term, { width: leftWidth });
-    const metaHeight = doc.heightOfString(lastDescription, { width: rightWidth });
-    const subtitleHeight = firstDescription ? doc.heightOfString(firstDescription, { width }) : 0;
-    ensureSpace(doc, Math.max(titleHeight, metaHeight) + subtitleHeight + 8);
-
-    const startY = doc.y;
-    doc.font("Helvetica-Bold").fontSize(10.7).text(term, doc.page.margins.left, startY, { width: leftWidth });
-    doc
-      .font("Helvetica-Bold")
-      .fontSize(10.2)
-      .text(lastDescription, doc.page.width - doc.page.margins.right - rightWidth, startY, {
-        width: rightWidth,
-        align: "right",
-      });
-
-    if (firstDescription) {
-      const subtitleY = startY + Math.max(titleHeight, metaHeight) + 1;
-      doc.font("Helvetica").fontSize(10.1).text(firstDescription, doc.page.margins.left, subtitleY, { width });
-      doc.y = doc.y + 5;
-    } else {
-      doc.y = startY + Math.max(titleHeight, metaHeight) + 5;
-    }
-
+  if (section === "education" && descriptions.length === 1) {
+    drawLeftRightBlock(doc, term, firstDescription, {
+      leftFont: FONT_SERIF_BOLD,
+      leftSize: 10.4,
+      rightFont: FONT_SERIF_ITALIC,
+      rightSize: 9.55,
+      rightWidth: 130,
+      after: 2.4,
+    });
     return;
   }
 
-  let estimatedHeight = doc.heightOfString(term, { width }) + 4;
-  for (const description of descriptions) {
-    estimatedHeight += doc.heightOfString(description, { width }) + 2;
+  drawParagraph(doc, term, {
+    font: FONT_SERIF_BOLD,
+    fontSize: 10.3,
+    after: descriptions.length ? 1.6 : 3,
+  });
+  if (descriptions.length) {
+    drawStackedLines(doc, descriptions, {
+      font: FONT_SERIF,
+      fontSize: 9.55,
+      color: "#433b32",
+      gap: 1.5,
+      after: 3.2,
+    });
   }
-  ensureSpace(doc, estimatedHeight + 4);
-
-  doc.font("Helvetica-Bold").fontSize(10.7).text(term, doc.page.margins.left, doc.y, { width });
-  doc.y += 2;
-
-  for (const description of descriptions) {
-    doc.font("Helvetica").fontSize(10.1).text(description, doc.page.margins.left, doc.y, { width });
-    doc.y += 2;
-  }
-
-  doc.y += 2;
 }
 
 async function buildPdf(pdfPath, bodyHtml, frontmatterData, title) {
@@ -321,7 +470,7 @@ async function buildPdf(pdfPath, bodyHtml, frontmatterData, title) {
 
   const doc = new PDFDocument({
     size: "A4",
-    margins: { top: 42, right: 45, bottom: 40, left: 45 },
+    margins: { top: 42, right: 48, bottom: 36, left: 48 },
     info: { Title: title, Author: frontmatterData.name || "Yonghao Tan" },
     compress: false,
   });
@@ -329,29 +478,50 @@ async function buildPdf(pdfPath, bodyHtml, frontmatterData, title) {
   const stream = fs.createWriteStream(pdfPath);
   doc.pipe(stream);
 
-  doc.fillColor("#000000").font("Helvetica-Bold").fontSize(24);
-  doc.text(frontmatterData.name || "Yonghao Tan", {
+  const displayName = (frontmatterData.name || "Yonghao Tan").toUpperCase();
+  const nameX = doc.page.margins.left;
+  const nameY = doc.y;
+  const nameWidth = doc.page.width - doc.page.margins.left - doc.page.margins.right;
+  const nameFontSize = 22.5;
+  drawText(doc, displayName, nameX, nameY, {
+    width: nameWidth,
+    font: FONT_SERIF_BOLD,
+    fontSize: nameFontSize,
+    lineGap: 0,
     align: "center",
-    characterSpacing: 2,
   });
-  doc.moveDown(0.15);
+
+  const renderedNameWidth = doc.font(FONT_SERIF_BOLD).fontSize(nameFontSize).widthOfString(displayName);
+  const underlinePadding = 2;
+  const underlineStartX = nameX + Math.max(0, (nameWidth - renderedNameWidth) / 2) - underlinePadding;
+  const underlineEndX = nameX + Math.min(nameWidth, (nameWidth + renderedNameWidth) / 2) + underlinePadding;
+  const underlineY = nameY + 23.5;
+  doc
+    .moveTo(underlineStartX, underlineY)
+    .lineTo(underlineEndX, underlineY)
+    .lineWidth(0.85)
+    .strokeColor("#231e19")
+    .stroke();
+
+  doc.y += 6;
 
   const headerLines = buildHeaderLines(frontmatterData.header);
-  doc.font("Helvetica").fontSize(10.2);
+  doc.font(FONT_SERIF).fontSize(9.55).fillColor("#4d453b");
   for (const line of headerLines) {
     doc.text(line, {
       align: "center",
+      lineGap: 0.45,
     });
   }
 
-  const dividerY = doc.y + 6;
+  const dividerY = doc.y + 4;
   doc
     .moveTo(doc.page.margins.left, dividerY)
     .lineTo(doc.page.width - doc.page.margins.right, dividerY)
-    .lineWidth(1)
-    .strokeColor("#000000")
+    .lineWidth(0.7)
+    .strokeColor("#b8ad9e")
     .stroke();
-  doc.y = dividerY + 10;
+  doc.y = dividerY + 8;
 
   const root = parse(bodyHtml.replace(/<sup>(.*?)<\/sup>/gi, "^$1"));
   let currentSection = "";
@@ -364,7 +534,11 @@ async function buildPdf(pdfPath, bodyHtml, frontmatterData, title) {
     }
 
     if (node.tagName === "H2") {
-      currentSection = textContent(node);
+      const nextSection = textContent(node);
+      if (normalizeSectionTitle(nextSection) === "publications") {
+        doc.addPage();
+      }
+      currentSection = nextSection;
       drawSectionHeading(doc, currentSection);
       continue;
     }
@@ -382,8 +556,10 @@ async function buildPdf(pdfPath, bodyHtml, frontmatterData, title) {
     if (node.tagName === "P") {
       const paragraphText = textContent(node);
       drawParagraph(doc, paragraphText, {
-        font: paragraphText.startsWith("* ") || paragraphText.startsWith("*") ? "Helvetica-Oblique" : "Helvetica",
-        after: 5,
+        font: paragraphText.startsWith("* ") || paragraphText.startsWith("*") ? FONT_SERIF_ITALIC : FONT_SERIF,
+        fontSize: paragraphText.startsWith("Supervisor:") ? 9.35 : 9.65,
+        color: paragraphText.startsWith("Supervisor:") ? "#4a4137" : "#2c2620",
+        after: 3,
       });
     }
   }

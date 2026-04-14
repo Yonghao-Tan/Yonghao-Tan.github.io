@@ -19,7 +19,7 @@ redirect_from:
 -->
 
 <span class='anchor' id='about-me'></span>
-I am a third-year PhD candidate in the Department of Electronic and Computer Engineering at [The Hong Kong University of Science and Technology](https://hkust.edu.hk/), affiliated with the [AI Chip Center for Emerging Smart Systems](https://inno-access.hk/) and the [Vision and System Design Lab (VSDL)](https://vsdl.hkust.edu.hk/index.html), under the supervision of [Prof. Kwang-Ting CHENG](https://seng.hkust.edu.hk/about/people/faculty/tim-kwang-ting-cheng). A concise version of my experience is available in my [CV]({{ '/files/CV_Yonghao%20Tan.pdf' | relative_url }}).
+I am a third-year PhD candidate in the Department of Electronic and Computer Engineering at [The Hong Kong University of Science and Technology](https://hkust.edu.hk/), affiliated with the [AI Chip Center for Emerging Smart Systems](https://inno-access.hk/) and the [Vision and System Design Lab (VSDL)](https://vsdl.hkust.edu.hk/index.html), under the supervision of [Prof. Kwang-Ting CHENG](https://seng.hkust.edu.hk/about/people/faculty/tim-kwang-ting-cheng). A concise version of my experience is available in my [CV]({{ '/files/CV_Yonghao_Tan.pdf' | relative_url }}).
 
 Before joining HKUST, I received my B.E. in Microelectronics from the [School of Microelectronics](https://sme.sustech.edu.cn/), [Southern University of Science and Technology](https://www.sustech.edu.cn/), where I worked with [Prof. Fengwei An](https://sme.sustech.edu.cn/index/teacher/neiye/id/35.html).
 
