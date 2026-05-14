@@ -132,12 +132,12 @@ body.layout--cv-resume {
 #markdown-resume-preview li,
 #markdown-resume-export li {
   margin-bottom: 0.14rem;
-  line-height: 1.31;
+  line-height: 1.4;
 }
 
 #markdown-resume-preview ul li,
 #markdown-resume-export ul li {
-  font-size: 1.04em;
+  font-size: 1.09em;
 }
 
 #markdown-resume-preview dl,
@@ -300,7 +300,6 @@ body.layout--cv-resume {
 <dd>Shenzhen, Guangdong, China</dd>
 </dl>
 <p>Supervisor: Prof. Fengwei An</p>
-<p>Overall GPA: 3.77 / 4.0 | Weighted Average: 90.38 | Rank: 11 / 77</p>
 <h2>Research Experience</h2>
 <dl>
 <dt><strong>5nm UCIe-Enabled Multi-Chiplet Generalizable Rendering Processor</strong></dt>
@@ -308,10 +307,9 @@ body.layout--cv-resume {
 <dd><strong>Mar. 2024 - Sept. 2025</strong></dd>
 </dl>
 <ul>
-<li>For a 5nm four-chiplet generalizable neural rendering (GeNeRF) processor, designed a Universal Chiplet Interconnect Express (UCIe) cross-die cache and source-view placement flow to keep reused features on package.</li>
-<li>Built a coarse-to-fine sparse rendering flow that skips low-value rays, prunes low-impact source views, and shares fine-stage work across neighboring tiles to reduce computation.</li>
-<li>Added a patch-level super-resolution schedule that routes simple regions to lightweight upsampling and keeps full rendering on detail-sensitive regions.</li>
-<li>Measured 91.43 TOPS/W, 55.43 FPS, 0.29 uJ/pixel, and 95.78% lower external-memory access in silicon.</li>
+<li>Designed the architecture and execution scheduler for a 5nm four-chiplet GeNeRF processor, and built an early-stage simulation framework to evaluate buffer management, cross-die source-view caching, dense/sparse D2D transfer, multi-level sparsity control, and hybrid GeNeRF-SR dataflow.</li>
+<li>Developed algorithm-hardware co-design simulation models for projection-area-driven source-view placement, dynamic patch grouping, dense/sparse D2D modes, source-view pruning, tile-level fine-stage sharing, and patch-grained SR routing; used them to validate accuracy-sensitive sparsity and SR decisions and guide hardware-aware end-to-end quantization for silicon deployment.</li>
+<li>Contributed to the implementation of inter-chiplet transfer, chip-level control, and nonlinear computation modules; participated in chip testing and system validation of the fabricated 5nm MCM processor, which integrates the four-chiplet GeNeRF engine in a 45 mm x 45 mm package and achieves 91.43 TOPS/W and 55.43 FPS throughput.</li>
 </ul>
 <dl>
 <dt><strong>55nm ReRAM-on-Logic Stacked LLM Accelerator</strong></dt>
@@ -319,10 +317,9 @@ body.layout--cv-resume {
 <dd><strong>Apr. 2024 - Aug. 2025</strong></dd>
 </dl>
 <ul>
-<li>For a 55nm edge large language model (LLM) accelerator, developed a two-stage local rotation flow that stabilized 4-bit weight and 8-bit activation quantization for the target model.</li>
-<li>Built a stacked resistive RAM (ReRAM) memory path with blockwise codebooks so draft-model weights could be reconstructed on package instead of being repeatedly fetched from external memory.</li>
-<li>Implemented adaptive parallel speculative decoding and an out-of-order scheduler that changed drafting strategy from verification feedback and overlapped compute, memory, and communication.</li>
-<li>Measured 14.08 to 135.69 token/s and 4.46x to 7.17x speedup over vanilla speculative decoding, using 8MB in-stack storage over 2048 face-to-face bumps at 25.6 GB/s.</li>
+<li>Contributed to algorithm-hardware co-design optimizations for a 55nm ReRAM-on-logic stacked edge LLM accelerator, targeting decoding-stage memory and scheduling bottlenecks with local-rotation-based W4A8 quantization, ReRAM-resident block-clustered codebook reconstruction, and adaptive speculative decoding.</li>
+<li>Implemented and validated the end-to-end algorithm flow, including layer-wise quantized LLM evaluation, codebook-based draft-model weight reconstruction, acceptance/rejection-aware speculative decoding analysis, and hardware-mapping studies that balance target-model EMA reduction against rejected-draft overhead.</li>
+<li>Designed RTL for nonlinear computation modules and related control/datapath logic; assisted chip testing and validation of the 55nm logic die stacked with four ReRAM dies via face-to-face bumps, achieving 14.08 to 135.69 token/s on a 55.98 mm² logic die.</li>
 </ul>
 <dl>
 <dt><strong>28nm CNN-Transformer Accelerator for Semantic Segmentation</strong></dt>
@@ -330,10 +327,9 @@ body.layout--cv-resume {
 <dd><strong>Nov. 2021 - Sept. 2024</strong></dd>
 </dl>
 <ul>
-<li>For a 28nm ConvFormer and SegFormer accelerator, built a hybrid attention engine that used linear attention for most tiles and kept a small number of full-attention tiles for accuracy.</li>
-<li>Designed a layer-fusion schedule with key/value and weight reuse so fused attention and convolution blocks could share buffered data instead of reloading it from external memory.</li>
-<li>Implemented a cascaded feature-map pruning flow for the segmentation head, using expansion, mask-based pruning, and density restoration to remove low-value compute.</li>
-<li>Measured 0.22 uJ/token on SegFormer-B0 and up to 52.90 TOPS/W in 28nm silicon, with 91.10% less segmentation-head computation.</li>
+<li>Contributed to the development of algorithm-hardware co-design optimizations for a 28nm CNN-Transformer semantic-segmentation accelerator, including hybrid attention processing, data-reuse-oriented layer fusion, and cascaded feature-map pruning for high-resolution ConvFormer workloads.</li>
+<li>Built a hardware energy simulation framework to quantify optimization impact and guide architecture and tape-out decisions; implemented the algorithm validation flow for VA/LA hybrid attention, KV/weight reuse scheduling, non-overlap layer fusion, and mask-based cascaded pruning.</li>
+<li>Designed RTL for attention/layer-fusion control and pruning-related datapath logic; assisted silicon testing and validation of the 13.93 mm² 28nm chip, achieving 0.22 uJ/token and up to 52.90 TOPS/W peak efficiency.</li>
 </ul>
 <h2>Publications</h2>
 <dl>
@@ -374,6 +370,10 @@ body.layout--cv-resume {
 <p>* Authors marked with an asterisk contributed equally to the corresponding work.</p>
 <h2>Honors and Awards</h2>
 <dl>
+<dt><strong>Postgraduate Studentship (PGS) Award in HKUST</strong></dt>
+<dd>Sept. 2023 - Present</dd>
+</dl>
+<dl>
 <dt><strong>Best Teaching Assistant Award</strong>, Department of Electronic and Computer Engineering, HKUST</dt>
 <dd>Aug. 2025</dd>
 </dl>
@@ -400,19 +400,6 @@ body.layout--cv-resume {
 <dl>
 <dt><strong>First Prize, 2021 International Competition of Autonomous Running Robots (1st place out of 34 finalist teams)</strong></dt>
 <dd>Oct. 2021</dd>
-</dl>
-<h2>Funding and Support</h2>
-<dl>
-<dt><strong>Postgraduate Studentship (PGS) Award in HKUST</strong></dt>
-<dd>Sept. 2023 - Present</dd>
-</dl>
-<dl>
-<dt><strong>Undergraduate Innovation and Entrepreneurship Training Programs (Provincial Level)</strong></dt>
-<dd>Apr. 2022</dd>
-</dl>
-<dl>
-<dt><strong>Guangdong College Students' Scientific and Technological Innovation (Provincial Level)</strong></dt>
-<dd>Jul. 2021</dd>
 </dl>
 <h2>Skills</h2>
 <p><strong>Research Interests:</strong> Software/Hardware Co-Design, Model Compression, 3D Processing</p>

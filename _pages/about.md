@@ -43,19 +43,19 @@ My research interests include software-hardware co-design, AI accelerators, LLM/
 # Research Projects
 
 - **5nm UCIe-Enabled Multi-Chiplet Generalizable Rendering Processor** (*Mar. 2024 - Sept. 2025*)
-  - Architected a 5nm 4-chiplet GeNeRF processor for generalizable rendering to address the heavy external-memory traffic induced by multi-view feature fetching.
-  - Introduced a UCIe-enabled cross-die unified cache, distributed source-view management, and balance-aware scheduling to maximize source-view reuse while reducing off-chip and cross-die data movement.
-  - Silicon results reached 91.43 TOPS/W, 55.43 FPS real-time rendering, and 0.29 uJ/pixel through hierarchical sparsity and hybrid NeRF-SR execution in a 45 mm x 45 mm MCM package footprint.
+  - Designed the architecture and execution scheduler for a 5nm four-chiplet GeNeRF processor, and built an early-stage simulation framework to evaluate buffer management, cross-die source-view caching, dense/sparse D2D transfer, multi-level sparsity control, and hybrid GeNeRF-SR dataflow.
+  - Developed algorithm-hardware co-design simulation models for projection-area-driven source-view placement, dynamic patch grouping, dense/sparse D2D modes, source-view pruning, tile-level fine-stage sharing, and patch-grained SR routing; used them to validate accuracy-sensitive sparsity and SR decisions and guide hardware-aware end-to-end quantization for silicon deployment.
+  - Contributed to the implementation of inter-chiplet transfer, chip-level control, and nonlinear computation modules; participated in chip testing and system validation of the fabricated 5nm MCM processor, which integrates the four-chiplet GeNeRF engine in a 45 mm x 45 mm package and achieves 91.43 TOPS/W and 55.43 FPS throughput.
 
 - **55nm ReRAM-on-Logic Stacked LLM Accelerator for Speculative Decoding** (*Apr. 2024 - Aug. 2025*)
-  - Architected a 55nm edge LLM accelerator whose logic die is stacked with four ReRAM dies via face-to-face bump bonding to support in-stack storage of draft-model codebooks.
-  - Developed block-clustered weight compression, local-rotation-based outlier-free W4A8 quantization, and adaptive parallel speculative decoding to reduce both target-model EMA and rejected-draft overhead.
-  - The prototype delivered 14.08 to 135.69 token/s and a 4.46x to 7.17x throughput speedup over a BF16 speculative-decoding baseline on a 55.98 mm² logic die.
+  - Contributed to algorithm-hardware co-design optimizations for a 55nm ReRAM-on-logic stacked edge LLM accelerator, targeting decoding-stage memory and scheduling bottlenecks with local-rotation-based W4A8 quantization, ReRAM-resident block-clustered codebook reconstruction, and adaptive speculative decoding.
+  - Implemented and validated the end-to-end algorithm flow, including layer-wise quantized LLM evaluation, codebook-based draft-model weight reconstruction, acceptance/rejection-aware speculative decoding analysis, and hardware-mapping studies that balance target-model EMA reduction against rejected-draft overhead.
+  - Designed RTL for nonlinear computation modules and related control/datapath logic; assisted chip testing and validation of the 55nm logic die stacked with four ReRAM dies via face-to-face bumps, achieving 14.08 to 135.69 token/s on a 55.98 mm² logic die.
 
 - **28nm CNN-Transformer Accelerator for Semantic Segmentation** (*Nov. 2021 - Sept. 2024*)
-  - Architected a 28nm memory-compute-intensity-aware accelerator for high-resolution ConvFormer and SegFormer semantic-segmentation workloads.
-  - Combined hybrid-attention processing, data-reuse-oriented layer fusion, and cascaded feature-map pruning to reduce attention-side EMA and eliminate redundant KV and weight movement across fused blocks.
-  - Silicon results achieved 0.22 uJ/token on SegFormer-B0 and up to 52.90 TOPS/W peak efficiency in a 13.93 mm² chip.
+  - Contributed to the development of algorithm-hardware co-design optimizations for a 28nm CNN-Transformer semantic-segmentation accelerator, including hybrid attention processing, data-reuse-oriented layer fusion, and cascaded feature-map pruning for high-resolution ConvFormer workloads.
+  - Built a hardware energy simulation framework to quantify optimization impact and guide architecture and tape-out decisions; implemented the algorithm validation flow for VA/LA hybrid attention, KV/weight reuse scheduling, non-overlap layer fusion, and mask-based cascaded pruning.
+  - Designed RTL for attention/layer-fusion control and pruning-related datapath logic; assisted silicon testing and validation of the 13.93 mm² 28nm chip, achieving 0.22 uJ/token and up to 52.90 TOPS/W peak efficiency.
 
 <span class='anchor' id='publications'></span>
 # Publications

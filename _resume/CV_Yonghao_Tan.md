@@ -35,36 +35,31 @@ Southern University of Science and Technology (SUSTech)
 
 Supervisor: Prof. Fengwei An
 
-Overall GPA: 3.77 / 4.0 | Weighted Average: 90.38 | Rank: 11 / 77
-
 ## Research Experience
 
 **5nm UCIe-Enabled Multi-Chiplet Generalizable Rendering Processor**
   : *AI Chip Center for Emerging Smart Systems (ACCESS), Hong Kong, China*
   : **Mar. 2024 - Sept. 2025**
 
-- For a 5nm four-chiplet generalizable neural rendering (GeNeRF) processor, designed a Universal Chiplet Interconnect Express (UCIe) cross-die cache and source-view placement flow to keep reused features on package.
-- Built a coarse-to-fine sparse rendering flow that skips low-value rays, prunes low-impact source views, and shares fine-stage work across neighboring tiles to reduce computation.
-- Added a patch-level super-resolution schedule that routes simple regions to lightweight upsampling and keeps full rendering on detail-sensitive regions.
-- Measured 91.43 TOPS/W, 55.43 FPS, 0.29 uJ/pixel, and 95.78% lower external-memory access in silicon.
+- Designed the architecture and execution scheduler for a 5nm four-chiplet GeNeRF processor, and built an early-stage simulation framework to evaluate buffer management, cross-die source-view caching, dense/sparse D2D transfer, multi-level sparsity control, and hybrid GeNeRF-SR dataflow.
+- Developed algorithm-hardware co-design simulation models for projection-area-driven source-view placement, dynamic patch grouping, dense/sparse D2D modes, source-view pruning, tile-level fine-stage sharing, and patch-grained SR routing; used them to validate accuracy-sensitive sparsity and SR decisions and guide hardware-aware end-to-end quantization for silicon deployment.
+- Contributed to the implementation of inter-chiplet transfer, chip-level control, and nonlinear computation modules; participated in chip testing and system validation of the fabricated 5nm MCM processor, which integrates the four-chiplet GeNeRF engine in a 45 mm x 45 mm package and achieves 91.43 TOPS/W and 55.43 FPS throughput.
 
 **55nm ReRAM-on-Logic Stacked LLM Accelerator**
   : *AI Chip Center for Emerging Smart Systems (ACCESS), Hong Kong, China*
   : **Apr. 2024 - Aug. 2025**
 
-- For a 55nm edge large language model (LLM) accelerator, developed a two-stage local rotation flow that stabilized 4-bit weight and 8-bit activation quantization for the target model.
-- Built a stacked resistive RAM (ReRAM) memory path with blockwise codebooks so draft-model weights could be reconstructed on package instead of being repeatedly fetched from external memory.
-- Implemented adaptive parallel speculative decoding and an out-of-order scheduler that changed drafting strategy from verification feedback and overlapped compute, memory, and communication.
-- Measured 14.08 to 135.69 token/s and 4.46x to 7.17x speedup over vanilla speculative decoding, using 8MB in-stack storage over 2048 face-to-face bumps at 25.6 GB/s.
+- Contributed to algorithm-hardware co-design optimizations for a 55nm ReRAM-on-logic stacked edge LLM accelerator, targeting decoding-stage memory and scheduling bottlenecks with local-rotation-based W4A8 quantization, ReRAM-resident block-clustered codebook reconstruction, and adaptive speculative decoding.
+- Implemented and validated the end-to-end algorithm flow, including layer-wise quantized LLM evaluation, codebook-based draft-model weight reconstruction, acceptance/rejection-aware speculative decoding analysis, and hardware-mapping studies that balance target-model EMA reduction against rejected-draft overhead.
+- Designed RTL for nonlinear computation modules and related control/datapath logic; assisted chip testing and validation of the 55nm logic die stacked with four ReRAM dies via face-to-face bumps, achieving 14.08 to 135.69 token/s on a 55.98 mm² logic die.
 
 **28nm CNN-Transformer Accelerator for Semantic Segmentation**
   : *AI Chip Center for Emerging Smart Systems (ACCESS), Hong Kong, China*
   : **Nov. 2021 - Sept. 2024**
 
-- For a 28nm ConvFormer and SegFormer accelerator, built a hybrid attention engine that used linear attention for most tiles and kept a small number of full-attention tiles for accuracy.
-- Designed a layer-fusion schedule with key/value and weight reuse so fused attention and convolution blocks could share buffered data instead of reloading it from external memory.
-- Implemented a cascaded feature-map pruning flow for the segmentation head, using expansion, mask-based pruning, and density restoration to remove low-value compute.
-- Measured 0.22 uJ/token on SegFormer-B0 and up to 52.90 TOPS/W in 28nm silicon, with 91.10% less segmentation-head computation.
+- Contributed to the development of algorithm-hardware co-design optimizations for a 28nm CNN-Transformer semantic-segmentation accelerator, including hybrid attention processing, data-reuse-oriented layer fusion, and cascaded feature-map pruning for high-resolution ConvFormer workloads.
+- Built a hardware energy simulation framework to quantify optimization impact and guide architecture and tape-out decisions; implemented the algorithm validation flow for VA/LA hybrid attention, KV/weight reuse scheduling, non-overlap layer fusion, and mask-based cascaded pruning.
+- Designed RTL for attention/layer-fusion control and pruning-related datapath logic; assisted silicon testing and validation of the 13.93 mm² 28nm chip, achieving 0.22 uJ/token and up to 52.90 TOPS/W peak efficiency.
 
 ## Publications
 
@@ -100,6 +95,9 @@ Overall GPA: 3.77 / 4.0 | Weighted Average: 90.38 | Rank: 11 / 77
 
 ## Honors and Awards
 
+**Postgraduate Studentship (PGS) Award in HKUST**
+  : Sept. 2023 - Present
+
 **Best Teaching Assistant Award**, Department of Electronic and Computer Engineering, HKUST
   : Aug. 2025
 
@@ -120,17 +118,6 @@ Overall GPA: 3.77 / 4.0 | Weighted Average: 90.38 | Rank: 11 / 77
 
 **First Prize, 2021 International Competition of Autonomous Running Robots (1st place out of 34 finalist teams)**
   : Oct. 2021
-
-## Funding and Support
-
-**Postgraduate Studentship (PGS) Award in HKUST**
-  : Sept. 2023 - Present
-
-**Undergraduate Innovation and Entrepreneurship Training Programs (Provincial Level)**
-  : Apr. 2022
-
-**Guangdong College Students' Scientific and Technological Innovation (Provincial Level)**
-  : Jul. 2021
 
 ## Skills
 

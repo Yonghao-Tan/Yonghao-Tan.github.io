@@ -219,6 +219,7 @@ function looksLikeDate(text) {
 
 function drawSectionHeading(doc, title, options = {}) {
   const topGap = options.topGap ?? 7;
+  const section = normalizeSectionTitle(title);
   ensureSpace(doc, 24 + topGap);
   if (topGap > 0) {
     doc.y += topGap;
@@ -240,7 +241,7 @@ function drawSectionHeading(doc, title, options = {}) {
     .strokeColor("#b8ad9e")
     .stroke();
 
-  doc.y = ruleY + 6;
+  doc.y = ruleY + (section === "publications" ? 6.6 : 6);
 }
 
 function drawLeftRightBlock(
@@ -340,15 +341,15 @@ function drawBullets(doc, listElement) {
   const width = doc.page.width - doc.page.margins.left - doc.page.margins.right;
   const items = listElement.querySelectorAll("li").map((item) => textContent(item)).filter(Boolean);
 
-  doc.font(FONT_SERIF).fontSize(10.1).fillColor("#2f2821");
+  doc.font(FONT_SERIF).fontSize(10.95).fillColor("#2f2821");
   for (const item of items) {
     const bulletText = `• ${item}`;
-    ensureSpace(doc, doc.heightOfString(bulletText, { width, lineGap: 0.82 }) + 1.4);
+    ensureSpace(doc, doc.heightOfString(bulletText, { width, lineGap: 1.1 }) + 1.8);
     doc.text(bulletText, doc.page.margins.left + 1.5, doc.y, {
       width: width - 1.5,
-      lineGap: 0.82,
+      lineGap: 1.1,
     });
-    doc.y += 1.15;
+    doc.y += 1.45;
   }
   doc.y += 4.5;
 }
@@ -371,16 +372,16 @@ function drawDefinitionList(doc, dlElement, sectionTitle) {
   if (section === "research experience") {
     drawLeftRightBlock(doc, term, lastDescription, {
       leftFont: FONT_SERIF_BOLD,
-      leftSize: 10.8,
+      leftSize: 11.05,
       rightFont: FONT_SERIF_ITALIC,
-      rightSize: 9.8,
+      rightSize: 10.05,
       rightWidth: 150,
       after: 1.8,
     });
     if (firstDescription) {
       drawParagraph(doc, firstDescription, {
         font: FONT_SERIF_ITALIC,
-        fontSize: 9.75,
+        fontSize: 10.0,
         color: "#4a4137",
         after: 2.4,
       });
@@ -389,25 +390,28 @@ function drawDefinitionList(doc, dlElement, sectionTitle) {
   }
 
   if (section === "publications") {
-    let estimatedHeight = textHeight(doc, term, { width, font: FONT_SERIF_BOLD, fontSize: 10.1, lineGap: 0.75 }) + 2;
+    const titleSize = 10.4;
+    const authorSize = 9.75;
+    const venueSize = 9.65;
+    let estimatedHeight = textHeight(doc, term, { width, font: FONT_SERIF_BOLD, fontSize: titleSize, lineGap: 0.78 }) + 2;
     if (firstDescription) {
-      estimatedHeight += textHeight(doc, firstDescription, { width, font: FONT_SERIF, fontSize: 9.45, lineGap: 0.7 }) + 1.5;
+      estimatedHeight += textHeight(doc, firstDescription, { width, font: FONT_SERIF, fontSize: authorSize, lineGap: 0.72 }) + 1.5;
     }
     if (descriptions[1]) {
-      estimatedHeight += textHeight(doc, descriptions[1], { width, font: FONT_SERIF_ITALIC, fontSize: 9.35, lineGap: 0.7 }) + 1.5;
+      estimatedHeight += textHeight(doc, descriptions[1], { width, font: FONT_SERIF_ITALIC, fontSize: venueSize, lineGap: 0.72 }) + 1.5;
     }
     ensureSpace(doc, estimatedHeight + 4);
 
     drawParagraph(doc, term, {
       font: FONT_SERIF_BOLD,
-      fontSize: 10.1,
-      lineGap: 0.65,
+      fontSize: titleSize,
+      lineGap: 0.68,
       after: 1.2,
     });
     if (firstDescription) {
       drawParagraph(doc, firstDescription, {
         font: FONT_SERIF,
-        fontSize: 9.45,
+        fontSize: authorSize,
         color: "#3c352d",
         after: 1.2,
       });
@@ -415,7 +419,7 @@ function drawDefinitionList(doc, dlElement, sectionTitle) {
     if (descriptions[1]) {
       drawParagraph(doc, descriptions[1], {
         font: FONT_SERIF_ITALIC,
-        fontSize: 9.35,
+        fontSize: venueSize,
         color: "#5a5146",
         after: 4,
       });
@@ -426,9 +430,9 @@ function drawDefinitionList(doc, dlElement, sectionTitle) {
   if (descriptions.length === 1 && looksLikeDate(firstDescription)) {
     drawLeftRightBlock(doc, term, firstDescription, {
       leftFont: FONT_SERIF_BOLD,
-      leftSize: 10.45,
+      leftSize: 10.75,
       rightFont: FONT_SERIF_ITALIC,
-      rightSize: 9.65,
+      rightSize: 9.95,
       rightWidth: 142,
       after: 2.6,
     });
@@ -438,9 +442,9 @@ function drawDefinitionList(doc, dlElement, sectionTitle) {
   if (section === "education" && descriptions.length === 1) {
     drawLeftRightBlock(doc, term, firstDescription, {
       leftFont: FONT_SERIF_BOLD,
-      leftSize: 10.4,
+      leftSize: 10.7,
       rightFont: FONT_SERIF_ITALIC,
-      rightSize: 9.55,
+      rightSize: 9.85,
       rightWidth: 130,
       after: 2.4,
     });
@@ -449,13 +453,13 @@ function drawDefinitionList(doc, dlElement, sectionTitle) {
 
   drawParagraph(doc, term, {
     font: FONT_SERIF_BOLD,
-    fontSize: 10.3,
+    fontSize: 10.6,
     after: descriptions.length ? 1.6 : 3,
   });
   if (descriptions.length) {
     drawStackedLines(doc, descriptions, {
       font: FONT_SERIF,
-      fontSize: 9.55,
+      fontSize: 9.85,
       color: "#433b32",
       gap: 1.5,
       after: 3.2,
@@ -492,7 +496,7 @@ async function buildPdf(pdfPath, bodyHtml, frontmatterData, title) {
   doc.y += 3.5;
 
   const headerLines = buildHeaderLines(frontmatterData.header);
-  doc.font(FONT_SERIF).fontSize(9.55).fillColor("#4d453b");
+  doc.font(FONT_SERIF).fontSize(10.0).fillColor("#4d453b");
   for (const line of headerLines) {
     doc.text(line, {
       align: "center",
@@ -547,7 +551,7 @@ async function buildPdf(pdfPath, bodyHtml, frontmatterData, title) {
       const paragraphText = textContent(node);
       drawParagraph(doc, paragraphText, {
         font: paragraphText.startsWith("* ") || paragraphText.startsWith("*") ? FONT_SERIF_ITALIC : FONT_SERIF,
-        fontSize: paragraphText.startsWith("Supervisor:") ? 9.35 : 9.65,
+        fontSize: paragraphText.startsWith("Supervisor:") ? 9.65 : 9.95,
         color: paragraphText.startsWith("Supervisor:") ? "#4a4137" : "#2c2620",
         after: 3,
       });

@@ -125,12 +125,12 @@ body.layout--cv-resume {
 #markdown-resume-preview li,
 #markdown-resume-export li {
   margin-bottom: 0.14rem;
-  line-height: 1.31;
+  line-height: 1.4;
 }
 
 #markdown-resume-preview ul li,
 #markdown-resume-export ul li {
-  font-size: 1.04em;
+  font-size: 1.09em;
 }
 
 #markdown-resume-preview dl,
