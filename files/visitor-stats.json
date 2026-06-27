@@ -1,7 +1,7 @@
 {
   "source": "busuanzi",
   "site_url": "https://yonghao-tan.github.io/",
-  "updated_at": "2026-06-26T05:03:16+00:00",
+  "updated_at": "2026-06-27T04:44:11+00:00",
   "records": [
     {
       "date": "2026-03-03",
@@ -650,6 +650,12 @@
       "site_pv": 393,
       "site_uv": 330,
       "page_pv": 393
+    },
+    {
+      "date": "2026-06-27",
+      "site_pv": 394,
+      "site_uv": 331,
+      "page_pv": 394
     }
   ]
 }
